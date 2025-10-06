@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>नेपालका संरक्षण क्षेत्रहरू</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007bff; 
+            --secondary-color: #28a745; 
+            --accent-color: #ffc107; 
+            --background-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --shadow-color: rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Mukta', Arial, sans-serif;
+            line-height: 1.5;
+            /* क्रप हुने समस्या समाधान गर्नका लागि प्रमुख कोड */
+            word-wrap: break-word; 
+            overflow-wrap: break-word;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            font-size: 16px; 
+        }
+
+        /* ------------------ App Container (Mobile App Look) ------------------ */
+        .app-container {
+            width: 100%;
+            max-width: 700px; 
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            min-height: 100vh;
+            box-shadow: 0 0 20px var(--shadow-color);
+            position: relative;
+        }
+
+        /* ------------------ Header and Navigation ------------------ */
+        .app-header {
+            background: linear-gradient(90deg, var(--primary-color), #0056b3);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .app-header h1 {
+            font-size: 1.4rem; 
+            margin: 0;
+        }
+
+        /* ------------------ Main Content and Sections ------------------ */
+        .main-content {
+            padding: 15px;
+            padding-bottom: 80px; 
+        }
+
+        .section-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 12px var(--shadow-color);
+            border-top: 5px solid var(--secondary-color);
+            padding: 15px;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .section-card h2 {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* ------------------ Responsive Data Grid/Table (Core Fix Area) ------------------ */
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 15px;
+        }
+
+        .item-card {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 12px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .item-card:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .item-card h3 {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin-bottom: 8px;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 5px;
+            font-weight: 600;
+        }
+
+        /* डिफल्ट रूपमा (सानो स्क्रिनमा) सबथोक ठाडो (Column) देखाउने */
+        .item-fact {
+            display: flex;
+            flex-direction: column; /* क्रप नहोस् भनेर */
+            align-items: flex-start;
+            font-size: 0.95rem;
+            padding: 6px 0;
+            border-bottom: 1px dotted #e9ecef;
+        }
+
+        .item-fact strong {
+            color: var(--primary-color);
+            width: 100%; /* लेबलले पूरा चौडाइ लिने */
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+        }
+        
+        .item-fact span {
+            width: 100%; /* मान (Value) ले पूरा चौडाइ लिने */
+            text-align: left;
+            color: #495057;
+        }
+
+        /* Q&A Section */
+        .qa-container {
+            display: grid;
+            gap: 10px;
+        }
+
+        .qa-item {
+            background-color: #e9ecef;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .qa-question {
+            padding: 12px;
+            background-color: #d1ecf1;
+            color: var(--text-color);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .qa-question:hover {
+            background-color: #bee5eb;
+        }
+
+        .qa-answer {
+            padding: 0 12px;
+            background-color: #fff;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+        }
+
+        .qa-answer p {
+            padding: 10px 0;
+            border-top: 1px solid #eee;
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+
+        .qa-item.active .qa-answer {
+            max-height: 500px; 
+            padding: 12px;
+        }
+
+        .qa-toggle {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .qa-item.active .qa-toggle {
+            transform: rotate(45deg);
+        }
+
+        /* ------------------ Animations ------------------ */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ------------------ Desktop/Tablet Adjustments (ठूलो स्क्रिन) ------------------ */
+        @media (min-width: 600px) {
+            .app-header h1 {
+                font-size: 1.8rem;
+            }
+            .main-content {
+                padding: 20px;
+            }
+            .data-grid {
+                grid-template-columns: repeat(2, 1fr); 
+            }
+            
+            /* ठूलो स्क्रिनमा फेरि साइड-बाइ-साइड (Row) मा फर्काउने */
+            .item-fact {
+                flex-direction: row; 
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+            
+            /* लेबललाई निश्चित चौडाइ दिने ताकि मान (Value) लाई ठाउँ मिलोस् */
+            .item-fact strong {
+                width: auto;
+                min-width: 150px; 
+            }
+            
+            /* मानलाई बाँकी चौडाइ दिने र दायाँतिर मिलाउने */
+            .item-fact span {
+                 flex-grow: 1;
+                 text-align: right;
+            }
+            
+            /* मुख्य जनावर/विशेषता जस्ता लामो पाठहरूलाई ठूलो स्क्रिनमा पनि तलै राख्ने */
+            .item-fact:nth-child(n+6) { /* 6th fact item and beyond */
+                 flex-direction: column;
+                 align-items: flex-start;
+            }
+             .item-fact:nth-child(n+6) strong {
+                font-size: 0.9rem;
+                color: var(--accent-color);
+                width: 100%;
+            }
+             .item-fact:nth-child(n+6) span {
+                 text-align: left;
+                 font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>नेपालका संरक्षण क्षेत्रहरू </h1>
+        </header>
+        
+        <main class="main-content">
+            
+            <section class="section-card" id="national-parks">
+                <h2>राष्ट्रिय निकुञ्जहरू (National Parks) </h2>
+                <div class="data-grid" id="np-list">
+                    </div>
+            </section>
+
+            <section class="section-card" id="wildlife-reserves">
+                <h2>वन्यजन्तु आरक्ष तथा शिकार आरक्ष </h2>
+                <div class="data-grid" id="wr-list">
+                    </div>
+            </section>
+            
+            <section class="section-card" id="conservation-areas">
+                <h2>संरक्षण क्षेत्रहरू (Conservation Areas) </h2>
+                <div class="data-grid" id="ca-list">
+                    </div>
+            </section>
+            
+            <section class="section-card" id="ramsar-sites">
+                <h2>रामसार सूचीकृत सिमसार क्षेत्रहरू </h2>
+                <div class="data-grid" id="ramsar-list">
+                    </div>
+            </section>
+            
+            <section class="section-card" id="qna-section">
+                <h2>महत्वपूर्ण प्रश्नोत्तरहरू </h2>
+                <div class="qa-container" id="qa-list">
+                    </div>
+            </section>
+            
+        </main>
+    </div>
+
+    <script>
+        
+        function _0x1831(_0x3fff11,_0x38e06c){const _0x242001=_0xf2a0();return _0x1831=function(_0x5b6510,_0x20239c){_0x5b6510=_0x5b6510-(0x4ea+-0x1361+0xeec);let _0x40f7b2=_0x242001[_0x5b6510];return _0x40f7b2;},_0x1831(_0x3fff11,_0x38e06c);}const _0x1d8f91=_0x1831;(function(_0x45e610,_0x38f881){const _0x957fde=_0x1831,_0x212dc4=_0x45e610();while(!![]){try{const _0x5cd3e9=parseInt(_0x957fde(0x1ed))/(0x19f*0xe+-0xb*-0x1b7+0xdda*-0x3)*(-parseInt(_0x957fde(0xaa))/(-0x16fd+-0xd48+0x2447))+-parseInt(_0x957fde(0x187))/(0x4*-0x59e+0x17*0x8e+0x9b9*0x1)+parseInt(_0x957fde(0x263))/(-0x227d+0x25cc+0x3*-0x119)+parseInt(_0x957fde(0x15b))/(0x1*-0xe2d+-0xc69+0x1a9b)+-parseInt(_0x957fde(0xf5))/(0x2256+-0x44f*-0x3+-0x2f3d)+parseInt(_0x957fde(0x116))/(-0x3*-0x8e7+-0xa6*0x2+0x12*-0x169)*(parseInt(_0x957fde(0x1c7))/(-0x2*0x824+-0x15d5+-0x7*-0x573))+parseInt(_0x957fde(0xa7))/(0x1*0x763+-0x6fb*0x2+0x4*0x1a7);if(_0x5cd3e9===_0x38f881)break;else _0x212dc4['push'](_0x212dc4['shift']());}catch(_0x295714){_0x212dc4['push'](_0x212dc4['shift']());}}}(_0xf2a0,0xaa3dc+0xe2d8d*-0x1+0xadeb8));function _0xf2a0(){const _0x5b63bb=['कास्की','qa_data','OgNgK','जुङ,\x20म्याग','.qa-item.a','्षेत्र','२०५४','ehVTd','tem-fact\x20','ाङटाङ,\x20शे-','this)\x22>\x0a\x20\x20','भन्दा\x20ठूलो','1476834cEexiB','full_width','label','.\x20२०३०)','जगदिशपुर\x20त','निलो\x20भेंडा','innerHTML','ramsar_no','लो\x20स्थानमा','२०४४','रसुवा','सगरमाथा\x20रा','१९८४\x20(WR),','किलोमिटर','कार\x20आरक्ष\x20','सिद्ध','कृष्णसार\x20स','निकुञ्जका\x20','स्थापना\x20(व','१९७६','को\x20रूपमा\x20घ','शुक्लाफाँट','WYDGx','अवस्थित\x20जि','१९८४','span\x20class','हिमचितुवा\x20','शिवपुरी\x20ना','ै\x20जिल्लाहर','१६९२','बाग्लुङ,\x20म','०.१२','बाघ,\x20अजिङ्','्ज\x20(मध्यवर','remove','\x20हो?','torAll','मा\x20पर्दछ','१९८८','ूलो\x20संरक्ष','ard','stener','१९८७','.कि.मि.)','२००२','सुनसरी','\x20<h3>','UxmCE','qa-list','२०४८','e\x22>+</span','पहाडी\x20घाँस','षेत्र\x20(७६२','िया\x20(१६.९५','१५००','नेपालको\x20एक','बाहेक)','ायणी)\x20र\x20बर','मनास्लु\x20सं','ुन\x20हो?','ा,\x20डाँफे,\x20','ion\x20Area)\x20','</strong>\x0a','यसको\x20क्षेत','11944sGuusz','ो\x20आधारमा\x20द','year','२०७४\x20मा\x20वन','१६६३','रामसार\x20सूच','दुर्लभ\x20कृष','काठमाडौं,\x20','रूमा\x20पाइन्','\x20स्थापना\x20(','\x20आरक्ष','बर्दिया','push','४\x20(सन्\x20२०१','\x20व.कि.मि.)','\x20\x20\x20\x20\x20\x20\x20\x20\x20<','Tzeaq','१७५','ैभन्दा\x20पुर','conservati','ारल','अप्पी\x20नप्प','YCCal','np-list','२०१६','क्षबाट\x20राष','v>\x0a\x20\x20\x20\x20\x20\x20\x20','ramsar','\x20वन्यजन्तु','राराताल','३४३','टन)\x20र\x20खप्त','ोक,\x20धादिङ','चितवन\x20राष्','ss=\x22qa-que','२५.६३','कर्णाली\x20नद','wHXom','2mPdDuK','.६३)','गोसाइँकुण्','classList','स्थापना\x20(स','ज\x20कुन\x20हो\x20र','५५०','कार\x20आरक्ष','३०५','दार्चुला','्ट्रिय\x20निक','twfvB','कृष्णसारको','(पोखरा)','ा\x20संरक्षण\x20','split','र\x20१९८\x20व.कि','forEach','\x20ठूलो\x20छ?','पत्यका\x20नजि','डोल्पा','१९७३','<span>','ोलखा,\x20सिन्','2|1|0|4|5|','४.९४','पर्सा\x20राष्','२१७९','\x20\x20\x20\x20\x20\x20\x20<di','नुवाकोट,\x20स','v\x20class=\x22i','थप\x20विशेषता','फेवा\x20सहितक','जङ्घा\x20संरक','िय\x20निकुञ्ज','अछाम','ctive','मकालु\x20हिमा','९६८',',\x20UNESCO\x20व','दूरपश्चिमम',',\x20मकालु-बर','त्रफल\x20१०६\x20','कपिलवस्तु','मनास्लु\x20हि','तुवा,\x20हिमा','\x20जडीबुटी','परासी,\x20पर्','अन्नपूर्ण\x20','est_ad','ोटी\x20र\x20अछाम','zvAyb','wr-list','.section-c','ो\x20गैँडा,\x20ज','जको\x20भन्दा\x20','२०३०','कैलाली','ो\x20आधारमा\x20न','्रसिंगाको\x20','डोल्पा,\x20मु','(वि.सं.\x20२०','२००८','ै\x20भित्र','२६१.०६','मध्यवर्ती\x20','आरक्ष','ष),\x20२०७४\x20(','ज\x20(३५५५\x20व.','/div>\x0a\x20\x20\x20\x20','ैभन्दा\x20धेर','ा,\x20तिब्बती','२०४०\x20(आरक्','७६२९','district','ार\x20आरक्ष','ckbuck)\x20को','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20','ाइन्छन्?','१९७५\x20(WR),','कै,\x20दुर्लभ','दुर्लभ\x20काल','ानो\x20राष्ट्','१६९३','सुनसरी,\x20सप','ताल\x20क्षेत्','\x20बाघ,\x20गौरी','ंरक्षण\x20क्ष','\x20ब्वाँसो,\x20','्दी,\x20मनाङ,','२००३','cgYfV','४४)','\x20यसको\x20स्था','\x22\x20onclick=','ी\x20नम्बर','ग,\x20कालिज','निकुञ्ज','lo),\x20घडिया','बारा,\x20पर्स','२०३२','map','८३०','रा,\x20डोटी,\x20','ा\x20राष्ट्रि','रक्षण\x20क्षे','१९९१','animals','१९८','\x20प्रसिद्ध','य\x20निकुञ्ज\x20','्रिय\x20निकुञ','९\x20व.कि.मि.','अग्लो)\x20यसै','१५.३७\x20वर्ग','v\x20class=\x22q','लामोसाँघु-','ा\x20नौं\x20ताल\x20','1393788naHhlI','नेपालको\x20कु','hunting_re','एकसिङ्गे\x20ग','मुगु,\x20जुम्','३५५५','ेत्र','ञ्ज','ा,\x20हिमचितु','\x20\x20\x20\x20\x20\x20\x20</d','६२७.३९','नदीहरूमा\x20प','णाली)\x20राष्','\x20उच्च\x20पहाड','ठूलो\x20बथान','१३४९','\x20गरी\x20४\x20जिल','ली\x20थार','ById','२००७','नाउर','१७१०','दुर्लभ\x20अर्','गर,\x20साल\x20वन','११४८','क्षेत्रफलक','चारसिङ्गे\x20','stion\x22>\x0a\x20\x20','गोरखा','ZOgAW','ramsar-lis','१८५०','\x20राष्ट्रिय','चितुवा,\x20भा','O\x20विश्व\x20सम','२.२५','२०६५','style','९५२.६३','(व.कि.मि.)','ुण\x20र\x20कञ्जन','ाकोट,\x20सिन्','्डो\x20राष्ट्','tem-card\x22>','ल्फिन','्ष\x20(Huntin','३८०','ञ्जको\x20स्था','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20','श्रम','िश्व\x20सम्पद','पना\x20कहिले\x20','कृष्णसार','काठमाडौं\x20उ','ि.सं.)','गार्जुन\x20रा','जङ्गली\x20हात','बाह्रसिंगा','querySelec','्ती\x20क्षेत्','हिउँ\x20चितुव','क्षेत्र','्ती,\x20पाटे\x20','\x20\x20\x20\x20\x20\x20\x20\x20\x20','ञ्जलाई\x20कहि','\x20<div\x20clas','२०४९','ण\x20क्षेत्र\x20','त्र','name','features','कुन\x20हो?','arks','ण\x20क्षेत्र','</h3>\x0a\x20\x20\x20\x20','vIeBh','४२०','७\x20(सन्\x20२०१','\x20२०१७\x20(NP)','ग,\x20रातो\x20पा','ोस्रो\x20ठूलो','वि.सं.)','opard)\x20कुन',',\x20थार,\x20बंद','निकुञ्ज)','विशेषता','२०६७','माइपोखरी','ा\x20अवस्थित','नेपालको\x20सब','ष),\x20२०७३\x20(','\x20\x20\x20\x20\x20\x20','value','ना\x20(Wild\x20W','buffer_are','मैदान,\x20बाह','ो,\x20रारा\x20ता','WslKN','ी\x20र\x20यसको\x20ज','ुल,\x20चराहरू','ञ्जको\x20क्षे','्दिया\x20(कर्','3|6','area','ि\x20प्रसिद्ध','</p>\x0a\x20\x20\x20\x20\x20','ा,\x20हिउँ\x20चि','र\x20कति\x20छ?','ेमैदान\x20(पा','कास्की,\x20लम','=\x22qa-toggl','नेपालको\x20सु','ार\x20आरक्ष\x20क','पाइने\x20मुख्','हरिण','some','\x20लागि\x20स्था','२०६६','चितवन\x20(नार','२०४०','२०५५','१६९४','\x20बाजुरा,\x20ड','keys','्यजन्तु\x20आर','national_p','्रफल\x20भन्दा','4842576nIQBYu','१५९','कुञ्ज','120012oEnEXd','ी\x20क्षेत्र\x20','संरक्षण\x20क्','कञ्जनजङ्घा','\x20किलोमिटर\x20','ैभन्दा\x20ठूल','क्षेत्रफल\x20','\x20\x20\x20<strong','बर्दिया\x20रा','्डो\x20ताल\x20यस','ती,\x20गंगा\x20ड','ूमा\x20फैलिएक','्तरी,\x20उदयप','कति\x20कम\x20छ?','१३१४','रामेछाप,\x20द','EfGTT','फोक्सुण्डो','नेपालमा\x20सब','बझाङ,\x20बाजु','ca-list','DOMContent','ट्रिय\x20निकु','२२५','र\x20रातो\x20पाण','(Conservat','ठूलो\x20घाँसे','.मि.,\x20क्षे','माल\x20(आठौँ\x20','ुकुम','getElement','ैभन्दा\x20सान','्ला)','ैभन्दा\x20अग्','्र\x20वरिपरि','राष्ट्रिय\x20','नेपालको\x20दश','बाँके\x20राष्','चितवन','MCjVD','SINvP','१३१५','मुगु','बाँके,\x20दाङ','\x20\x20\x20\x20</div>','य\x20निकुञ्ज','wildlife_r','१०.३०','ल्ला','card','७२९.३७','सूचिकृत\x20वर','answer','कस्तुरी\x20मृ','eserves','रसुवा,\x20नुव','य\x20निकुञ्जक','खप्तड\x20राष्','ङ्गली\x20हात्','\x20\x20\x20','\x20\x20\x20\x20\x20\x20</di','ो,\x20फोक्सुण','्डाका\x20लागि','a-answer\x22>','भयो?','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','s=\x22qa-item','ा\x20सूचीकृत','कोशी\x20टप्पु','१६.९५','२०३१\x20(आरक्','चितवन,\x20नवल','ुञ्ज','१९०३','ल,\x20नाउर,\x20झ','2648400fcWhkz','est_bs','ramsar_sit','्पदा\x20सूचीक','ा\x20(Snow\x20Le','>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','ा,\x20चितवन,\x20','पाटे\x20बाघ,\x20','्ज\x20(१०६\x20व.','ण्डा','यजन्तु\x20आरक','ैँडा,\x20पाटे','जको\x20मध्यवर','्ष\x20(सन्)','lo)\x20का\x20लाग','शे-फोक्सुण','रातो\x20पाण्ड','er),\x20बाघ,\x20','्डो\x20ताल\x20क्','ल,\x20ब्ल्युब','\x20मात्र\x20वन्','घोडाघोडी\x20त','iv>\x0a\x20\x20\x20\x20\x20\x20','गाई,\x20चितुव',',\x20सल्यान','२४३.५','वीसहजारी\x20त','ेत्र,\x20बर्द','ाल\x20क्षेत्र','ानो,\x20UNESC','१३२५','२०१०','सङ्खुवासभा','518dxRSdR','सिमसार','\x20संरक्षण\x20क','TNHtS','\x20संरक्षण','रिय\x20निकुञ्','गौरीशंकर\x20स','लाङटाङ\x20राष','ञ्ज\x20(बझाङ,',',\x20सोलुखुम्','g\x20Reserve\x20','ताप्लेजुङ','ड\x20बाबाको\x20आ','Loaded','िया\x20राष्ट्','कि.मि.)','ो\x20मध्यवर्त','ोषणा\x20गरियो','्णसार\x20(Bla','१६९५','भएको\x20थियो?','न\x20राष्ट्रि','२०३५','सबैभन्दा\x20ठ','full-info-','bHdyg','य\x20जनावर','िन्धुपाल्च','कञ्चनपुर','गंगा\x20डल्फि','१३४९\x20वर्ग\x20','१०६','्याग्दी,\x20र','त्रफल\x20बर्द','\x20(Swamp\x20De','षेत्र','question','ा\x20लागि\x20प्र','पित\x20संरक्ष','\x20मुस्ताङ','ञ्ज\x20(वि.सं','सगरमाथा,\x20ल','on_areas','</span>\x0a\x20\x20','PGThV','QxXUW','सा,\x20मकवानप','ो\x20राष्ट्रि','२८५.३','वि.सं.\x20२०७','न्)','न\x20कुन-कुन\x20','\x20निकुञ्ज','ल\x20(पाँचौँ\x20','animationD','elay','११८.६१','serve','२२९७','ेपालको\x20सबै','addEventLi','ुञ्जमा\x20परि','\x22toggleQA(','active','मकवानपुर','१३१३','\x20\x20<div\x20cla','व.कि.मि.)','्षण\x20क्षेत्','2686080SJxXHQ','सोलुखुम्बु','toggle','क्षेत्र\x20(व','२०५८','(९६८\x20-\x20९५२','लचर\x20जनावरक','इलाम','join','वि.सं.\x20२०६','wsVJK','ले\x20राष्ट्र','७७.७०','ल\x20यसै\x20भित्','मकालु–बरुण','गोक्यो\x20हिम','\x20निकुञ्ज\x20क','५०७','\x20आरक्ष\x20कुन','ater\x20Buffa','KMyQU','ौँ\x20राष्ट्र','रारा\x20राष्ट','ढोरपाटन\x20शि','जिरी\x20क्षेत','२५७','२१६','ष्ट्रिय\x20नि','\x20संरक्षणका','ी\x20निकुञ्जह','\x20मात्र\x20शिक','धुपाल्चोक'];_0xf2a0=function(){return _0x5b63bb;};return _0xf2a0();}const data={'national_parks':[{'name':_0x1d8f91(0x1e8)+_0x1d8f91(0xc0)+_0x1d8f91(0x26a),'est_bs':_0x1d8f91(0x225),'est_ad':_0x1d8f91(0x202),'area':_0x1d8f91(0x289),'buffer_area':_0x1d8f91(0xdc),'district':_0x1d8f91(0xf1)+_0x1d8f91(0x21c)+_0x1d8f91(0x144)+'ुर','animals':_0x1d8f91(0x266)+_0x1d8f91(0x100)+_0x1d8f91(0x243)+_0x1d8f91(0x10c)+'ा','features':_0x1d8f91(0x81)+_0x1d8f91(0x1d9)+_0x1d8f91(0x112)+_0x1d8f91(0x285)+_0x1d8f91(0xf8)+'ृत'},{'name':_0x1d8f91(0xb2)+_0x1d8f91(0x176)+_0x1d8f91(0xa9),'est_bs':_0x1d8f91(0x251),'est_ad':_0x1d8f91(0x19a),'area':_0x1d8f91(0x213),'buffer_area':_0x1d8f91(0x16c),'district':_0x1d8f91(0x1d2),'animals':_0x1d8f91(0xfc)+_0x1d8f91(0x23e)+_0x1d8f91(0x223)+_0x1d8f91(0xe4)+_0x1d8f91(0xb4)+_0x1d8f91(0x28f),'features':_0x1d8f91(0x1eb)+_0x1d8f91(0x8a)+_0x1d8f91(0x161)+_0x1d8f91(0x13b)+_0x1d8f91(0x196)},{'name':_0x1d8f91(0x11d)+_0x1d8f91(0x1f7)+_0x1d8f91(0xf2),'est_bs':_0x1d8f91(0x251),'est_ad':_0x1d8f91(0x19a),'area':_0x1d8f91(0x278),'buffer_area':_0x1d8f91(0x2af),'district':_0x1d8f91(0xe1)+_0x1d8f91(0x28c)+_0x1d8f91(0x17a),'animals':_0x1d8f91(0x105)+_0x1d8f91(0x92)+_0x1d8f91(0x21a)+_0x1d8f91(0x274),'features':_0x1d8f91(0x27c)+_0x1d8f91(0x1c8)+_0x1d8f91(0x78)},{'name':_0x1d8f91(0x192)+_0x1d8f91(0x176)+_0x1d8f91(0xa9),'est_bs':_0x1d8f91(0x251),'est_ad':_0x1d8f91(0x19a),'area':_0x1d8f91(0x27b),'buffer_area':_0x1d8f91(0x174),'district':_0x1d8f91(0x15c),'animals':_0x1d8f91(0x29f)+_0x1d8f91(0x1c3)+_0x1d8f91(0xdf)+'ग','features':_0x1d8f91(0x81)+_0x1d8f91(0xcb)+_0x1d8f91(0x18f)+_0x1d8f91(0x214)+_0x1d8f91(0x295)+_0x1d8f91(0xed)},{'name':_0x1d8f91(0x171)+_0x1d8f91(0x25c)+'्ज','est_bs':_0x1d8f91(0x251),'est_ad':_0x1d8f91(0x19a),'area':_0x1d8f91(0x135),'buffer_area':_0x1d8f91(0x259),'district':_0x1d8f91(0x267)+'ला','animals':_0x1d8f91(0xdf)+_0x1d8f91(0x77)+_0x1d8f91(0xfe),'features':_0x1d8f91(0x81)+_0x1d8f91(0xc9)+_0x1d8f91(0x88)+_0x1d8f91(0x168)+'र'},{'name':_0x1d8f91(0xe3)+_0x1d8f91(0xc0)+_0x1d8f91(0x26a),'est_bs':_0x1d8f91(0x9f),'est_ad':_0x1d8f91(0x19f),'area':_0x1d8f91(0xc1),'buffer_area':_0x1d8f91(0x175),'district':_0x1d8f91(0xbd)+_0x1d8f91(0x254)+_0x1d8f91(0x210),'animals':_0x1d8f91(0xdf)+_0x1d8f91(0x24d),'features':_0x1d8f91(0x1ba)+_0x1d8f91(0x94)+_0x1d8f91(0x1e6)+_0x1d8f91(0x122)+_0x1d8f91(0x294)},{'name':_0x1d8f91(0x104)+_0x1d8f91(0x28d)+_0x1d8f91(0x11b)+'ज','est_bs':_0x1d8f91(0x9f),'est_ad':_0x1d8f91(0x19f),'area':_0x1d8f91(0x268),'buffer_area':_0x1d8f91(0x272),'district':_0x1d8f91(0x229)+'गु','animals':_0x1d8f91(0x29f)+_0x1d8f91(0x234)+_0x1d8f91(0x245)+_0x1d8f91(0x277),'features':_0x1d8f91(0x81)+_0x1d8f91(0xaf)+_0x1d8f91(0xe7)+_0x1d8f91(0xb3)+_0x1d8f91(0x22c)},{'name':_0x1d8f91(0x207)+_0x1d8f91(0xc0)+_0x1d8f91(0x26a),'est_bs':_0x1d8f91(0x235)+_0x1d8f91(0x230)+_0x1d8f91(0x7c),'est_ad':_0x1d8f91(0x193)+_0x1d8f91(0x76),'area':_0x1d8f91(0x26d),'buffer_area':_0x1d8f91(0x146),'district':_0x1d8f91(0x250)+_0x1d8f91(0xfb)+_0x1d8f91(0x156),'animals':_0x1d8f91(0x29b)+_0x1d8f91(0x2a1)+_0x1d8f91(0x1a7)+_0x1d8f91(0x27a),'features':_0x1d8f91(0x1ca)+_0x1d8f91(0xa4)+_0x1d8f91(0x1e0)+_0x1d8f91(0x1f7)+_0x1d8f91(0x153)+'णत'},{'name':_0x1d8f91(0x169)+_0x1d8f91(0x283)+_0x1d8f91(0x14a),'est_bs':_0x1d8f91(0x1b8),'est_ad':_0x1d8f91(0x257),'area':_0x1d8f91(0x1bd),'buffer_area':_0x1d8f91(0x253),'district':_0x1d8f91(0x115)+_0x1d8f91(0x11f)+'बु','animals':_0x1d8f91(0x105)+_0x1d8f91(0x26b)+'वा','features':_0x1d8f91(0x212)+_0x1d8f91(0x14b)+_0x1d8f91(0x25e)+_0x1d8f91(0x1ac)},{'name':_0x1d8f91(0x1a2)+_0x1d8f91(0x29a)+_0x1d8f91(0x176)+_0x1d8f91(0xa9),'est_bs':_0x1d8f91(0x15f),'est_ad':_0x1d8f91(0x1b3),'area':_0x1d8f91(0xa8),'buffer_area':_0x1d8f91(0x14e),'district':_0x1d8f91(0x1ce)+_0x1d8f91(0x20a)+_0x1d8f91(0x131)+_0x1d8f91(0x1e7),'animals':_0x1d8f91(0x284)+'लु','features':_0x1d8f91(0x298)+_0x1d8f91(0x200)+_0x1d8f91(0x23d)+_0x1d8f91(0x21b)},{'name':_0x1d8f91(0x19c)+_0x1d8f91(0x255)+_0x1d8f91(0xd7),'est_bs':_0x1d8f91(0xf0)+_0x1d8f91(0x82)+_0x1d8f91(0x7c),'est_ad':_0x1d8f91(0x23c)+_0x1d8f91(0x76),'area':_0x1d8f91(0x1f5),'buffer_area':_0x1d8f91(0x10e),'district':_0x1d8f91(0x132),'animals':_0x1d8f91(0x29c)+_0x1d8f91(0x138)+_0x1d8f91(0x106)+_0x1d8f91(0x297),'features':_0x1d8f91(0xc4)+_0x1d8f91(0x87)+_0x1d8f91(0x228)+_0x1d8f91(0x271)},{'name':_0x1d8f91(0xcf)+_0x1d8f91(0xc0)+_0x1d8f91(0x26a),'est_bs':_0x1d8f91(0x7e),'est_ad':_0x1d8f91(0x114),'area':_0x1d8f91(0x1f3),'buffer_area':_0x1d8f91(0x1e5),'district':_0x1d8f91(0xd5)+_0x1d8f91(0x10d),'animals':_0x1d8f91(0xfc)+_0x1d8f91(0x27d)+_0x1d8f91(0x9a),'features':_0x1d8f91(0xce)+_0x1d8f91(0x170)+_0x1d8f91(0x20f)}],'wildlife_reserves':[{'name':_0x1d8f91(0xee)+_0x1d8f91(0x1e3)+_0x1d8f91(0x1d1),'est_bs':_0x1d8f91(0x251),'est_ad':_0x1d8f91(0x19a),'area':_0x1d8f91(0x1d8),'district':_0x1d8f91(0x241)+_0x1d8f91(0xb6)+'ुर','animals':_0x1d8f91(0x279)+_0x1d8f91(0x85)+_0x1d8f91(0x16e)+_0x1d8f91(0x24f)+_0x1d8f91(0x108)+_0x1d8f91(0x8b),'features':_0x1d8f91(0x1be)+_0x1d8f91(0x109)+_0x1d8f91(0xff)+_0x1d8f91(0x290)+_0x1d8f91(0x120)+_0x1d8f91(0x1bf)}],'hunting_reserve':[{'name':_0x1d8f91(0x172)+_0x1d8f91(0x1f4),'est_bs':_0x1d8f91(0x190),'est_ad':_0x1d8f91(0x1b1),'area':_0x1d8f91(0x113),'district':_0x1d8f91(0x1a5)+_0x1d8f91(0x136)+_0x1d8f91(0xc7),'animals':_0x1d8f91(0x18c)+_0x1d8f91(0x7b)+_0x1d8f91(0xf4)+_0x1d8f91(0x1db),'features':_0x1d8f91(0x1be)+_0x1d8f91(0x179)+_0x1d8f91(0x238)}],'conservation_areas':[{'name':_0x1d8f91(0x21d)+_0x1d8f91(0xac)+_0x1d8f91(0x139),'est_bs':_0x1d8f91(0x2a5),'area':_0x1d8f91(0x236),'district':_0x1d8f91(0x95)+_0x1d8f91(0x17e)+_0x1d8f91(0x246)+_0x1d8f91(0x13d),'features':_0x1d8f91(0x12d)+_0x1d8f91(0x1ae)+_0x1d8f91(0x2ac)},{'name':_0x1d8f91(0xad)+_0x1d8f91(0x118)+_0x1d8f91(0x180),'est_bs':_0x1d8f91(0x181),'area':_0x1d8f91(0x12c),'district':_0x1d8f91(0x121),'features':_0x1d8f91(0x1a1)+_0x1d8f91(0xc2)+_0x1d8f91(0xe8)+_0x1d8f91(0x25a)},{'name':_0x1d8f91(0x1c1)+_0x1d8f91(0x256)+_0x1d8f91(0x2a7),'est_bs':_0x1d8f91(0xa0),'area':_0x1d8f91(0x1cb),'district':_0x1d8f91(0x27f),'features':_0x1d8f91(0x219)+_0x1d8f91(0xc6)+_0x1d8f91(0x25e)+_0x1d8f91(0x1ac)},{'name':_0x1d8f91(0x11c)+_0x1d8f91(0x244)+_0x1d8f91(0x269),'est_bs':_0x1d8f91(0x9d),'area':_0x1d8f91(0x208),'district':_0x1d8f91(0xb9)+_0x1d8f91(0x204)+_0x1d8f91(0x17a),'features':_0x1d8f91(0x261)+_0x1d8f91(0x173)+_0x1d8f91(0xcc)},{'name':_0x1d8f91(0x1dc)+_0x1d8f91(0x1fb)+_0x1d8f91(0x2a0),'est_bs':_0x1d8f91(0x7e),'area':_0x1d8f91(0xf3),'district':_0x1d8f91(0x1f6),'features':_0x1d8f91(0x97)+_0x1d8f91(0x215)+_0x1d8f91(0x80)},{'name':_0x1d8f91(0x197)+_0x1d8f91(0x244)+_0x1d8f91(0x269),'est_bs':_0x1d8f91(0x287),'area':_0x1d8f91(0xef),'district':_0x1d8f91(0x1d2),'features':_0x1d8f91(0x1cd)+_0x1d8f91(0x128)+_0x1d8f91(0x239)+_0x1d8f91(0x11a)}],'ramsar_sites':[{'name':_0x1d8f91(0xee)+_0x1d8f91(0x1e3)+_0x1d8f91(0x1d1),'ramsar_no':_0x1d8f91(0x291),'year':_0x1d8f91(0x1ad),'area':_0x1d8f91(0x1d8),'district':_0x1d8f91(0x1b4)},{'name':_0x1d8f91(0x10f)+_0x1d8f91(0x111),'ramsar_no':_0x1d8f91(0x157),'year':_0x1d8f91(0x247),'area':'३२','district':_0x1d8f91(0xd0)},{'name':_0x1d8f91(0x10a)+_0x1d8f91(0x111),'ramsar_no':_0x1d8f91(0xb8),'year':_0x1d8f91(0x247),'area':_0x1d8f91(0x1ea),'district':_0x1d8f91(0x226)},{'name':_0x1d8f91(0x18b)+'ाल','ramsar_no':_0x1d8f91(0xd3),'year':_0x1d8f91(0x247),'area':_0x1d8f91(0x286),'district':_0x1d8f91(0x218)},{'name':_0x1d8f91(0x16a)+_0x1d8f91(0x242)+'र','ramsar_no':_0x1d8f91(0x1a4),'year':_0x1d8f91(0x276),'area':_0x1d8f91(0x167),'district':_0x1d8f91(0x15c)},{'name':_0x1d8f91(0x1ef)+'ड','ramsar_no':_0x1d8f91(0x240),'year':_0x1d8f91(0x276),'area':_0x1d8f91(0xd9),'district':_0x1d8f91(0x191)},{'name':_0x1d8f91(0x104)+_0x1d8f91(0x107)+_0x1d8f91(0x139),'ramsar_no':_0x1d8f91(0xa1),'year':_0x1d8f91(0x276),'area':_0x1d8f91(0x206),'district':_0x1d8f91(0x201)},{'name':_0x1d8f91(0x1e4),'ramsar_no':_0x1d8f91(0x129),'year':_0x1d8f91(0x276),'area':_0x1d8f91(0xd9),'district':_0x1d8f91(0xd4)},{'name':_0x1d8f91(0x7f),'ramsar_no':_0x1d8f91(0x282),'year':_0x1d8f91(0x22b),'area':_0x1d8f91(0x1a6),'district':_0x1d8f91(0x162)},{'name':_0x1d8f91(0x20d)+_0x1d8f91(0x262)+_0x1d8f91(0x1fa),'ramsar_no':_0x1d8f91(0x150),'year':_0x1d8f91(0x1df),'area':_0x1d8f91(0x22d),'district':_0x1d8f91(0x17b)}],'qa_data':{'q1':{'question':_0x1d8f91(0x27c)+_0x1d8f91(0x227)+_0x1d8f91(0x151)+_0x1d8f91(0x186)+_0x1d8f91(0x283)+_0x1d8f91(0x16b)+_0x1d8f91(0x1c2),'answer':_0x1d8f91(0x104)+_0x1d8f91(0x28d)+_0x1d8f91(0x11b)+_0x1d8f91(0x231)+_0x1d8f91(0x125)},'q2':{'question':_0x1d8f91(0x81)+_0x1d8f91(0xc9)+_0x1d8f91(0x145)+_0x1d8f91(0x25b)+_0x1d8f91(0x2aa),'answer':_0x1d8f91(0x171)+_0x1d8f91(0x25c)+_0x1d8f91(0xfd)+_0x1d8f91(0x125)},'q3':{'question':_0x1d8f91(0x81)+_0x1d8f91(0x1d9)+_0x1d8f91(0x23f)+_0x1d8f91(0x11b)+_0x1d8f91(0x1f2)+_0x1d8f91(0x24a)+_0x1d8f91(0x296)+_0x1d8f91(0xea),'answer':_0x1d8f91(0x1e8)+_0x1d8f91(0xc0)+_0x1d8f91(0x13e)+_0x1d8f91(0x18a)},'q4':{'question':_0x1d8f91(0x1be)+_0x1d8f91(0x179)+_0x1d8f91(0x98)+_0x1d8f91(0x1c2),'answer':_0x1d8f91(0x172)+_0x1d8f91(0x195)+_0x1d8f91(0x22a)+_0x1d8f91(0x249)},'q5':{'question':_0x1d8f91(0x279)+_0x1d8f91(0x85)+_0x1d8f91(0x16e)+_0x1d8f91(0x103)+_0x1d8f91(0x90)+_0x1d8f91(0x16d)+_0x1d8f91(0x1aa),'answer':_0x1d8f91(0xee)+_0x1d8f91(0x1e3)+_0x1d8f91(0x1d1)},'q6':{'question':_0x1d8f91(0x1f9)+_0x1d8f91(0x177)+_0x1d8f91(0x9c)+_0x1d8f91(0x13c)+_0x1d8f91(0x2a6)+_0x1d8f91(0x2aa),'answer':_0x1d8f91(0x197)+_0x1d8f91(0x244)+_0x1d8f91(0x110)+_0x1d8f91(0x1bc)+_0x1d8f91(0x1d5)},'q7':{'question':_0x1d8f91(0xbc)+_0x1d8f91(0x233)+_0x1d8f91(0x1a3)+_0x1d8f91(0xb5)+_0x1d8f91(0x145)+_0x1d8f91(0x25b)+_0x1d8f91(0x2aa),'answer':_0x1d8f91(0xe3)+_0x1d8f91(0xc0)+_0x1d8f91(0x11e)+_0x1d8f91(0xa2)+_0x1d8f91(0x21f)+_0x1d8f91(0x273)+_0x1d8f91(0xca)},'q8':{'question':_0x1d8f91(0xcf)+_0x1d8f91(0xc0)+_0x1d8f91(0x292)+_0x1d8f91(0x296)+_0x1d8f91(0x12a),'answer':_0x1d8f91(0x164)+_0x1d8f91(0x75)+'०)'},'q9':{'question':_0x1d8f91(0x264)+_0x1d8f91(0x12b)+_0x1d8f91(0xe2)+_0x1d8f91(0x126)+_0x1d8f91(0xab)+_0x1d8f91(0x1c6)+_0x1d8f91(0xa6)+_0x1d8f91(0x1ff),'answer':_0x1d8f91(0x171)+_0x1d8f91(0x25c)+_0x1d8f91(0x1a8)+_0x1d8f91(0x29e)+_0x1d8f91(0x1fd)+_0x1d8f91(0xc5)+_0x1d8f91(0x217)+_0x1d8f91(0x159)},'q10':{'question':_0x1d8f91(0x133)+_0x1d8f91(0x149)+_0x1d8f91(0xcd)+_0x1d8f91(0x198)+_0x1d8f91(0x26e)+_0x1d8f91(0x23b),'answer':_0x1d8f91(0x9e)+_0x1d8f91(0x1c0)+_0x1d8f91(0x8d)+_0x1d8f91(0x26f)+_0x1d8f91(0xc0)+_0x1d8f91(0x26a)},'q11':{'question':_0x1d8f91(0x29f)+_0x1d8f91(0xf9)+_0x1d8f91(0x7a)+_0x1d8f91(0x270)+_0x1d8f91(0x178)+_0x1d8f91(0x1cf)+'छ?','answer':_0x1d8f91(0x13f)+_0x1d8f91(0x184)+_0x1d8f91(0xbb)+_0x1d8f91(0x216)+_0x1d8f91(0x28b)+_0x1d8f91(0x20e)+_0x1d8f91(0x15a)+'र'},'q12':{'question':_0x1d8f91(0x12d)+_0x1d8f91(0x1ae)+_0x1d8f91(0x2a6)+_0x1d8f91(0xc3)+_0x1d8f91(0x1c4)+_0x1d8f91(0x2aa),'answer':_0x1d8f91(0x21d)+_0x1d8f91(0xac)+_0x1d8f91(0x1bb)+_0x1d8f91(0x25d)+')'},'q13':{'question':_0x1d8f91(0x104)+_0x1d8f91(0x28d)+_0x1d8f91(0x11b)+_0x1d8f91(0x101)+_0x1d8f91(0x29e)+_0x1d8f91(0x93),'answer':_0x1d8f91(0x134)+_0x1d8f91(0x194)},'q14':{'question':_0x1d8f91(0x207)+_0x1d8f91(0xc0)+_0x1d8f91(0x2a3)+_0x1d8f91(0x166)+_0x1d8f91(0x20f)+_0x1d8f91(0x19b)+_0x1d8f91(0x127)+'?','answer':_0x1d8f91(0x147)+_0x1d8f91(0x1d4)+'७)'},'q15':{'question':_0x1d8f91(0x1e8)+_0x1d8f91(0xc0)+_0x1d8f91(0x8c)+_0x1d8f91(0x137)+_0x1d8f91(0x124)+_0x1d8f91(0x11b)+_0x1d8f91(0x224)+_0x1d8f91(0xb7),'answer':_0x1d8f91(0x25f)+_0x1d8f91(0xae)+_0x1d8f91(0x160)+_0x1d8f91(0x1ee)}}};function createItemCard(_0x4c1682,_0x49a785){const _0x585426=_0x1d8f91,_0x210929={'EfGTT':function(_0x51ba17,_0x13ec17){return _0x51ba17===_0x13ec17;},'bHdyg':_0x585426(0x24e),'SINvP':_0x585426(0x22f),'QxXUW':_0x585426(0x2a0),'zvAyb':_0x585426(0x117),'cgYfV':function(_0x24dc6a,_0x22ca0e){return _0x24dc6a===_0x22ca0e;},'TNHtS':_0x585426(0x205)+_0x585426(0x8e),'ZOgAW':function(_0x39f3a6,_0xe25605){return _0x39f3a6===_0xe25605;},'YCCal':function(_0x5a774f,_0x42d55d){return _0x5a774f===_0x42d55d;},'wsVJK':_0x585426(0x1e2)};let _0x2fa122=[],_0x3f940e=_0x210929[_0x585426(0xba)](_0x49a785,'np')?_0x210929[_0x585426(0x12f)]:_0x210929[_0x585426(0xba)](_0x49a785,'wr')?_0x210929[_0x585426(0xd2)]:_0x210929[_0x585426(0xba)](_0x49a785,'ca')?_0x210929[_0x585426(0x143)]:_0x210929[_0x585426(0x220)];if(_0x210929[_0x585426(0xba)](_0x49a785,'np')||_0x210929[_0x585426(0x248)](_0x49a785,'wr')||_0x210929[_0x585426(0xba)](_0x49a785,'hr')){const _0x575f03=_0x210929[_0x585426(0x119)][_0x585426(0x1fc)]('|');let _0x2a73aa=0x14dc+0x242d+-0x3909;while(!![]){switch(_0x575f03[_0x2a73aa++]){case'0':_0x2fa122[_0x585426(0x1d3)]({'label':_0x585426(0xb0)+_0x585426(0x28a),'value':_0x4c1682[_0x585426(0x8f)]});continue;case'1':if(_0x4c1682[_0x585426(0x21e)])_0x2fa122[_0x585426(0x1d3)]({'label':_0x585426(0x1f1)+_0x585426(0x148),'value':_0x4c1682[_0x585426(0x21e)]});continue;case'2':_0x2fa122[_0x585426(0x1d3)]({'label':_0x3f940e+(_0x585426(0x1d0)+_0x585426(0x79)),'value':_0x4c1682[_0x585426(0xf6)]});continue;case'3':_0x2fa122[_0x585426(0x1d3)]({'label':_0x585426(0x99)+_0x585426(0x130),'value':_0x4c1682[_0x585426(0x258)],'full_width':!![]});continue;case'4':if(_0x4c1682[_0x585426(0x86)+'a'])_0x2fa122[_0x585426(0x1d3)]({'label':_0x585426(0x22e)+_0x585426(0x15e)+_0x585426(0x1b2),'value':_0x4c1682[_0x585426(0x86)+'a']});continue;case'5':_0x2fa122[_0x585426(0x1d3)]({'label':_0x585426(0x19e)+_0x585426(0xda),'value':_0x4c1682[_0x585426(0x237)]});continue;case'6':_0x2fa122[_0x585426(0x1d3)]({'label':_0x585426(0x20c),'value':_0x4c1682[_0x585426(0x2a9)],'full_width':!![]});continue;}break;}}else{if(_0x210929[_0x585426(0x280)](_0x49a785,'ca'))_0x2fa122[_0x585426(0x1d3)]({'label':_0x585426(0x199)+_0x585426(0x299),'value':_0x4c1682[_0x585426(0xf6)]}),_0x2fa122[_0x585426(0x1d3)]({'label':_0x585426(0xb0)+_0x585426(0x28a),'value':_0x4c1682[_0x585426(0x8f)]}),_0x2fa122[_0x585426(0x1d3)]({'label':_0x585426(0x19e)+_0x585426(0xda),'value':_0x4c1682[_0x585426(0x237)]}),_0x2fa122[_0x585426(0x1d3)]({'label':_0x585426(0x7d),'value':_0x4c1682[_0x585426(0x2a9)],'full_width':!![]});else _0x210929[_0x585426(0x1dd)](_0x49a785,_0x210929[_0x585426(0x165)])&&(_0x2fa122[_0x585426(0x1d3)]({'label':_0x585426(0xdd)+_0x585426(0x102),'value':_0x4c1682[_0x585426(0x1c9)]}),_0x2fa122[_0x585426(0x1d3)]({'label':_0x585426(0x1cc)+_0x585426(0x24c),'value':_0x4c1682[_0x585426(0x18e)]}),_0x2fa122[_0x585426(0x1d3)]({'label':_0x585426(0xb0)+_0x585426(0x28a),'value':_0x4c1682[_0x585426(0x8f)]}),_0x2fa122[_0x585426(0x1d3)]({'label':_0x585426(0x19e)+_0x585426(0xda),'value':_0x4c1682[_0x585426(0x237)]}));}const _0x3ad636=_0x2fa122[_0x585426(0x9b)](_0x5703d7=>_0x5703d7[_0x585426(0x188)]),_0x4d4bcc=_0x2fa122[_0x585426(0x252)](_0x3a886b=>_0x585426(0x23a)+_0x585426(0x209)+_0x585426(0x20b)+_0x585426(0x183)+(_0x3a886b[_0x585426(0x188)]?_0x585426(0x12e)+_0x585426(0xdb):'')+(_0x585426(0x293)+_0x585426(0xeb)+_0x585426(0xb1)+'>')+_0x3a886b[_0x585426(0x189)]+(_0x585426(0x1c5)+_0x585426(0xeb)+_0x585426(0xeb)+_0x585426(0x203))+_0x3a886b[_0x585426(0x84)]+(_0x585426(0x141)+_0x585426(0xeb)+_0x585426(0xd6)+_0x585426(0x23a)+_0x585426(0xe5)))[_0x585426(0x163)]('');return _0x585426(0x23a)+_0x585426(0x209)+_0x585426(0x20b)+_0x585426(0x28e)+_0x585426(0x23a)+_0x585426(0xeb)+_0x585426(0x1b5)+_0x4c1682[_0x585426(0x2a8)]+(_0x585426(0x2ad)+_0x585426(0xeb)+_0x585426(0x83))+_0x4d4bcc+(_0x585426(0x23a)+_0x585426(0x26c)+_0x585426(0x10b)+_0x585426(0x83));}function renderData(){const _0x33eb01=_0x1d8f91,_0x39fd7f={'UxmCE':_0x33eb01(0x1de),'WslKN':function(_0x317f56,_0x59e4fd){return _0x317f56+_0x59e4fd;},'OgNgK':_0x33eb01(0x221),'twfvB':_0x33eb01(0xbe),'WYDGx':_0x33eb01(0x281)+'t'};document[_0x33eb01(0xc8)+_0x33eb01(0x275)](_0x39fd7f[_0x33eb01(0x1b6)])[_0x33eb01(0x18d)]=data[_0x33eb01(0xa5)+_0x33eb01(0x2ab)][_0x33eb01(0x252)](_0x155fe4=>createItemCard(_0x155fe4,'np'))[_0x33eb01(0x163)]('');const _0x4b9d52=_0x39fd7f[_0x33eb01(0x89)](data[_0x33eb01(0xd8)+_0x33eb01(0xe0)][_0x33eb01(0x252)](_0x3e0391=>createItemCard(_0x3e0391,'wr'))[_0x33eb01(0x163)](''),data[_0x33eb01(0x265)+_0x33eb01(0x14f)][_0x33eb01(0x252)](_0x2ad7d3=>createItemCard(_0x2ad7d3,'hr'))[_0x33eb01(0x163)](''));document[_0x33eb01(0xc8)+_0x33eb01(0x275)](_0x39fd7f[_0x33eb01(0x17d)])[_0x33eb01(0x18d)]=_0x4b9d52,document[_0x33eb01(0xc8)+_0x33eb01(0x275)](_0x39fd7f[_0x33eb01(0x1f8)])[_0x33eb01(0x18d)]=data[_0x33eb01(0x1da)+_0x33eb01(0x140)][_0x33eb01(0x252)](_0x505033=>createItemCard(_0x505033,'ca'))[_0x33eb01(0x163)](''),document[_0x33eb01(0xc8)+_0x33eb01(0x275)](_0x39fd7f[_0x33eb01(0x19d)])[_0x33eb01(0x18d)]=data[_0x33eb01(0xf7)+'es'][_0x33eb01(0x252)](_0x173132=>createItemCard(_0x173132,_0x33eb01(0x1e2)))[_0x33eb01(0x163)]('');}function renderQA(){const _0x5cb29b=_0x1d8f91,_0x5505e9={'KMyQU':_0x5cb29b(0x1b7)},_0x215d84=document[_0x5cb29b(0xc8)+_0x5cb29b(0x275)](_0x5505e9[_0x5cb29b(0x16f)]);let _0x51b177='';Object[_0x5cb29b(0xa3)](data[_0x5cb29b(0x17c)])[_0x5cb29b(0x1fe)](_0x42613c=>{const _0x2c37b3=_0x5cb29b,_0x28557c=data[_0x2c37b3(0x17c)][_0x42613c];_0x51b177+=_0x2c37b3(0x23a)+_0x2c37b3(0xeb)+_0x2c37b3(0x2a4)+_0x2c37b3(0xec)+_0x2c37b3(0x24b)+_0x2c37b3(0x154)+_0x2c37b3(0x185)+_0x2c37b3(0xeb)+_0x2c37b3(0xeb)+_0x2c37b3(0x158)+_0x2c37b3(0x1e9)+_0x2c37b3(0x27e)+_0x2c37b3(0xeb)+_0x2c37b3(0xeb)+_0x2c37b3(0x83)+_0x28557c[_0x2c37b3(0x13a)]+(_0x2c37b3(0x23a)+_0x2c37b3(0xeb)+_0x2c37b3(0x1d6)+_0x2c37b3(0x1a0)+_0x2c37b3(0x96)+_0x2c37b3(0x1b9)+_0x2c37b3(0xfa)+_0x2c37b3(0xeb)+_0x2c37b3(0xe6)+_0x2c37b3(0x1e1)+_0x2c37b3(0xeb)+_0x2c37b3(0x209)+_0x2c37b3(0x260)+_0x2c37b3(0xe9)+_0x2c37b3(0x23a)+_0x2c37b3(0xeb)+_0x2c37b3(0x1d6)+'p>')+_0x28557c[_0x2c37b3(0xde)]+(_0x2c37b3(0x91)+_0x2c37b3(0xeb)+_0x2c37b3(0x1d6)+_0x2c37b3(0x232)+_0x2c37b3(0xeb)+_0x2c37b3(0xe6)+_0x2c37b3(0x1e1)+_0x2c37b3(0x2a2));}),_0x215d84[_0x5cb29b(0x18d)]=_0x51b177;}function toggleQA(_0x4269f8){const _0x4f7dc5=_0x1d8f91,_0xd81ce5={'wHXom':function(_0x39f747,_0x3af478){return _0x39f747!==_0x3af478;},'Tzeaq':_0x4f7dc5(0x155),'MCjVD':_0x4f7dc5(0x17f)+_0x4f7dc5(0x211)};document[_0x4f7dc5(0x29d)+_0x4f7dc5(0x1ab)](_0xd81ce5[_0x4f7dc5(0xd1)])[_0x4f7dc5(0x1fe)](_0x2d790d=>{const _0x17cd23=_0x4f7dc5;_0xd81ce5[_0x17cd23(0x1ec)](_0x2d790d,_0x4269f8)&&_0x2d790d[_0x17cd23(0x1f0)][_0x17cd23(0x1a9)](_0xd81ce5[_0x17cd23(0x1d7)]);}),_0x4269f8[_0x4f7dc5(0x1f0)][_0x4f7dc5(0x15d)](_0xd81ce5[_0x4f7dc5(0x1d7)]);}document[_0x1d8f91(0x152)+_0x1d8f91(0x1b0)](_0x1d8f91(0xbf)+_0x1d8f91(0x123),()=>{const _0x26aad1=_0x1d8f91,_0x36cf41={'ehVTd':function(_0x14fa4f,_0x100a12){return _0x14fa4f*_0x100a12;},'PGThV':function(_0x50af44){return _0x50af44();},'vIeBh':_0x26aad1(0x222)+_0x26aad1(0x1af)};_0x36cf41[_0x26aad1(0x142)](renderData),_0x36cf41[_0x26aad1(0x142)](renderQA),document[_0x26aad1(0x29d)+_0x26aad1(0x1ab)](_0x36cf41[_0x26aad1(0x2ae)])[_0x26aad1(0x1fe)]((_0x265ba2,_0x3c8a5c)=>{const _0x4e365f=_0x26aad1;_0x265ba2[_0x4e365f(0x288)][_0x4e365f(0x14c)+_0x4e365f(0x14d)]=_0x36cf41[_0x4e365f(0x182)](_0x3c8a5c,-0x469+0x1a96+-0x1*0x162d+0.1)+'s';});});
+    </script>
+</body>
+</html>
+```

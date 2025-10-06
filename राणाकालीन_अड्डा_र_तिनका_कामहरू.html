@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>राणाकालीन अड्डा र कामहरू</title>
+
+    <!-- Kalimati Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Kalimati&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kalimati', sans-serif;
+            background: linear-gradient(135deg, #fdfbfb, #ebedee);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.4em;
+            font-weight: bold;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+            animation: popIn 0.5s ease forwards;
+        }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        h2 {
+            color: #6a11cb;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+
+        ul.list {
+            padding-left: 20px;
+            list-style-type: square;
+        }
+
+        ul.list li {
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+            background: #eee;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 480px) {
+            body {
+                font-size: 16px;
+            }
+            header {
+                font-size: 1.2em;
+                padding: 15px;
+            }
+            .card {
+                padding: 12px;
+            }
+            h2 {
+                font-size: 1.1em;
+            }
+            p, li {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    राणाकालीन अड्डा र तिनका कामहरू
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>अड्डा र तिनका प्रकार</h2>
+        <ul class="list">
+            <li><strong>खड्ग निशान अड्डा</strong></li>
+            <li><strong>विन्तिपत्र निक्सारी अड्डा</strong></li>
+            <li><strong>मुलुकी अड्डा</strong></li>
+            <li><strong>कौशल</strong></li>
+            <li><strong>ऐन खाना</strong></li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>मुख्य कामहरू</h2>
+        <ul class="list">
+            <li>श्री ३ को कार्यालय संचालन</li>
+            <li>सर्वोच्च न्यायसम्बन्धी कार्यहरू</li>
+            <li>सामान्य प्रशासन र गृह</li>
+            <li>ऐन बनाउने र संशोधन गर्ने व्यवस्थापिका</li>
+            <li>ऐन कानून तर्जुमा गर्ने</li>
+            <li>धर्म कचहरी — भ्रष्टाचार र कानून उल्लंघनको विरुद्ध कारबाही</li>
+            <li>इलाइंची कोठी — भारत पटनामा नेपालको वाणिज्य दूतावासको काम</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>प्रमुख अड्डाहरू र तिनका कार्यहरू</h2>
+        <ul class="list">
+            <li><strong>चपरासी अड्डा:</strong> सडक निर्माणमा कैदीहरू प्रयोग</li>
+            <li><strong>जंगी अड्डा:</strong> सेनासम्बन्धी प्रशासन</li>
+            <li><strong>मुलुकी खाना:</strong> राज्यको ढुकुटी व्यवस्थापन</li>
+            <li><strong>कौशी तोषाखाना:</strong> सरकारी रकम जम्मा गर्ने</li>
+            <li><strong>भण्डार खाल ढुकुटी:</strong> संकटकालको लागि रकम सञ्चय</li>
+            <li><strong>कुमारी चोक:</strong> प्रशासनिक काम</li>
+            <li><strong>मुन्सी खाना:</strong> लेखा परीक्षण, परराष्ट्र सम्बन्धी काम</li>
+            <li><strong>किताब खाना:</strong> कर्मचारी रेकर्ड व्यवस्थापन</li>
+            <li><strong>सराफखाना:</strong> मुद्रा र आर्थिक व्यवस्थापन</li>
+            <li><strong>तेजारथ अड्डा:</strong> राजबन्धकी</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>विशेष कार्यहरू</h2>
+        <ul class="list">
+            <li>नयाँ सेना भर्ती</li>
+            <li>हातहतियारको व्यवस्थापन</li>
+            <li>भ्रष्टाचार निवारण</li>
+            <li>हुलाक कार्य</li>
+            <li>गुठी कचहरी — गुठी जग्गा व्यवस्थापन</li>
+            <li>टक्सार — टक्सारको व्यवस्था</li>
+            <li>थाना कचहरी — प्रहरी व्यवस्था</li>
+            <li>मुलुक बन्दोबस्त — प्रशासनिक कार्य</li>
+            <li>कुमार चोक — सामानको सूची र मूल्य व्यवस्थापन</li>
+            <li>नंगदी अड्डा — प्रधानमन्त्रीको आम्दानी व्यवस्थापन</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>अन्य महत्वपूर्ण अड्डाहरू</h2>
+        <ul class="list">
+            <li>स्कूल गोश्वारा — स्कूलको प्रबन्ध</li>
+            <li>रजिष्ट्रेशन एण्ड पोत अड्डा — मालपोतको काम</li>
+            <li>सिंहदरवार फर्मायसी अड्डा — अतिथि सत्कार</li>
+            <li>निजामती बाँकी तलब अड्डा — निजामती तलब व्यवस्थापन</li>
+            <li>अस्त्र खाना — हातहतियार भण्डारण</li>
+            <li>गोश्वारा तहबिल — तथ्यांक व्यवस्थापन</li>
+            <li>समरजङ्ग कम्पनी — सडक निर्माण विभाग</li>
+            <li>नेपाल हात्तीसार गोश्वारा — हात्ती सवारी व्यवस्थापन</li>
+        </ul>
+    </div>
+</div>
+
+<footer>
+    राणाकालीन अड्डा 
+</footer>
+
+</body>
+</html>

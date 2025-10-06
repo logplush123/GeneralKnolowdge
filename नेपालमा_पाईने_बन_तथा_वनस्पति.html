@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>नेपालको वन, वनस्पति तथा वन्यजन्तु 🌳</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS कोड */
+        
+        :root {
+            --primary-color: #27ae60; /* हरियो */
+            --secondary-color: #3498db; /* निलो */
+            --accent-color: #f39c12; /* सुन्तला */
+            --background-color: #ecf0f1;
+            --card-background: #ffffff;
+            --text-color: #34495e;
+            --base-font-size: 1.05rem; 
+            --small-font-size: 0.95rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Mukta', Arial, sans-serif; 
+            line-height: 1.6;
+            transition: all 0.3s ease; /* Smooth transitions for animations */
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow-x: hidden; 
+            font-size: var(--base-font-size);
+        }
+
+        /* Application-like Container (Fully Responsive) */
+        .app-container {
+            width: 100%; 
+            max-width: 800px; 
+            margin: 0 auto;
+            background-color: #f7f9fb;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Header Styling */
+        .app-header {
+            background: linear-gradient(45deg, var(--primary-color), #1e8449);
+            color: white;
+            padding: 20px 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            animation: fadeInDown 0.5s ease-out;
+        }
+
+        .app-header h1 {
+            font-size: 1.7rem; 
+            margin: 0;
+        }
+
+        /* Main Content and Section Styling */
+        .main-content {
+            padding: 15px;
+            display: grid;
+            gap: 20px;
+        }
+
+        .info-section {
+            background: var(--card-background);
+            border-radius: 12px;
+            padding: 15px; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            animation: fadeInUp 0.5s ease-out forwards;
+            opacity: 0;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .info-section h2 {
+            font-size: 1.4rem; 
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e8f5e9;
+            padding-bottom: 5px;
+        }
+        
+        /* General List Styling */
+        .list-container ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .list-container li {
+            padding: 8px 0;
+            border-bottom: 1px dotted #e0e0e0;
+            display: flex;
+            align-items: flex-start;
+            font-size: var(--small-font-size);
+        }
+
+        .list-container li:last-child {
+            border-bottom: none;
+        }
+        
+        .list-container li::before {
+            content: "🌲";
+            color: var(--secondary-color);
+            font-weight: bold;
+            display: inline-block;
+            min-width: 1.2em;
+            margin-right: 5px;
+            flex-shrink: 0;
+        }
+        
+        .list-container.no-bullet li::before {
+            content: "";
+            width: 0;
+            margin-right: 0;
+        }
+
+
+        /* Vegetation Zone Table (Kept as simplified grid for mobile) */
+        .veg-zone-table {
+            display: grid;
+            grid-template-columns: 1fr; 
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .veg-zone-item {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--accent-color);
+            font-size: var(--small-font-size);
+        }
+        
+        .veg-zone-item strong.zone-name {
+            display: block;
+            color: var(--text-color);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        /* Accordion/Toggle Styling for Protected Areas */
+        .accordion-container {
+            display: grid;
+            gap: 10px;
+        }
+
+        .accordion-button {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            font-size: var(--base-font-size);
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: pulse 1.5s infinite alternate; /* Light animation */
+        }
+        
+        .accordion-button::after {
+            content: '▶';
+            font-size: 0.8em;
+            transform: rotate(0deg);
+            transition: transform 0.3s ease;
+        }
+        
+        .accordion-button.active::after {
+            content: '▼';
+            transform: rotate(0deg);
+        }
+        
+        .accordion-content {
+            padding: 5px 15px;
+            background-color: #eaf4f7;
+            border-radius: 6px;
+            margin-top: -5px;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.4s ease-out;
+            font-size: var(--small-font-size);
+        }
+
+        .accordion-content ul {
+            padding: 10px 0 10px 15px;
+        }
+        
+        .accordion-content li {
+            list-style-type: disc;
+            border-bottom: none;
+            padding: 3px 0;
+            color: #555;
+        }
+        
+        .accordion-content li::before {
+            content: "";
+        }
+        
+        /* Multi-Column List for Protected Wildlife */
+        .multi-column-list {
+            column-count: 2; 
+            column-gap: 15px;
+            list-style-type: none;
+            padding-left: 0;
+            font-size: var(--small-font-size);
+        }
+        
+        .multi-column-list li {
+            padding: 4px 0;
+            border-bottom: none;
+            display: block;
+        }
+        .multi-column-list li::before {
+            content: "🐾";
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1.2em;
+            margin-right: 3px;
+            flex-shrink: 0;
+        }
+        
+        /* Keyframe Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7); }
+            100% { box-shadow: 0 0 0 5px rgba(52, 152, 219, 0); }
+        }
+
+        /* Desktop/Tablet Adjustments */
+        @media (min-width: 601px) {
+            .app-header h1 {
+                font-size: 2rem;
+            }
+            .main-content {
+                padding: 20px;
+            }
+            .multi-column-list {
+                column-count: 3; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>नेपालको वन, वनस्पति तथा वन्यजन्तु 🌲</h1>
+        </header>
+        
+        <main class="main-content">
+            
+            <section class="info-section" style="animation-delay: 0.1s;">
+                <h2>नेपालमा वनको वर्गीकरण</h2>
+                <div class="list-container">
+                    <ul class="no-bullet">
+                        <li>१. **राष्ट्रिय वन:** सरकारी नियन्त्रणमा रहने वन।</li>
+                        <li>२. **सामुदायिक वन:** स्थानीय समुदायलाई हस्तान्तरण गरिएका वन।</li>
+                        <li>३. **साझेदारी वन:** सरकार र स्थानीय उपभोक्ता समूहले संयुक्त रूपमा व्यवस्थापन गर्ने वन।</li>
+                        <li>४. **कबुलियती वन:** गरीब परिवार वा समूहलाई कबुलियतमा दिइएको वन।</li>
+                        <li>५. **धार्मिक वन:** मठ, मन्दिर, गुम्बा वा धार्मिक संस्थालाई व्यवस्थापन गर्न दिएको वन।</li>
+                        <li>६. **निजी वन:** निजी जग्गामा हुर्काइएको वन।</li>
+                        <li>७. **वन संरक्षण क्षेत्र:** संरक्षणका लागि छुट्याइएको वन क्षेत्र।</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="info-section" style="animation-delay: 0.3s;">
+                <h2>उचाइ अनुसार वनस्पति क्षेत्र र वन्यजन्तु</h2>
+                <div class="veg-zone-table">
+                    
+                    <div class="veg-zone-item">
+                        <strong class="zone-name">उष्ण प्रदेशीय वन ☀️</strong>
+                        **१२०० मि. सम्म** (तराई, दुन र चुरे क्षेत्र)
+                        <br>वनस्पति: **साल (सखुवा), सिसौ, खयर, सिमल, पिपल**
+                        <br>वन्यजन्तु: **पाटे बाघ, गैंडा, हात्ती, चित्तल**
+                    </div>
+                    
+                    <div class="veg-zone-item">
+                        <strong class="zone-name">समशीतोष्ण पतझर वन 🍂</strong>
+                        **१२०१ मि. देखि २१०० मि. सम्म** (मध्य पहाड)
+                        <br>वनस्पति: **सल्ला, देवदारु, ओखर, गुराँस, चिलाउने**
+                        <br>वन्यजन्तु: **चितुवा, मृग, बँदेल**
+                    </div>
+
+                    <div class="veg-zone-item">
+                        <strong class="zone-name">समशीतोष्ण सदाबहार (कोणधारी) वन ⛰️</strong>
+                        **२१०१ मि. देखि ३३५० मि. सम्म** (लेक क्षेत्र)
+                        <br>वनस्पति: **धूपी, उत्तिस, भोजपत्र, बाँस**
+                        <br>वन्यजन्तु: **हरिण, नाउर, घोरल, डाँफे, मुनाल**
+                    </div>
+
+                    <div class="veg-zone-item">
+                        <strong class="zone-name">लेकाली वनस्पति (Alpine) 🏔️</strong>
+                        **३३५१ मि. देखि ५००० मि. सम्म** (उच्च पहाड/हिमाली फेदी)
+                        <br>वनस्पति: **निगालो, जटामसी, यार्सागुम्बा, पाँचऔंले**
+                        <br>वन्यजन्तु: **हाब्रे (Red Panda), हिउँचितुवा, हिमाली मृग**
+                    </div>
+                    
+                    <div class="veg-zone-item">
+                        <strong class="zone-name">टुण्ड्रा वनस्पति ❄️</strong>
+                        **५००१ मि. भन्दा माथि** (उच्च हिमाली क्षेत्र)
+                        <br>वनस्पति: **काई, लेउ, झ्याउलगायत साना बिरुवा**
+                        <br>वन्यजन्तु: **हिउँचितुवा, हिमाली मृग**
+                    </div>
+                </div>
+            </section>
+            
+            <section class="info-section" style="animation-delay: 0.5s;">
+                <h2>नेपालका संरक्षित क्षेत्रहरूको सङ्ख्या र सूची (अद्यावधिक)</h2>
+                
+                <div class="accordion-container">
+                    
+                    <div>
+                        <button class="accordion-button" data-content="national-park">
+                            राष्ट्रिय निकुञ्ज: **१२ वटा** </button>
+                        <div class="accordion-content" id="national-park">
+                            <p><strong>१२ राष्ट्रिय निकुञ्जहरू:</strong></p>
+                            <ul>
+                                <li>चितवन (पहिलो)</li>
+                                <li>सगरमाथा</li>
+                                <li>लाङटाङ</li>
+                                <li>रारा (सबैभन्दा सानो)</li>
+                                <li>बर्दिया</li>
+                                <li>शे-फोक्सुण्डो (सबैभन्दा ठूलो)</li>
+                                <li>खप्तड</li>
+                                <li>मकालु-बरुण</li>
+                                <li>शिवपुरी-नागार्जुन</li>
+                                <li>बाँके</li>
+                                <li>शुक्लाफाँटा</li>
+                                <li>परसा (पहिले वन्यजन्तु आरक्ष)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <button class="accordion-button" data-content="wildlife-reserve">
+                            वन्यजन्तु आरक्ष: **१ वटा**
+                        </button>
+                        <div class="accordion-content" id="wildlife-reserve">
+                            <p><strong>हाल कायम १ वन्यजन्तु आरक्ष:</strong></p>
+                            <ul>
+                                <li>कोशी टप्पु वन्यजन्तु आरक्ष (अर्सनका लागि प्रसिद्ध)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <button class="accordion-button" data-content="conservation-area">
+                            संरक्षण क्षेत्र: **६ वटा**
+                        </button>
+                        <div class="accordion-content" id="conservation-area">
+                            <p><strong>६ संरक्षण क्षेत्रहरू:</strong></p>
+                            <ul>
+                                <li>अन्नपूर्ण (सबैभन्दा ठूलो)</li>
+                                <li>कञ्चनजङ्घा</li>
+                                <li>मनासलु</li>
+                                <li>गौरीशङ्कर</li>
+                                <li>अपि-नाम्पा</li>
+                                <li>कृष्णसार (संरक्षण क्षेत्र)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <button class="accordion-button" data-content="hunting-reserve">
+                            शिकार आरक्ष: **१ वटा**
+                        </button>
+                        <div class="accordion-content" id="hunting-reserve">
+                            <p><strong>नेपालको एकमात्र शिकार आरक्ष:</strong></p>
+                            <ul>
+                                <li>ढोरपाटन शिकार आरक्ष</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <button class="accordion-button" data-content="ramsar-sites">
+                            रामसार सूचीकृत सिमसार क्षेत्र: **१० वटा**
+                        </button>
+                        <div class="accordion-content" id="ramsar-sites">
+                            <p><strong>१० रामसार क्षेत्रहरू:</strong></p>
+                            <ul>
+                                <li>कोशी टप्पु</li>
+                                <li>घोडघोडी ताल</li>
+                                <li>जगदीशपुर ताल</li>
+                                <li>पोखराका नौ ताल</li>
+                                <li>माईपोखरी</li>
+                                <li>गोक्यो ताल</li>
+                                <li>रारा ताल</li>
+                                <li>से-फोक्सुण्डो ताल</li>
+                                <li>बीस हजारी तथा तीस हजारी ताल</li>
+                                <li>तालको सङ्ख्या (पछिल्लो थप): **१०**</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            
+             <section class="info-section" style="animation-delay: 0.7s;">
+                <h2>नेपालका संरक्षित वन्यजन्तु तथा पंक्षी (३३ सूची)</h2>
+                <div class="list-container">
+                    <ul class="multi-column-list">
+                        <li>पाटे **बाघ**</li>
+                        <li>**गैंडा** (एक सिंगे)</li>
+                        <li>**हिउँचितुवा**</li>
+                        <li>**हाब्रे** (Red Panda)</li>
+                        <li>**कस्तुरी मृग**</li>
+                        <li>**जंगली हात्ती**</li>
+                        <li>**अर्सन** (Arna)</li>
+                        <li>**जंगली याक**</li>
+                        <li>**धँ्वासे चितुवा**</li>
+                        <li>**लिंक्स**</li>
+                        <li>**झ्यालकुत्ता** (Wild Dog)</li>
+                        <li>**हुँडार**</li>
+                        <li>**हिस्पिड खरायो**</li>
+                        <li>**पुड्के बँदेल**</li>
+                        <li>**सोंस** (Gangetic Dolphin)</li>
+                        <li>**सालक** (दुवै प्रकार)</li>
+                        <li>**कृष्णसार**</li>
+                        <li>**बाह्रसिंघा**</li>
+                        <li>**गौरीगाई**</li>
+                        <li>**चीरू**</li>
+                        <li>**चौका** (Four-horned Antelope)</li>
+                        <li>**नायन**</li>
+                        <li>**आसामी बाँदर**</li>
+                        <li>**ब्वाँसो**</li>
+                        <li>**घडियाल गोही**</li>
+                        <li>**अजिंगर** (Python)</li>
+                        <li>**सुन गोहोरो**</li>
+                        <li>**डाँफे** (राष्ट्रिय पंक्षी)</li>
+                        <li>**मुनाल**</li>
+                        <li>**कालो स्टर्क**</li>
+                        <li>**सारस**</li>
+                        <li>**राजधनेश**</li>
+                        <li>**खर मजुर**</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="info-section" style="animation-delay: 0.9s;">
+                <h2>नेपाल सरकारद्वारा प्रतिबन्धित वन पैदावार</h2>
+                <div class="list-container" style="font-size: var(--small-font-size);">
+                    <ul class="multi-column-list">
+                        <li>१. **रक्तचन्दन**</li>
+                        <li>२. **जटामसी** (पूर्ण प्रतिबन्धित होइन तर नियन्त्रित)</li>
+                        <li>३. **सर्पगन्धा**</li>
+                        <li>४. **साल** (सखुवा)</li>
+                        <li>५. **चाँप**</li>
+                        <li>६. **लौठसल्ला**</li>
+                        <li>७. **यार्सागुम्बा** (पूर्ण प्रतिबन्धित होइन, तर सङ्कलनमा नियन्त्रण)</li>
+                        <li>८. **पाँचऔंले**</li>
+                        <li>९. **खयर**</li>
+                        <li>१०. **तालिसपत्र**</li>
+                        <li>११. **सुगन्ध कोकिला**</li>
+                        <li>१२. **शिलाजित**</li>
+                        <li>१३. **झ्याउ**</li>
+                        <li>१४. **सुगन्धवाल**</li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        // JS for Accordion/Toggle Functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+            
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const contentId = button.getAttribute('data-content');
+                    const content = document.getElementById(contentId);
+                    
+                    // Toggle 'active' class on button
+                    button.classList.toggle('active');
+
+                    // Toggle content visibility with smooth animation
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null; // Collapse
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px"; // Expand
+                    }
+
+                    // Optional: Close other open accordions
+                    accordionButtons.forEach(otherButton => {
+                        if (otherButton !== button && otherButton.classList.contains('active')) {
+                            otherButton.classList.remove('active');
+                            const otherContentId = otherButton.getAttribute('data-content');
+                            document.getElementById(otherContentId).style.maxHeight = null;
+                        }
+                    });
+                });
+            });
+            
+            // Initial animation for sections
+            const sections = document.querySelectorAll('.info-section');
+            sections.forEach((section) => {
+                section.style.opacity = 1;
+            });
+        });
+    </script>
+</body>
+</html>

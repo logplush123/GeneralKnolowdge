@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ज्ञान सागर | खेलकुद प्रश्नोत्तर</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta+Mahee:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS Variables for a Modern, Colorful Theme --- */
+        :root {
+            --primary-color: #007bff;        /* Vibrant Blue */
+            --secondary-color: #28a745;      /* Green for Answers */
+            --accent-color: #ffc107;         /* Yellow for search/highlights */
+            --background-color: #f8f9fa;     /* Light App Background */
+            --card-bg-color: #ffffff;
+            --text-color: #343a40;
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --font-primary: 'Mukta Mahee', sans-serif;
+            --transition-duration: 0.4s;
+            --global-padding: 20px; /* New: Global padding variable */
+        }
+
+        /* --- Global Styles and Reset --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            /* Added global margin of 20px */
+            padding: var(--global-padding); 
+            -webkit-tap-highlight-color: transparent; 
+        }
+
+        /* The main container should now fit within the body padding */
+        .qna-container {
+            /* Removed internal padding as it's now handled by body margin/padding */
+            padding: 0; 
+            display: grid;
+            gap: 12px;
+            /* Ensures single column view on small screens and respects max-width */
+            grid-template-columns: 1fr; 
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto; /* Center the content */
+            flex-grow: 1;
+        }
+
+        /* --- Header and Search Bar --- */
+        .app-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 20px 15px 10px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            /* Remove margins from sticky header to stretch to the body padding limits */
+            margin: calc(var(--global-padding) * -1); 
+            width: calc(100% + var(--global-padding) * 2);
+            /* Adjust padding on sides to re-center content */
+            padding-left: var(--global-padding);
+            padding-right: var(--global-padding);
+        }
+        
+        /* Ensure sticky element background matches header style */
+        .search-container {
+            padding: 0 0 10px;
+            
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: box-shadow var(--transition-duration);
+            font-family: var(--font-primary);
+            outline: none;           
+        }
+        
+        #search-input:focus {
+            box-shadow: 0 0 0 3px var(--accent-color);
+        }
+
+
+        /* --- Q&A Card Styling (The main component) --- */
+        .qna-card {
+            background: var(--card-bg-color);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+            cursor: pointer;
+            border-left: 5px solid var(--primary-color);
+            display: flex;
+            flex-direction: column;
+            /* Ensure text is visible and not cut */
+            word-wrap: break-word; 
+        }
+
+        .qna-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .qna-card.open {
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .qna-index {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            background-color: rgba(0, 123, 255, 0.1);
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+
+        .qna-question {
+            font-size: 1rem; 
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        /* --- Answer Section (Accordion Animation) --- */
+        .qna-answer-section {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, opacity 0.4s ease;
+            border-top: 1px solid #f0f0f0;
+            margin-top: 10px;
+            padding-top: 0;
+        }
+
+        .qna-card.open .qna-answer-section {
+            max-height: 250px; 
+            opacity: 1;
+            padding-top: 12px;
+        }
+
+        .qna-answer-label {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            font-weight: 400;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .qna-answer {
+            font-size: 0.95rem; 
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        /* --- Footer --- */
+        .app-footer {
+            background-color: var(--text-color);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.8rem;
+            margin-top: auto;
+            z-index: 10;
+            /* Extend footer to edges of body padding */
+            margin: calc(var(--global-padding) * -1); 
+            width: calc(100% + var(--global-padding) * 2);
+            /* Adjust padding on sides to align text with container */
+            padding-left: var(--global-padding);
+            padding-right: var(--global-padding);
+        }
+
+        /* --- Mobile-Specific Adjustments (Under 600px) --- */
+        @media (max-width: 600px) {
+            :root {
+                --global-padding: 10px; /* Slightly reduce padding for minimal screens */
+            }
+            .qna-container {
+                gap: 8px;
+            }
+            .app-header h1 {
+                font-size: 1.5rem;
+            }
+            .qna-card {
+                padding: 12px;
+            }
+            .qna-question {
+                font-size: 0.95rem; 
+            }
+            .qna-answer {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="app-header">
+        
+        <p>नेपाली खेलकुदका महत्त्वपूर्ण प्रश्न-उत्तर</p>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder=" तल उल्लेखित प्रश्न वा उत्तर खोज्नुहोस्..." aria-label="Search questions and answers">
+        </div>
+    </header>
+
+    <main class="qna-container" id="qna-list">
+        <div class="loading-message">
+            तथ्याङ्क लोड हुँदैछ... कृपया पर्खनुहोस्।
+        </div>
+    </main>
+    
+    
+    
+    <script>
+        
+        const _0x31c752=_0x5d88;(function(_0x1e6f5a,_0x4db61a){const _0x24f2f9=_0x5d88,_0x99a6a9=_0x1e6f5a();while(!![]){try{const _0x2127a1=-parseInt(_0x24f2f9(0x231))/(0x2c8*-0xb+0xa86+0x6b1*0x3)*(-parseInt(_0x24f2f9(0x284))/(0x1676+-0x1*0xb63+0x1*-0xb11))+parseInt(_0x24f2f9(0x24a))/(-0x1b5d+0x1*0xee9+0xc77)*(parseInt(_0x24f2f9(0x30e))/(0x890+-0x1978+0x4c*0x39))+parseInt(_0x24f2f9(0x20c))/(-0x65*0x5f+-0x1*0x5d1+0x2b51)+-parseInt(_0x24f2f9(0x354))/(-0x7*0x353+-0x1bd+0x59*0x48)*(-parseInt(_0x24f2f9(0x1df))/(0x15ee+0x11d6+-0x27bd*0x1))+-parseInt(_0x24f2f9(0x33b))/(0x12c+0x1e04+-0x1f28)*(-parseInt(_0x24f2f9(0x2d7))/(-0x1*-0x18d+0x265b*-0x1+-0x24d7*-0x1))+parseInt(_0x24f2f9(0x154))/(0x1aa4*-0x1+0x2*-0x985+0x688*0x7)*(-parseInt(_0x24f2f9(0x2d1))/(0xec1+-0x1*-0xccd+-0x1b83))+-parseInt(_0x24f2f9(0x1ea))/(0x145+-0x1a8d*0x1+0x4*0x655);if(_0x2127a1===_0x4db61a)break;else _0x99a6a9['push'](_0x99a6a9['shift']());}catch(_0x3955d4){_0x99a6a9['push'](_0x99a6a9['shift']());}}}(_0x119e,-0x186b7+-0x1*-0xc9b5+0x30377));function _0x119e(){const _0x2ebca8=['भागिता\x20जना','>उत्तर:</s','सन्\x20१९६४\x20म','ा\x20सर्वप्रथ','पोलो\x20२०१५\x20','६\x20को\x20आयोजक','classList','\x20Games)\x20को','ँदाद\x20(पाकि','विजेताः\x20मन','xxTUX','ो\x20विजेता\x20ट','्ण\x20सिंह\x20सो','०\x20क्रिकेट\x20','फ्रान्स','सन्\x20१९०४\x20म','\x20हो?','ई\x20मानिन्छ?','\x20साफ\x20च्याम','प्त\x20गर्यो?','पाल,\x20उपविज','साग\x20फूटबल\x20','रतियोगिता\x20','विजेताः\x20कर','थियो?','न्दा\x20उच्च\x20','नरशमशेर\x20जब','री\x20क्लब,\x20उ','ैभन्दा\x20धेर','pan>\x0a\x20\x20\x20\x20\x20','लकुदको\x20झण्','विश्वकप\x20क्','ई.\x20पू.\x20७७६','्रिय\x20पदक\x20द','ानो\x20खेल\x20कु','ssociation','एसियाली\x20खे','म\x20कहिले\x20सह','\x20बाट\x20सुरुव','खेलाडी\x20को\x20','हुन्?','ताः\x20नेपाल','-\x20२०७२\x20बाट','को\x20खोजीसँग','अरी\x20१४\x20सम्','\x20class=\x22qn','ट्रिय\x20(ODI','५\x20पटक)','div','्ण\x20जितेको\x20','्कर\x20नेपाल','िप\x20फुटबल\x20भ','ोहणलाई\x20ओलम','ो,\x20हरियो,\x20','जनवरी\x20२२\x20द','ा,\x20मोरङ\x20२०','ो\x20जन्मदाता','forEach','्पिकमा\x20समा','ष्ट्रिय\x20खे','ाङ\x20मर्स्या','बैशाख\x20११\x20ग','अखिल\x20नेपाल','कप\x20सन्\x20२०१','भुवन\x20आर्मी','Linvr','म\x20कुन\x20हो?','नलाई\x20मानिन','म्पिक\x20खेलक','प्रथम\x20रुसल','लियोनल\x20मेस','a-index\x22>','ZYgwG','को\x20विजेता\x20','स्त्र\x20प्रह','target','\x20गोल\x20अन्तर','दक\x20दिने\x20प्','mmonwealth','रत,\x20उपविजे','सले\x20प्राप्','ुपन्देही\x20१','ACC\x20U-16\x20प','पदकका\x20आधार','\x20क्लब','stener','ङ्दी\x20क्लब,','सुरुवात\x20कु','कहिले\x20प्रा','14RXQgFn','्थानमा\x20भार','नवौं\x20साफ\x20च','योगिता\x20पाँ','\x20कुन\x20हो?','राष्ट्रिय\x20','ा\x20कहिले\x20भए','६\x20को\x20विजेत','विश्वकै\x20सब','हक्की\x20खेलक','\x20स्थान\x20पाय','4943316mjWNXz','डी\x20को\x20हुन्','टेनिस','बैकुण्ठ\x20मा','ओलम्पियामा','हिउँदे\x20ओलम','</p>\x0a\x20\x20\x20\x20\x20','\x20कतिवटा\x20रङ','\x20२०७४\x20मा\x20घ','लाडी\x20को\x20हु','<div\x20class','मगर\x20(उसु)','<span\x20clas','न\x20हो?','ित्ने\x20राष्','वि.सं.\x20२०३','\x20केसी','innerHTML','\x20र\x20तेस्रोल','tycUj','ेलमा\x20प्रदा','शिक्षकलाई\x20','न।\x0a\x20\x20\x20\x20\x20\x20\x20','\x20खेलकुदमा\x20','ाडी\x20को\x20हुन','\x20\x20\x20\x20\x20तपाईं','पाल\x20पुलिस\x20','का\x20कप\x20सबैभ','ट्रिय\x20सुमन','्नुहोस्।</','ा\x20कहिले\x20भय','नेपालले\x20कत','साग\x20हकी\x20प्','कुन\x20हो?','669680BoYrYg','wer\x22>','्पिक\x20कहिले','िइन्छ?','कुन\x20खेलमा\x20','Loaded','ेताः\x20भारत','ै\x20दर्शकले\x20','सन्\x20२०१८\x20म','appendChil','साग\x20भलिबल\x20','नेपाल\x20गोल्','लन\x20टेनिस','ात\x20भयो?','थ्याङ्क\x20लो','त,\x20दोस्रोः','नेपालमा\x20रा','्पियनसिप\x20क','११औं\x20U-19\x20','टबल\x20प्रतिय','जिआनी\x20इन्फ','toggle','ेखि','सन्\x20१९२४,\x20','ति\x20देशको\x20स','नेपाली\x20क्र','ेल\x20कुन\x20हो?','qna-list','ent','गोल्डकप\x20फु','wer-label\x22','न्छ?','३४औं\x20विश्व','ट्र\x20कुन\x20हो','\x20डि’ओर\x20२०१','सुब्बा\x20गोल','ZEutw','7497EeSZQl','ोगिता\x20इलाम','ब्द\x20प्रयोग','YDbvI','.आर.यु\x20कन्','०७२\x20को\x20विज','ा\x20रारा\x20गोल','नाम\x20मेमोरि','ैभन्दा\x20ठूल','createElem','input','े\x20जित्ने\x20ट','पृथ्वी\x20खेल','्ण\x20प्राप्त','बंगलादेश','\x20हुन्?','आगामी\x20युरो','िजेता\x20टिम\x20','खेलकुद\x20परि','\x20\x20\x20<p\x20clas','जेताः\x20थ्री','राष्ट्रमण्','\x20श्रीलंका,','मा\x20पहिलो\x20स','िलाउने\x20खेल','258pKaPKC','\x20पदक\x20प्राप','ेताः\x20नेपाल','\x20\x20\x20\x20</div>','नेपालको\x20सब','फुटबल\x20(सकर','ताः\x20अफगानि','toLowerCas','देखि\x20सुरुव','ेखि\x20फेब्रु','ालले\x20कतिऔं','नेपालले\x20ओल','ेखी','िस\x20क्लब','लकुद\x20दिवस\x20','नेपालको\x20रा','\x20आर्मी\x20क्ल','\x20फुटबल\x20खेल','\x20कार्ली\x20लो','एक\x20दिवसीय\x20','र्ष:\x20राजुक','क्लब,\x20उपवि','message\x22>\x0a','्\x20१९८२\x20मा\x20','लसँग\x20सम्बन','search-inp','दङ्वा\x20गोल्','डकप\x20फुटबल\x20','७२\x20को\x20विजे','Football\x20A','filter','ोषणा)','ित\x20भए?','सबैभन्दा\x20ब','HAQrX','\x20गोल्डकप\x20फ','ArXas','ो\x20क्रिकेट\x20','\x20संघ\x20कुन\x20ह','\x20Wales\x20Cup','विजेताः\x20भा','ेता\x20टिम\x20कु','टमा\x20सहभागी','विश्वको\x20सब','तथा\x20विश्वक','तेह्रौं\x20आह','div\x20class=','प\x20क्रिकेटम','पविजेताः\x20भ','XmzSV','ले)','पविजेता:\x20र','बंगबन्धु\x20ग','१२\x20देश','=\x22loading-','\x20\x20\x20\x20\x20\x20\x20\x20\x20<','वकप\x20जित्ने','सकिँदैन,\x20य','40tqXTih','गर\x20टप्स\x20टस','ग्रान्ड\x20स्','answer','फाल्गुनन्द','्याम्पियनस','पोलो','click','\x20खेलिएको\x20ख','ता\x20टिम\x20कुन','ाकारा\x20(श्र','र\x20फेला\x20परे','्मा\x20३\x20स्वर','टबलमा\x20सबैभ','ाकिस्तान\x20भ','\x20पुरस्कार\x20','ुनेछ?','६\x20को\x20महिला','ेललाई\x20ओलम्','एल\x20साल्भाड','ल\x20कुन\x20हो?','हो?','ान\x20कप\x20राष्','स्थापक\x20कसल','ीलंका)','िण\x20एसियाली','\x20को\x20सम्मान','कुनै\x20पनि\x20ख','प्रतियोगित','चन्द्रमामा','ढी\x20विश्वकप','को\x20हो?','ाङ-\x20मर्स्य','ाली\x20खेलाडी','addEventLi','ेताः\x20बहराइ','िजेताः\x20टाइ','िलो\x20खेलकुद','ल\x20संघका\x20सं','त\x20गर्यो?','घको\x20स्थापन','र्धात्मक\x20ख','२०१६\x20को\x20वि','ङ्दी\x20युथ\x20क','question','कुमार\x20सांग','हेर्ने\x20खेल','(झण्डा)\x20मा','रचलन\x20कहिले','न\x20गरिन्छ?','ियोगिता\x20२०','म्पन्न\x20भयो','साग\x20गेममा\x20','छैठौं\x20स्था','यम\x20(भारत)','चेस\x20खेलको\x20','यो\x20भने\x20नेप','स्तान','FIFA\x20का\x20नव','ाई\x20मानिन्छ','्ड\x20२०१६\x20बा','ोदी\x20स्टेडि','जिल)','माइभ्याली\x20','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','घोडा\x20दौड','\x27सिम्बोल\x27\x20','EyxPY','s=\x22qna-que','११\x20ओटा','includes','\x20को\x20स्थापन','विजेताः\x20ने','्रोलाई\x20रजत','्लब','\x27डबल\x20फल\x27\x20श','ओलम्पिकको\x20','22bgRxjR','यल\x20क्लब,\x20उ','ाङ्दी,\x20उपव','िदिम\x20स्पोर','ा\x20२०१६\x20को\x20','विजेताः\x20EF','1323UAZVfd','फिफा\x20बालोन','पोखरा\x20कप\x20फ','विजेता\x20टिम','ANFA\x20को\x20पू','\x20कुन\x20देशला','्त\x20गर्यो?','\x20हुने\x20खेला','vMLbM','ता\x20पोखरा\x20२','्सी','\x20\x20\x20\x20\x20\x20','भलिबल\x20(सन्','नेपाल\x20फुटब','्ग\x20हुन्छन्','िकेट\x20टीमले','ो\x20प्रतिस्प','\x20\x20\x20\x20\x20<span','रातो,\x20र\x20से','रिन्छ?','हंगेरी\x20(सन','६\x20(नीलो,\x20प','\x20विजेता\x20टि','वि.सं.\x20२०१','र\x20कुन\x20हो?','खेलकुद\x20प्र','िम\x20कुन\x20हो?','\x20नेपाल\x20पुल','ोल्डकप\x20२०१','ि\x20वटा\x20स्वर','म्पिक\x20खेलम','पहिलो\x20दक्ष','पाल\x20आर्मी\x20','ता\x20धरान\x20२०','\x20सम्बन्धित','लाम\x20कुन\x20खे','को\x20उपाधि\x20क','न्दा\x20बढी\x20ज','हेंलो,\x20काल','getElement','्धित\x20छ?','डल\x20खेल\x20(Co','रिकेट\x20प्रत','अध्यक्ष\x20को','निर्वाचित\x20','सगरमाथा\x20आर','ो\x20सुरुवात\x20','न्?','\x20भएको\x20हो?','ैभन्दा\x20पुर','div>','\x20प्रतियोगि','\x22\x20कुन\x20खेलम','नित\x20भए?','ेन्टिनो','12144biEeEu','्वर्ण,\x20दोस','पिकमा\x20सहभा','१६\x20कहिले\x20स','वेश\x20गर्न\x20स','ोत\x20जाँच\x20गर','्छ?','विराट\x20गोल्','\x20को\x20हुन्?','यो?','कोपा\x20अमेरि','जेताः\x20त्रि','एको\x20हो?','ापना\x20कहिले','वकप\x20क्रिके','गोल\x20अन्तरल','सन्\x20१९३०\x20द','value','नेपाल\x20क्रि','ारत\x20२०१५\x20क','नेपालले\x20जम','मि)','किँदैन?','३\x20वटा\x20विश्','टिम\x20कुन\x20हो','ोरलाई\x20१०-१','स्तान)',')\x20मान्यता\x20','डामा\x20कतिवट','\x20सर्वप्रथम','याण्ड,\x20उपव','\x20११','\x20एकदिवसीय\x20','किस्तान,\x20उ','किन्छ\x20कि\x20स','न\x20देशबाट\x20भ','\x20स्टार\x20क्ल','\x20२०७२\x20को\x20व','र्वप्रथम\x20अ','ओलम्पिकमा\x20','>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','सन्\x20१९०४\x20द','ById','/div>\x0a\x20\x20\x20\x20','विजेताः\x20पा','10928LAasUW','ट\x20को\x20सम्मा','eexSx','\x22qna-answe','्न\x20वा\x20उत्त','विजेता:\x20सश','ुन\x20हो?','निमा\x20घर्ति','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20','न्तर्राष्ट','मृती\x20गोल्ड','ाल\x20आर्मी\x20क','प्रथमलाई\x20स','\x20गर्ने\x20नेप','ड\x20कप\x20कुन\x20ख','\x20कबड्डी\x20सं','्टिङ\x20क्लब','कप\x20हात्ती\x20','नन्धर\x20(गतव','ानो\x20खेलकुद','फिफाको\x20स्थ','ाई\x20कास्य\x20प','गल्फ','पविजेताः\x20फ','नेपाललाई\x20स','82356IxUwwy','तो\x20पृष्ठभू','चौथो\x20के.बि','र्ण\x20रूप\x20के','जित\x20बहादुर','भारत','ा\x20प्रदान\x20ग','केट\x20संघ\x20(व','G\x20स्वीजरल्','\x20शतक\x20प्रहा','ा\x20टिम\x20कुन\x20','ारत','े\x20२१','चथर\x20२०७२\x20क','\x20सुरुवात\x20क','\x20राष्ट्र\x20क','ात\x20गरिएको\x20','ा\x20२०७२\x20को\x20','्ने\x20राष्ट्','stion\x22>','अन्तर्राष्','कहिले\x20मनाइ','कहाँ\x20र\x20कहि','।\x20डेटा\x20स्र','length','स्टेडियम\x20क','रा\x20२०७२\x20को','हिलेदेखि\x20भ','उरुग्वे\x20(१','गुरु','अमेरिकाकी,','All\x20Nepal\x20','जावेद\x20मिया','\x20भोम्जन\x20स्','\x20सङ्घ\x20कुन\x20','ेल\x20मानिँदै','ि.सं.\x20२००४','ले\x20भएको\x20थि','४\x20वटा','message\x22>त','open','्रिमियर\x20क्','्डकप\x20फुटबल','1060870SCHqgk','ड\x20हुन\x20सकेन','गी\x20गराउन\x20क','DbdkO','हभागिता\x20आव','पेले\x20(ब्रा','\x20डिओर\x20अवार','्णसहित\x20कति','१८औं\x20बुढा\x20','योगिता\x20पोख','कप\x20हेटौंडा','\x20उपविजेता:','\x20(ग्रीसको\x20','trim','\x20कुनै\x20प्रश','्लब,\x20उपविज','ा\x20रिङ\x20छन्?','add','\x20हुन्छ?','आगामी\x20दशौं','जेता\x20टिम\x20क','qna-card','जेताः\x20झापा','िजेता:\x20नेप','.</span>\x0a\x20','श्यक\x20पर्दछ','र\x20गर्ने\x20खे','ट्रिय\x20टि\x20२','ा\x20लगातार\x20४','षद\x20(राखेप)','DOMContent','r-section\x22','प्राचीन\x20ओल','ेताः\x20मलेसि','s=\x22qna-ans','विश्वकप\x20फु','नरेन्द्र\x20म','\x20एक\x20मात्र\x20','\x22Prince\x20Of','के\x20उपाधि\x20द','ुन\x20देशमा\x20ह','ाजि\x20शाक्य)','ब्राजिल','१४\x20को\x20विजे','पहिलो\x20स्वर','ुटबल\x20प्रति','६\x20वटा\x20विश्','jbVXr','\x20तेस्रोः\x20प','नेपालको\x20पह'];_0x119e=function(){return _0x2ebca8;};return _0x119e();}const qnaData=[{'question':_0x31c752(0x24e)+_0x31c752(0x308)+_0x31c752(0x34e)+_0x31c752(0x14b)+_0x31c752(0x299),'answer':_0x31c752(0x320)+_0x31c752(0x35b)+_0x31c752(0x14d)+')'},{'question':_0x31c752(0x255)+_0x31c752(0x2f5)+_0x31c752(0x189)+_0x31c752(0x1ab)+_0x31c752(0x186)+_0x31c752(0x317),'answer':_0x31c752(0x188)+'ा'},{'question':_0x31c752(0x2e4)+_0x31c752(0x2aa)+_0x31c752(0x29b)+_0x31c752(0x2bf)+'?','answer':_0x31c752(0x1a0)+'रा'},{'question':_0x31c752(0x217)+_0x31c752(0x349)+_0x31c752(0x1fe)+_0x31c752(0x2b5),'answer':_0x31c752(0x2c5)},{'question':_0x31c752(0x335)+_0x31c752(0x347)+_0x31c752(0x30f)+_0x31c752(0x2cd)+_0x31c752(0x1fc)+_0x31c752(0x350)+_0x31c752(0x1d3)+_0x31c752(0x2b4)+_0x31c752(0x252)+_0x31c752(0x139)+_0x31c752(0x299),'answer':_0x31c752(0x337)+_0x31c752(0x222)},{'question':_0x31c752(0x2db)+_0x31c752(0x357)+_0x31c752(0x196),'answer':_0x31c752(0x148)+_0x31c752(0x267)+_0x31c752(0x1a9)},{'question':_0x31c752(0x275)+_0x31c752(0x308)+_0x31c752(0x1a8)+_0x31c752(0x1c9)+_0x31c752(0x314),'answer':_0x31c752(0x28a)},{'question':_0x31c752(0x2bb)+_0x31c752(0x1dd)+_0x31c752(0x331)+_0x31c752(0x317),'answer':_0x31c752(0x359)},{'question':_0x31c752(0x2a1)+_0x31c752(0x32b)+_0x31c752(0x28c)+_0x31c752(0x226),'answer':_0x31c752(0x351)},{'question':_0x31c752(0x241)+_0x31c752(0x1c5)+_0x31c752(0x18b)+_0x31c752(0x138)+_0x31c752(0x341),'answer':_0x31c752(0x194)},{'question':_0x31c752(0x318)+_0x31c752(0x205)+_0x31c752(0x2fc)+_0x31c752(0x1f8)+_0x31c752(0x22d)+'?','answer':_0x31c752(0x145)+_0x31c752(0x1b5)},{'question':_0x31c752(0x246)+_0x31c752(0x300)+_0x31c752(0x1d4)+_0x31c752(0x18d)+_0x31c752(0x137)+_0x31c752(0x144)+_0x31c752(0x31a),'answer':_0x31c752(0x31e)+_0x31c752(0x256)},{'question':_0x31c752(0x1aa)+_0x31c752(0x1a4)+_0x31c752(0x32a)+_0x31c752(0x164),'answer':_0x31c752(0x2c9)},{'question':_0x31c752(0x2f6)+_0x31c752(0x29d)+_0x31c752(0x201)+_0x31c752(0x209)+_0x31c752(0x2f4)+_0x31c752(0x1b7)+_0x31c752(0x19e),'answer':_0x31c752(0x14f)},{'question':_0x31c752(0x1c4)+_0x31c752(0x34a)+_0x31c752(0x2ac)+_0x31c752(0x1e5)+_0x31c752(0x2a3),'answer':_0x31c752(0x1f9)+'५'},{'question':_0x31c752(0x353)+_0x31c752(0x334)+_0x31c752(0x344)+_0x31c752(0x1a7)+_0x31c752(0x249)+_0x31c752(0x202)+'्?','answer':_0x31c752(0x358)+_0x31c752(0x1fa)},{'question':_0x31c752(0x174)+_0x31c752(0x1ca)+_0x31c752(0x305)+_0x31c752(0x13f)+_0x31c752(0x14e)+_0x31c752(0x317),'answer':_0x31c752(0x1a6)+_0x31c752(0x160)+_0x31c752(0x1ee)+')'},{'question':_0x31c752(0x26b)+_0x31c752(0x2a2)+_0x31c752(0x25b)+_0x31c752(0x13b)+_0x31c752(0x2ef),'answer':_0x31c752(0x17e)},{'question':_0x31c752(0x25d)+_0x31c752(0x276)+_0x31c752(0x279)+_0x31c752(0x170)+_0x31c752(0x35d)+_0x31c752(0x16e)+_0x31c752(0x1f3)+_0x31c752(0x306),'answer':_0x31c752(0x2b1)+_0x31c752(0x28e)+_0x31c752(0x29c)},{'question':_0x31c752(0x1e4)+_0x31c752(0x243)+_0x31c752(0x171)+_0x31c752(0x2cb)+_0x31c752(0x208)+'ो?','answer':_0x31c752(0x2ee)+'७'},{'question':_0x31c752(0x2d9)+_0x31c752(0x181)+_0x31c752(0x15d)+_0x31c752(0x143)+_0x31c752(0x2ed)+_0x31c752(0x1c8),'answer':_0x31c752(0x2cc)+_0x31c752(0x204)+_0x31c752(0x25f)+_0x31c752(0x245)+_0x31c752(0x332)+'ब'},{'question':_0x31c752(0x277)+_0x31c752(0x237)+_0x31c752(0x153)+_0x31c752(0x30a)+_0x31c752(0x2e0)+_0x31c752(0x236)+_0x31c752(0x273)+_0x31c752(0x1f7),'answer':_0x31c752(0x18f)+_0x31c752(0x1c2)+_0x31c752(0x2af)+_0x31c752(0x163)+_0x31c752(0x24c)+_0x31c752(0x25a)+'ब'},{'question':_0x31c752(0x15c)+_0x31c752(0x22f)+_0x31c752(0x153)+_0x31c752(0x30a)+_0x31c752(0x2f8)+_0x31c752(0x266)+_0x31c752(0x28d)+_0x31c752(0x196),'answer':_0x31c752(0x18f)+_0x31c752(0x1c2)+_0x31c752(0x1dc)+_0x31c752(0x15f)+_0x31c752(0x2f2)+_0x31c752(0x257)},{'question':_0x31c752(0x356)+_0x31c752(0x235)+_0x31c752(0x264)+_0x31c752(0x265)+_0x31c752(0x2a0)+_0x31c752(0x1bd)+_0x31c752(0x266)+_0x31c752(0x28d)+_0x31c752(0x196),'answer':_0x31c752(0x340)+_0x31c752(0x1d0)+_0x31c752(0x1a1)+_0x31c752(0x27d)+_0x31c752(0x1d7)+'१'},{'question':_0x31c752(0x288)+_0x31c752(0x26d)+_0x31c752(0x181)+_0x31c752(0x1e2)+_0x31c752(0x136)+_0x31c752(0x191)+_0x31c752(0x2f1),'answer':_0x31c752(0x19d)+_0x31c752(0x192)+_0x31c752(0x238)+_0x31c752(0x2d2)+_0x31c752(0x352)+_0x31c752(0x2d4)+_0x31c752(0x34b)},{'question':_0x31c752(0x2c3)+_0x31c752(0x229)+_0x31c752(0x21f)+_0x31c752(0x232)+_0x31c752(0x333)+_0x31c752(0x242)+_0x31c752(0x20b),'answer':_0x31c752(0x2cc)+_0x31c752(0x2f7)+_0x31c752(0x25f)+_0x31c752(0x245)+_0x31c752(0x332)+'ब'},{'question':_0x31c752(0x315)+_0x31c752(0x265)+_0x31c752(0x2a0)+_0x31c752(0x1bd)+_0x31c752(0x266)+_0x31c752(0x28d)+_0x31c752(0x196),'answer':_0x31c752(0x2cc)+_0x31c752(0x204)+_0x31c752(0x25f)+_0x31c752(0x16a)+_0x31c752(0x32d)},{'question':_0x31c752(0x13d)+_0x31c752(0x206)+_0x31c752(0x14a)+_0x31c752(0x345)+_0x31c752(0x15e)+_0x31c752(0x333)+_0x31c752(0x242)+_0x31c752(0x20b),'answer':_0x31c752(0x18f)+_0x31c752(0x2a4)+_0x31c752(0x2d3)+_0x31c752(0x16b)+_0x31c752(0x346)+_0x31c752(0x2ce)},{'question':_0x31c752(0x2be)+_0x31c752(0x303)+_0x31c752(0x302)+_0x31c752(0x240),'answer':_0x31c752(0x220)+_0x31c752(0x30d)},{'question':_0x31c752(0x2d8)+_0x31c752(0x15a)+_0x31c752(0x2c0)+_0x31c752(0x33c)+_0x31c752(0x30c),'answer':_0x31c752(0x1cc)+_0x31c752(0x2e1)},{'question':_0x31c752(0x2d8)+_0x31c752(0x22e)+_0x31c752(0x295)+_0x31c752(0x2fb)+_0x31c752(0x1d6)+_0x31c752(0x2ab),'answer':_0x31c752(0x147)+_0x31c752(0x25c)+'इड'},{'question':_0x31c752(0x27e)+_0x31c752(0x2f3)+_0x31c752(0x1e6)+_0x31c752(0x35e)+_0x31c752(0x299),'answer':_0x31c752(0x2cc)+_0x31c752(0x19a)+_0x31c752(0x2a7)+'न'},{'question':_0x31c752(0x19b)+_0x31c752(0x2a0)+_0x31c752(0x2d5)+_0x31c752(0x2da)+_0x31c752(0x1e3),'answer':_0x31c752(0x2cc)+_0x31c752(0x19a)+_0x31c752(0x212)},{'question':_0x31c752(0x216)+_0x31c752(0x2a0)+_0x31c752(0x2d5)+_0x31c752(0x2da)+_0x31c752(0x1e3),'answer':_0x31c752(0x272)+_0x31c752(0x1d5)+_0x31c752(0x1af)},{'question':_0x31c752(0x20a)+_0x31c752(0x19c)+_0x31c752(0x2ae)+_0x31c752(0x168)+_0x31c752(0x341),'answer':_0x31c752(0x33a)+_0x31c752(0x32f)+_0x31c752(0x27a)+_0x31c752(0x134)},{'question':_0x31c752(0x2b8)+_0x31c752(0x180)+_0x31c752(0x23e)+_0x31c752(0x348)+_0x31c752(0x2a5)+_0x31c752(0x316),'answer':_0x31c752(0x342)+_0x31c752(0x1f5)},{'question':_0x31c752(0x2b8)+_0x31c752(0x322)+_0x31c752(0x290)+_0x31c752(0x15b)+_0x31c752(0x24b)+_0x31c752(0x2dd),'answer':'६०'},{'question':_0x31c752(0x2b8)+_0x31c752(0x1d9)+_0x31c752(0x248)+_0x31c752(0x1e0)+_0x31c752(0x21b)+_0x31c752(0x247)+_0x31c752(0x184)+_0x31c752(0x292)+_0x31c752(0x2bc)+_0x31c752(0x254)+_0x31c752(0x1e9)+'ो?','answer':_0x31c752(0x2b9)+'न'},{'question':_0x31c752(0x21e)+_0x31c752(0x1a5)+_0x31c752(0x301)+_0x31c752(0x2b6)+_0x31c752(0x311)+_0x31c752(0x2b7)+'?','answer':_0x31c752(0x1bc)+_0x31c752(0x253)+_0x31c752(0x1b2)+'म'},{'question':_0x31c752(0x1e1)+_0x31c752(0x289)+_0x31c752(0x1b9)+_0x31c752(0x321)+_0x31c752(0x191)+_0x31c752(0x2f1),'answer':_0x31c752(0x272)+_0x31c752(0x1d5)+_0x31c752(0x250)+_0x31c752(0x2bd)},{'question':_0x31c752(0x167)+_0x31c752(0x198)+_0x31c752(0x21d)+_0x31c752(0x17c)+_0x31c752(0x294),'answer':_0x31c752(0x23f)},{'question':_0x31c752(0x1d8)+_0x31c752(0x152)+_0x31c752(0x301)+_0x31c752(0x2b6)+_0x31c752(0x17f)+_0x31c752(0x28d)+_0x31c752(0x196),'answer':_0x31c752(0x2cc)+_0x31c752(0x19a)+_0x31c752(0x175)+'या'},{'question':_0x31c752(0x22c)+_0x31c752(0x34c)+_0x31c752(0x18a)+_0x31c752(0x1cf)+_0x31c752(0x326)+'?','answer':_0x31c752(0x2d6)+_0x31c752(0x35c)+_0x31c752(0x32c)+_0x31c752(0x2a8)+_0x31c752(0x285)+_0x31c752(0x1b8)},{'question':_0x31c752(0x23d)+_0x31c752(0x293)+_0x31c752(0x1b0)+_0x31c752(0x29e)+_0x31c752(0x26a),'answer':_0x31c752(0x1ed)+_0x31c752(0x34d)+_0x31c752(0x25e)+_0x31c752(0x17d)},{'question':_0x31c752(0x1cb)+_0x31c752(0x29a)+_0x31c752(0x16f)+_0x31c752(0x193)+_0x31c752(0x2a0)+_0x31c752(0x13a)+_0x31c752(0x2da)+_0x31c752(0x1e3),'answer':_0x31c752(0x2cc)+_0x31c752(0x204)+_0x31c752(0x25f)+_0x31c752(0x319)+_0x31c752(0x1c6)+_0x31c752(0x1da)},{'question':_0x31c752(0x335)+_0x31c752(0x347)+_0x31c752(0x30f)+_0x31c752(0x2cd)+_0x31c752(0x1fc)+_0x31c752(0x350)+_0x31c752(0x1d3)+_0x31c752(0x2b4)+_0x31c752(0x252)+_0x31c752(0x139)+_0x31c752(0x299),'answer':_0x31c752(0x337)+_0x31c752(0x222)},{'question':_0x31c752(0x1ef)+_0x31c752(0x20e)+_0x31c752(0x1ac)+_0x31c752(0x219),'answer':_0x31c752(0x223)+_0x31c752(0x194)},{'question':_0x31c752(0x29f)+_0x31c752(0x296)+_0x31c752(0x310)+_0x31c752(0x156)+_0x31c752(0x224)+_0x31c752(0x158)+_0x31c752(0x16d)+'?','answer':_0x31c752(0x27f)},{'question':_0x31c752(0x34f)+_0x31c752(0x31b)+_0x31c752(0x307),'answer':_0x31c752(0x195)+_0x31c752(0x135)},{'question':_0x31c752(0x17a)+_0x31c752(0x271)+_0x31c752(0x30b)+_0x31c752(0x35a)+_0x31c752(0x2ea),'answer':_0x31c752(0x351)},{'question':_0x31c752(0x325)+_0x31c752(0x282)+_0x31c752(0x179)+_0x31c752(0x1ad)+_0x31c752(0x1ae),'answer':_0x31c752(0x159)+_0x31c752(0x2c2)},{'question':_0x31c752(0x177)+_0x31c752(0x291)+_0x31c752(0x19f)+_0x31c752(0x31d)+_0x31c752(0x23c)+_0x31c752(0x2f1),'answer':_0x31c752(0x2eb)+_0x31c752(0x261)+_0x31c752(0x297)+_0x31c752(0x327)+_0x31c752(0x1d2)+_0x31c752(0x27c)},{'question':_0x31c752(0x182)+_0x31c752(0x31c)+_0x31c752(0x274)+_0x31c752(0x2de)+_0x31c752(0x1eb)+'?','answer':_0x31c752(0x149)+_0x31c752(0x18e)+_0x31c752(0x328)},{'question':_0x31c752(0x185)+_0x31c752(0x2a9)+_0x31c752(0x270)+'ो?','answer':_0x31c752(0x320)+_0x31c752(0x35b)+_0x31c752(0x14d)+')'},{'question':_0x31c752(0x286)+_0x31c752(0x2fa)+_0x31c752(0x262)+_0x31c752(0x2ff),'answer':_0x31c752(0x218)},{'question':_0x31c752(0x2f0)+_0x31c752(0x1ff)+_0x31c752(0x17b)+_0x31c752(0x20f),'answer':_0x31c752(0x146)},{'question':_0x31c752(0x1e7)+_0x31c752(0x1a2)+_0x31c752(0x213)+_0x31c752(0x2b2)+_0x31c752(0x1e3),'answer':_0x31c752(0x24f)+')'},{'question':_0x31c752(0x2d0)+_0x31c752(0x2c6)+_0x31c752(0x2b3)+_0x31c752(0x1f1)+_0x31c752(0x2e5)+'?','answer':_0x31c752(0x2ec)+_0x31c752(0x2fd)+_0x31c752(0x1bb)+_0x31c752(0x2e9)+_0x31c752(0x355)+_0x31c752(0x323)},{'question':_0x31c752(0x210)+_0x31c752(0x2cf)+_0x31c752(0x233)+_0x31c752(0x166),'answer':_0x31c752(0x1ec)},{'question':_0x31c752(0x225)+_0x31c752(0x2e6)+_0x31c752(0x32e)+_0x31c752(0x13d)+_0x31c752(0x1b4)+_0x31c752(0x329)+_0x31c752(0x1de)+_0x31c752(0x199),'answer':_0x31c752(0x214)+'ा'},{'question':_0x31c752(0x1e8)+_0x31c752(0x1be)+_0x31c752(0x2dc)+_0x31c752(0x197),'answer':_0x31c752(0x359)},{'question':_0x31c752(0x275)+_0x31c752(0x239)+_0x31c752(0x26f)+_0x31c752(0x142)+_0x31c752(0x341),'answer':_0x31c752(0x178)+_0x31c752(0x2c1)+_0x31c752(0x2ba)},{'question':_0x31c752(0x259)+_0x31c752(0x1c1)+_0x31c752(0x298),'answer':_0x31c752(0x2e3)+_0x31c752(0x1f2)+_0x31c752(0x269)},{'question':_0x31c752(0x304)+_0x31c752(0x1ba)+_0x31c752(0x1c0)+_0x31c752(0x312)+_0x31c752(0x330)+_0x31c752(0x324),'answer':_0x31c752(0x283)+_0x31c752(0x2e7)+_0x31c752(0x2ad)+_0x31c752(0x14c)+'न'},{'question':_0x31c752(0x21c)+_0x31c752(0x1c1)+_0x31c752(0x258)+_0x31c752(0x13e)+_0x31c752(0x22b),'answer':_0x31c752(0x1c3)+'ते'}];function _0x5d88(_0x4abdef,_0x3d0200){const _0x53e5cf=_0x119e();return _0x5d88=function(_0x553164,_0x210f90){_0x553164=_0x553164-(0x10a4+-0x1604*0x1+0x694);let _0x64bfd9=_0x53e5cf[_0x553164];return _0x64bfd9;},_0x5d88(_0x4abdef,_0x3d0200);}document[_0x31c752(0x2a6)+_0x31c752(0x1db)](_0x31c752(0x172)+_0x31c752(0x211),()=>{const _0x58d2d6=_0x31c752,_0xfde60={'XmzSV':_0x58d2d6(0x1b6),'DbdkO':_0x58d2d6(0x169),'ZYgwG':function(_0x5adad9,_0x43349c){return _0x5adad9+_0x43349c;},'eexSx':_0x58d2d6(0x28b),'HAQrX':_0x58d2d6(0x151),'vMLbM':function(_0x227a5b,_0x25235a){return _0x227a5b===_0x25235a;},'EyxPY':function(_0x5e7d74,_0x577c58){return _0x5e7d74(_0x577c58);},'ZEutw':_0x58d2d6(0x227),'ArXas':_0x58d2d6(0x263)+'ut','jbVXr':_0x58d2d6(0x23b),'YDbvI':function(_0x21ce19,_0x443810){return _0x21ce19>_0x443810;},'tycUj':function(_0x511ca4,_0x1be0dc){return _0x511ca4(_0x1be0dc);},'xxTUX':_0x58d2d6(0x1f4)+_0x58d2d6(0x280)+_0x58d2d6(0x150)+_0x58d2d6(0x21a)+_0x58d2d6(0x155)+_0x58d2d6(0x140)+_0x58d2d6(0x313)+_0x58d2d6(0x207)+_0x58d2d6(0x309)},_0x20b254=document[_0x58d2d6(0x2fe)+_0x58d2d6(0x338)](_0xfde60[_0x58d2d6(0x230)]),_0x202365=document[_0x58d2d6(0x2fe)+_0x58d2d6(0x338)](_0xfde60[_0x58d2d6(0x26e)]);function _0x1e031c(_0x387c1f){const _0x2e0c07=_0x58d2d6,_0x1a0c6c={'Linvr':_0xfde60[_0x2e0c07(0x26c)]};_0x20b254[_0x2e0c07(0x1fb)]='';if(_0xfde60[_0x2e0c07(0x2df)](_0x387c1f[_0x2e0c07(0x141)],-0x4*0x8e9+-0x45a*-0x5+0xde2)){_0x20b254[_0x2e0c07(0x1fb)]=_0x2e0c07(0x1f4)+_0x2e0c07(0x280)+_0x2e0c07(0x260)+_0x2e0c07(0x2c4)+_0x2e0c07(0x2c4)+_0x2e0c07(0x203)+_0x2e0c07(0x1b1)+_0x2e0c07(0x2f9)+_0x2e0c07(0x162)+_0x2e0c07(0x33f)+_0x2e0c07(0x28f)+_0x2e0c07(0x200)+_0x2e0c07(0x2c4)+_0x2e0c07(0x24d);return;}_0x387c1f[_0x2e0c07(0x1bf)]((_0x366564,_0xfb9c1b)=>{const _0x53b84a=_0x2e0c07,_0x13cd6a=document[_0x53b84a(0x23a)+_0x53b84a(0x228)](_0xfde60[_0x53b84a(0x27b)]);_0x13cd6a[_0x53b84a(0x18c)][_0x53b84a(0x165)](_0xfde60[_0x53b84a(0x157)]);const _0x3c5740=_0xfde60[_0x53b84a(0x1ce)](_0xfb9c1b,0x2*0x22f+0xed1+-0x132e);_0x13cd6a[_0x53b84a(0x1fb)]=_0x53b84a(0x343)+_0x53b84a(0x2c4)+_0x53b84a(0x2e8)+_0x53b84a(0x1b3)+_0x53b84a(0x1cd)+_0x3c5740+(_0x53b84a(0x16c)+_0x53b84a(0x2c4)+_0x53b84a(0x2c4)+_0x53b84a(0x244)+_0x53b84a(0x2c8)+_0x53b84a(0x13c))+_0x366564[_0x53b84a(0x2b0)]+(_0x53b84a(0x1f0)+_0x53b84a(0x2c4)+_0x53b84a(0x281)+_0x53b84a(0x278)+_0x53b84a(0x33e)+_0x53b84a(0x173)+_0x53b84a(0x336)+_0x53b84a(0x2c4)+_0x53b84a(0x2c4)+_0x53b84a(0x1f6)+_0x53b84a(0x176)+_0x53b84a(0x22a)+_0x53b84a(0x187)+_0x53b84a(0x1a3)+_0x53b84a(0x2c4)+_0x53b84a(0x2c4)+_0x53b84a(0x244)+_0x53b84a(0x176)+_0x53b84a(0x20d))+_0x366564[_0x53b84a(0x287)]+(_0x53b84a(0x1f0)+_0x53b84a(0x2c4)+_0x53b84a(0x281)+_0x53b84a(0x339)+_0x53b84a(0x2c4)+_0x53b84a(0x2e2)),_0x13cd6a[_0x53b84a(0x2a6)+_0x53b84a(0x1db)](_0xfde60[_0x53b84a(0x33d)],()=>{const _0x3c237b=_0x53b84a;_0x13cd6a[_0x3c237b(0x18c)][_0x3c237b(0x221)](_0x1a0c6c[_0x3c237b(0x1c7)]);}),_0x20b254[_0x53b84a(0x215)+'d'](_0x13cd6a);});}function _0x52c28(_0x46f903){const _0x3460bf=_0x58d2d6,_0x5f101f=_0x46f903[_0x3460bf(0x251)+'e']()[_0x3460bf(0x161)]();if(_0xfde60[_0x3460bf(0x2df)](_0x5f101f,'')){_0xfde60[_0x3460bf(0x2c7)](_0x1e031c,qnaData);return;}const _0x551071=qnaData[_0x3460bf(0x268)](_0xe09e77=>_0xe09e77[_0x3460bf(0x2b0)][_0x3460bf(0x251)+'e']()[_0x3460bf(0x2ca)](_0x5f101f)||_0xe09e77[_0x3460bf(0x287)][_0x3460bf(0x251)+'e']()[_0x3460bf(0x2ca)](_0x5f101f));_0xfde60[_0x3460bf(0x2c7)](_0x1e031c,_0x551071);}_0x202365[_0x58d2d6(0x2a6)+_0x58d2d6(0x1db)](_0xfde60[_0x58d2d6(0x183)],_0x273d35=>{const _0x3f3e56=_0x58d2d6;_0xfde60[_0x3f3e56(0x2c7)](_0x52c28,_0x273d35[_0x3f3e56(0x1d1)][_0x3f3e56(0x31f)]);}),qnaData&&_0xfde60[_0x58d2d6(0x234)](qnaData[_0x58d2d6(0x141)],0x9c*0x40+0x1*0x6b8+0x2*-0x16dc)?_0xfde60[_0x58d2d6(0x1fd)](_0x1e031c,qnaData):_0x20b254[_0x58d2d6(0x1fb)]=_0xfde60[_0x58d2d6(0x190)];});
+    </script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>नेपालको आधुनिक इतिहास</title>
+<link href="https://fonts.googleapis.com/css2?family=Kalimati&display=swap" rel="stylesheet">
+<style>
+  body {
+  margin: 0;
+  font-family: 'Kalimati', sans-serif;
+  background: linear-gradient(135deg, #f9f7f6, #c9e4ff);
+  color: #222;
+}
+
+.app-container {
+  max-width: 500px;
+  margin: auto;
+  padding: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.app-header {
+  background: linear-gradient(90deg, #ff5f6d, #ffc371);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  animation: fadeInHeader 1.2s ease-in-out;
+}
+
+.app-header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.app-header p {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.timeline {
+  padding: 20px;
+}
+
+.timeline-item {
+  background: #f7f9fc;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-left: 5px solid #ff5f6d;
+  border-radius: 8px;
+  animation: fadeInItem 1s ease-in;
+}
+
+.timeline-item h2 {
+  font-size: 18px;
+  margin: 0 0 5px;
+  color: #ff5f6d;
+}
+
+.timeline-item p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@keyframes fadeInHeader {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeInItem {
+  from {opacity: 0; transform: translateX(-10px);}
+  to {opacity: 1; transform: translateX(0);}
+}
+
+@media screen and (max-width: 480px) {
+  .app-header h1 {
+    font-size: 20px;
+  }
+  .app-header p {
+    font-size: 14px;
+  }
+  .timeline-item h2 {
+    font-size: 16px;
+  }
+  .timeline-item p {
+    font-size: 13px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div class="app-container">
+  <header class="app-header">
+    <h1>नेपालको आधुनिक इतिहास</h1>
+    <p>पृथ्वीनारायण शाह पछिका राजाहरू</p>
+  </header>
+
+  <main class="timeline">
+    <div class="timeline-item" data-year="१">
+      <h2>१. पृथ्वीनारायण शाह</h2>
+      <p>नेपाल एकीकृत गर्ने महान् राजा।</p>
+    </div>
+
+    <div class="timeline-item" data-year="२">
+      <h2>२. प्रतापसिंह शाह</h2>
+      <p>शासन काल: १७९९–१८३१</p>
+    </div>
+
+    <div class="timeline-item" data-year="३">
+      <h2>३. रण बहादुर शाह</h2>
+      <p>शासन काल: १८३१–१८३४</p>
+    </div>
+
+    <div class="timeline-item" data-year="४">
+      <h2>४. ग्रिवाण युद्ध विक्रम शाह</h2>
+      <p>शासन काल: १८३४–१८५५</p>
+    </div>
+
+    <div class="timeline-item" data-year="५">
+      <h2>५. राजेन्द्र विक्रम शाह</h2>
+      <p>शासन काल: १८५५–१८७३</p>
+    </div>
+
+    <div class="timeline-item" data-year="६">
+      <h2>६. सुरेन्द्र विक्रम शाह</h2>
+      <p>शासन काल: १८७३–१९०४</p>
+    </div>
+
+    <div class="timeline-item" data-year="७">
+      <h2>७. युवराज त्रैलोक्य विक्रम शाह</h2>
+      <p>शासन काल: १९०४–१९३८</p>
+    </div>
+
+    <div class="timeline-item" data-year="८">
+      <h2>८. पृथ्वी वीर विक्रम शाह</h2>
+      <p>राजकुमार हुँदा नै शासनकाल: १९३८–१९६८</p>
+    </div>
+
+    <div class="timeline-item" data-year="९">
+      <h2>९. त्रिभुवन वीर विक्रम शाह</h2>
+      <p>शासन काल: १९६८–२०११</p>
+    </div>
+
+    <div class="timeline-item" data-year="१०">
+      <h2>१०. महेन्द्र वीर विक्रम शाह</h2>
+      <p>शासन काल: २०११–२०२८</p>
+    </div>
+
+    <div class="timeline-item" data-year="११">
+      <h2>११. बिरेन्द्र वीर विक्रम शाह</h2>
+      <p>शासन काल: २०२८–२०५८</p>
+    </div>
+
+    <div class="timeline-item" data-year="१२">
+      <h2>१२. दिपेन्द्र वीर विक्रम शाह</h2>
+      <p>३ दिन अचेत अवस्थामा रहँदै शासनकाल।</p>
+    </div>
+
+    <div class="timeline-item" data-year="१३">
+      <h2>१३. ज्ञानेन्द्र वीर विक्रम शाह</h2>
+      <p>शासन काल: २०५८–२०६६</p>
+    </div>
+  </main>
+</div>
+
+  <script>
+
+    const items = document.querySelectorAll(".timeline-item");
+
+    function isInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return (
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.bottom >= 0
+      );
+    }
+
+    function runAnimation() {
+      items.forEach(item => {
+        if (isInViewport(item)) {
+          item.classList.add("visible");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", runAnimation);
+    window.addEventListener("load", runAnimation);
+
+
+  </script>
+  </body>
+</html>

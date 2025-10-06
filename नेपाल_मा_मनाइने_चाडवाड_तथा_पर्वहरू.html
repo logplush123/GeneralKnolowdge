@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ne" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>नेपालका मुख्य चाडपर्व र जात्रा</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kalimati&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+  font-family: 'Kalimati', sans-serif;
+  background: linear-gradient(120deg, #ffe6f0, #d9f0ff);
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+  color: white;
+}
+
+header h1 {
+  font-size: 1.8em;
+  margin-bottom: 5px;
+}
+
+nav {
+  display: flex;
+  overflow-x: auto;
+  background: #fff;
+  border-bottom: 2px solid #ddd;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 15px;
+  background: #fff;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+  background: #f0f0f0;
+}
+
+.tab-button.active {
+  border-bottom: 3px solid #ff6f61;
+  font-weight: bold;
+}
+
+main {
+  padding: 20px;
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+h2 {
+  color: #ff6f61;
+}
+
+.festival {
+  background: white;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+  animation: cardPop 0.5s ease forwards;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #ff9a9e;
+  color: white;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes cardPop {
+  from {transform: scale(0.95); opacity: 0;}
+  to {transform: scale(1); opacity: 1;}
+}
+
+  </style>
+  
+</head>
+<body>
+  <header>
+    <h1>नेपालका मुख्य चाडपर्व र जात्रा</h1>
+    
+  </header>
+
+  <nav id="tab-nav">
+    <button class="tab-button active" data-tab="dashain">दशैं</button>
+    <button class="tab-button" data-tab="tihar">तिहार</button>
+    <button class="tab-button" data-tab="chhath">छठ पर्व</button>
+    <button class="tab-button" data-tab="others">अन्य पर्व / जात्रा</button>
+  </nav>
+
+  <main>
+    <section id="dashain" class="tab-content active">
+      <h2>दशैं</h2>
+      <p><strong>कसले मनाउँछन्:</strong> हिन्दू धर्मावलम्बीहरूले</p>
+      <p><strong>कहिले:</strong> आश्विन शुक्ल प्रतिपदादेखि पूर्णिमासम्म, १५ दिन</p>
+      <p><strong>कसको पूजा गरिन्छ:</strong> नवदुर्गा</p>
+      <h3>नवदुर्गा</h3>
+      <ul>
+        <li>१. शैलपुत्री</li>
+        <li>२. ब्रह्मचारी</li>
+        <li>३. चन्द्रघण्टा</li>
+        <li>४. कुस्माण्डा</li>
+        <li>५. स्कन्दमाता</li>
+        <li>६. कात्यायनी</li>
+        <li>७. कालरात्री</li>
+        <li>८. महागौरी</li>
+        <li>९. सिद्धिरात्री</li>
+      </ul>
+    </section>
+
+    <section id="tihar" class="tab-content">
+      <h2>तिहार (वायमपञ्चक)</h2>
+      <p><strong>कसले मनाउँछन्:</strong> हिन्दू धर्मावलम्बीहरूले</p>
+      <p><strong>कहिले:</strong> कार्तिक कृष्ण त्रयोदशीदेखि द्वितीयासम्म, ५ दिन</p>
+      <p><strong>कसको पूजा गरिन्छ:</strong> काग, कुकुर, लक्ष्मी, गोवंश तथा अन्तिम दिन भाइपूजा</p>
+    </section>
+
+    <section id="chhath" class="tab-content">
+      <h2>छठ पर्व</h2>
+      <p><strong>कसले मनाउँछन्:</strong> विशेषतः मैथिली समुदाय</p>
+      <p><strong>कहिले:</strong> कार्तिक शुक्लपक्षको षष्ठी तिथि</p>
+      <p><strong>कहाँ:</strong> जनकपुरमा</p>
+      <p><strong>किन:</strong> सूर्यको उपासना र व्रतबाट मनोकांक्षा पुरा गर्नु</p>
+    </section>
+
+    <section id="others" class="tab-content">
+      <h2>अन्य पर्व / जात्रा</h2>
+      <div class="festival">
+        <h3>बुद्ध जयन्ती</h3>
+        <p><strong>कसले मनाउँछन्:</strong> बौद्ध धर्मावलम्बी</p>
+        <p><strong>कहिले:</strong> वैशाख शुक्ल पूर्णिमा</p>
+        <p><strong>कहाँ:</strong> बौद्ध मठ, विहार, गुम्बा तथा स्तूप</p>
+        <p><strong>किन:</strong> भगवान बुद्धको जन्म, बुद्धत्व प्राप्ति तथा महापरिनिर्वाण</p>
+      </div>
+
+      <div class="festival">
+        <h3>होली</h3>
+        <p><strong>कसले मनाउँछन्:</strong> हिन्दू धर्मावलम्बी</p>
+        <p><strong>कहिले:</strong> फाल्गुण शुक्ल पूर्णिमा</p>
+        <p><strong>किन:</strong> विष्णुभक्त प्रह्लादको स्मरण</p>
+      </div>
+
+      <div class="festival">
+        <h3>ल्होसार</h3>
+        <p><strong>कसले मनाउँछन्:</strong> शेर्पा, गुरुङ, तामाङ, भोटे, थकाली आदि</p>
+        <ul>
+          <li>गुरुङ — पौष १५ गते</li>
+          <li>तामाङ — माघ शुक्ल प्रतिपदा</li>
+          <li>शेर्पा — फाल्गुण शुक्ल प्रतिपदा</li>
+        </ul>
+      </div>
+
+      <div class="festival">
+        <h3>क्रिस्मस</h3>
+        <p><strong>कसले मनाउँछन्:</strong> इसाई धर्मावलम्बी</p>
+        <p><strong>कहिले:</strong> डिसेम्बर २५</p>
+        <p><strong>किन:</strong> जेसस क्राइस्टको जन्मदिन</p>
+      </div>
+
+      <div class="festival">
+        <h3>इद</h3>
+        <p><strong>कसले मनाउँछन्:</strong> मुसलमान</p>
+        <p><strong>कहिले:</strong> हिजरी संवतको नवौं महिना</p>
+      </div>
+    </section>
+  </main>
+
+  
+  <script>
+    document.querySelectorAll('.tab-button').forEach(button => {
+  button.addEventListener('click', () => {
+    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+
+    button.classList.add('active');
+    document.getElementById(button.dataset.tab).classList.add('active');
+  });
+});
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>नेपालको राजनीतिक विभाजन & Quiz</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap');
+:root{
+--color-federal:#3498db;
+--color-province-1:#e74c3c;
+--color-province-2:#2ecc71;
+--color-bagmati:#9b59b6;
+--color-gandaki:#f1c40f;
+--color-lumbini:#34495e;
+--color-karnali:#e67e22;
+--color-sudurpaschim:#1abc9c;
+--bg-color:#f4f7f9;
+--text-color:#333;
+--heading-color:#2c3e50;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Mukta',sans-serif;background:var(--bg-color);color:var(--text-color);padding:20px;line-height:1.6;}
+.container{max-width:1100px;margin:0 auto;background:#fff;padding:30px;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+h1,h2,h3{text-align:center;color:var(--heading-color);margin-bottom:20px;}
+h1{border-bottom:3px solid var(--color-federal);padding-bottom:10px;text-transform:uppercase;}
+.province-section{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-bottom:30px;}
+.province{padding:20px;border-radius:8px;color:#fff;cursor:pointer;transition:0.3s;position:relative;}
+.province:hover{transform:translateY(-5px);box-shadow:0 6px 20px rgba(0,0,0,0.2);}
+.province-1{background:var(--color-province-1);}
+.province-2{background:var(--color-province-2);}
+.province-3{background:var(--color-bagmati);}
+.province-4{background:var(--color-gandaki);}
+.province-5{background:var(--color-lumbini);}
+.province-6{background:var(--color-karnali);}
+.province-7{background:var(--color-sudurpaschim);}
+.details{background:#fff;color:black; padding:15px;border-radius:8px;margin-top:10px;display:none;}
+.details p{margin:5px 0;}
+.quiz-section{margin-top:40px;padding:25px;background:#f8f9fa;border-radius:10px;position:relative;}
+.question{display:none;}
+.question.active{display:block;}
+.options label{display:block;background:#fff;padding:10px;margin-bottom:10px;border-radius:5px;cursor:pointer;transition:0.3s;}
+.options label:hover{background:#e0e6e8;}
+.feedback{margin-top:10px;font-weight:bold;display:none;padding:8px;border-radius:5px;}
+.correct{background:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+.incorrect{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+button{padding:10px 20px;border:none;border-radius:5px;cursor:pointer;background:var(--color-federal);color:#fff;transition:0.3s;}
+button:hover{background:#2980b9;}
+.progress-bar{width:100%;background:#ddd;height:15px;border-radius:8px;margin-bottom:20px;overflow:hidden;}
+.progress-fill{height:100%;width:0%;background:var(--color-federal);transition:width 0.4s;}
+.dropdown{margin:10px 0;}
+select{padding:8px;width:100%;border-radius:5px;border:1px solid #ccc;background:#fff;color:black;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>नेपालको राजनीतिक विभाजन</h1>
+
+<h2>प्रदेशहरूको जानकारी</h2>
+<div class="province-section" id="province-section">
+<!-- Provinces dynamically added by JS -->
+</div>
+
+<div class="quiz-section">
+<h2>अभ्यास क्विज</h2>
+<div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+<div id="quiz-container">
+<!-- Questions dynamically added by JS -->
+</div>
+</div>
+</div>
+
+<script>
+const provinces = [
+{ id:1, name:'कोशी प्रदेश', capital:'विराटनगर', districts:['ताप्लेजुङ','पाँचथर','इलाम','संखुवासभा','तेह्रथुम','धनकुटा','भोजपुर','खोटाङ','सोलुखुम्बु','ओखलढुंगा','उदयपुर','झापा','मोरङ','सुनसरी'], area:'२५,९०५ व.कि.मि.', population:'४५,३४,९४३', literacy:'७५%', density:'१७५ प्रति व.कि.मि.'},
+{ id:2, name:'मधेश प्रदेश', capital:'जनकपुर', districts:['सप्तरी','सिराहा','धनुषा','महोत्तरी','सर्लाही','रौतहट','बारा','पर्सा'], area:'९,६६१ व.कि.मि.', population:'५४,०४,१४५', literacy:'६८%', density:'५६ प्रति व.कि.मि.'},
+{ id:3, name:'बागमती प्रदेश', capital:'हेटौंडा', districts:['दोलखा','रामेछाप','सिन्धुली','काभ्रेपलाञ्चोक','सिन्धुपाल्चोक','रसुवा','नुवाकोट','धादिङ','चितवन','मकवानपुर','भक्तपुर','ललितपुर','काठमाडौं'], area:'२०,३०० व.कि.मि.', population:'५५,२९,४५२', literacy:'८१%', density:'२७२ प्रति व.कि.मि.'},
+{ id:4, name:'गण्डकी प्रदेश', capital:'पोखरा', districts:['गोरखा','लमजुङ','तनहुँ','कास्की','मनाङ','मुस्ताङ','पर्वत','स्याङ्जा','म्याग्दी','बाग्लुङ','नवलपरासी (पूर्व)'], area:'२१,७३३ व.कि.मि.', population:'२४,०३,७५७', literacy:'७६%', density:'१११ प्रति व.कि.मि.'},
+{ id:5, name:'लुम्बिनी प्रदेश', capital:'बुटवल', districts:['नवलपरासी (पश्चिम)','रुपन्देही','कपिलवस्तु','पाल्पा','अर्घाखाँची','गुल्मी','रुकुम (पूर्व)','रोल्पा','प्यूठान','दाङ','बाँके','बर्दिया'], area:'२२,२८८ व.कि.मि.', population:'४४,९९,२७२', literacy:'७३%', density:'२०२ प्रति व.कि.मि.'},
+{ id:6, name:'कर्णाली प्रदेश', capital:'वीरेन्द्रनगर (सुर्खेत)', districts:['रुकुम (पश्चिम)','सल्यान','डोल्पा','जुम्ला','मुगु','हुम्ला','कालिकोट','जाजरकोट','दैलेख','सुर्खेत'], area:'२७,९८४ व.कि.मि.', population:'१५,७०,४१८', literacy:'६५%', density:'५६ प्रति व.कि.मि.'},
+{ id:7, name:'सुदूरपश्चिम प्रदेश', capital:'गोदावरी (कैलाली)', districts:['बाजुरा','बझाङ','डोटी','अछाम','दार्चुला','बैतडी','डडेलधुरा','कञ्चनपुर','कैलाली'], area:'१९,५३९ व.कि.मि.', population:'२५,५२,५१७', literacy:'७०%', density:'१३१ प्रति व.कि.मि.'},
+];
+
+// Render provinces
+const provSection = document.getElementById('province-section');
+provinces.forEach(p=>{
+    const div=document.createElement('div');
+    div.className=`province province-${p.id}`;
+    div.innerHTML=`<h3>${p.name}</h3><p>राजधानी: ${p.capital}</p>
+    <div class="dropdown">
+        <select onchange="showProvinceDetails(${p.id}, this.value)">
+        <option value="">-- जानकारी छान्नुहोस् --</option>
+        <option value="districts">जिल्ला</option>
+        <option value="area">क्षेत्रफल</option>
+        <option value="population">जनसंख्या</option>
+        <option value="literacy">साक्षरता %</option>
+        <option value="density">जनघनत्व</option>
+        </select>
+        <div class="details" id="details-${p.id}"></div>
+    </div>`;
+    provSection.appendChild(div);
+});
+
+function showProvinceDetails(id,type){
+    const data=provinces.find(p=>p.id===id);
+    const details=document.getElementById(`details-${id}`);
+    let html='';
+    switch(type){
+        case 'districts': html='जिल्ला: '+data.districts.join(', '); break;
+        case 'area': html='क्षेत्रफल: '+data.area; break;
+        case 'population': html='जनसंख्या: '+data.population; break;
+        case 'literacy': html='साक्षरता %: '+data.literacy; break;
+        case 'density': html='जनघनत्व: '+data.density; break;
+        default: html=''; break;
+    }
+    details.innerHTML=html;
+    details.style.display=html? 'block':'none';
+}
+
+// Quiz Logic
+let quizData=[];
+provinces.forEach(p=>{
+    quizData.push({
+        question:`${p.name} को राजधानी कुन हो?`,
+        options:[p.capital,'काठमाडौं','पोखरा','बुटवल'],
+        answer:p.capital
+    });
+    quizData.push({
+        question:`${p.name} मा जम्मा कति जिल्ला छन्?`,
+        options:[p.districts.length,12,14,10],
+        answer:p.districts.length
+    });
+    quizData.push({
+        question:`${p.name} को क्षेत्रफल कति छ?`,
+        options:[p.area,'२५,००० व.कि.मि.','२०,००० व.कि.मि.','३०,००० व.कि.मि.'],
+        answer:p.area
+    });
+});
+
+const quizContainer=document.getElementById('quiz-container');
+let currentQuestion=0;
+
+function renderQuestion(){
+    quizContainer.innerHTML='';
+    const q=quizData[currentQuestion];
+    const qDiv=document.createElement('div');
+    qDiv.className='question active';
+    qDiv.innerHTML=`<p>${currentQuestion+1}. ${q.question}</p>
+    <div class="options">${q.options.map(opt=>`<label><input type="radio" name="option">${opt}</label>`).join('')}</div>
+    <div class="feedback"></div>
+    <div style="margin-top:10px;"><button onclick="nextQuestion()">Next</button></div>`;
+    quizContainer.appendChild(qDiv);
+    updateProgress();
+}
+
+function nextQuestion(){
+    const selected=document.querySelector('input[name="option"]:checked');
+    const feedback=document.querySelector('.feedback');
+    if(!selected){
+        feedback.textContent='कृपया एउटा विकल्प छान्नुहोस्।';
+        feedback.className='feedback incorrect';
+        feedback.style.display='block';
+        return;
+    }
+    const val=selected.parentElement.textContent.trim();
+    if(val==quizData[currentQuestion].answer){
+        feedback.textContent='सही उत्तर!';
+        feedback.className='feedback correct';
+    }else{
+        feedback.textContent=`गलत उत्तर! सही: ${quizData[currentQuestion].answer}`;
+        feedback.className='feedback incorrect';
+    }
+    feedback.style.display='block';
+    setTimeout(()=>{
+        currentQuestion++;
+        if(currentQuestion>=quizData.length){
+            quizContainer.innerHTML='<h3>Quiz समाप्त भयो! सबै प्रश्न जवाफ दिइयो।</h3>';
+            document.getElementById('progress-fill').style.width='100%';
+        }else{
+            renderQuestion();
+        }
+    },1000);
+}
+
+function updateProgress(){
+    const fill=document.getElementById('progress-fill');
+    fill.style.width=`${((currentQuestion)/quizData.length)*100}%`;
+}
+
+renderQuestion();
+</script>
+</body>
+</html>

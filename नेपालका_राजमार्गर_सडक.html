@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>नेपालका राजमार्ग तथा सडकहरू</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #004d40;
+            --secondary-color: #f0f0f0;
+            --accent-color: #26a69a;
+            --text-color: #333;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Mukta', sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab-button {
+            padding: 12px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 5px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .tab-button:hover {
+            background-color: #00332e;
+            transform: translateY(-2px);
+        }
+
+        .tab-button.active {
+            background-color: var(--accent-color);
+            transform: translateY(0);
+        }
+
+        .content-section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .content-section.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .grid-container {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .road-card {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .road-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .road-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .road-card p {
+            margin: 5px 0;
+        }
+
+        .road-card p strong {
+            color: var(--primary-color);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>नेपालका प्रमुख राजमार्ग तथा सडकहरू</h1>
+
+    <div class="tabs">
+        <button class="tab-button active" onclick="showTab('rajmarg')">राष्ट्रिय राजमार्गहरू</button>
+        <button class="tab-button" onclick="showTab('anyasarak')">अन्य सडकहरू</button>
+    </div>
+
+    <div id="rajmarg" class="content-section active">
+        <div class="grid-container">
+            <div class="road-card">
+                <h3>पूर्व-पश्चिम राजमार्ग</h3>
+                <p><strong>राष्ट्रिय सङ्केत:</strong> AH2</p>
+                <p><strong>लम्बाई:</strong> १०२७.६७ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> मेची पुल, झापा</p>
+                <p><strong>समाप्ति बिन्दु:</strong> गड्डाचौकी सीमा, कञ्चनपुर</p>
+            </div>
+            <div class="road-card">
+                <h3>त्रिभुवन राजमार्ग</h3>
+                <p><strong>राष्ट्रिय सङ्केत:</strong> AH42</p>
+                <p><strong>लम्बाई:</strong> १५९.६६ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> त्रिपुरेश्वर, काठमाडौँ</p>
+                <p><strong>समाप्ति बिन्दु:</strong> सिर्सिया पुल, वीरगञ्ज</p>
+            </div>
+            <div class="road-card">
+                <h3>अरनिको राजमार्ग</h3>
+                <p><strong>राष्ट्रिय सङ्केत:</strong> AH42</p>
+                <p><strong>लम्बाई:</strong> ११२.८३ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> माइतीघर, काठमाडौँ</p>
+                <p><strong>समाप्ति बिन्दु:</strong> मितेरी पुल, कोदारी</p>
+            </div>
+            <div class="road-card">
+                <h3>पृथ्वी राजमार्ग</h3>
+                <p><strong>लम्बाई:</strong> १७३.४३ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> नौबिसे</p>
+                <p><strong>समाप्ति बिन्दु:</strong> पृथ्वी चौक, पोखरा</p>
+            </div>
+            <div class="road-card">
+                <h3>मदन आश्रित राजमार्ग</h3>
+                <p><strong>लम्बाई:</strong> ३६.१६ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> पुलचौक, नारायणघाट</p>
+                <p><strong>समाप्ति बिन्दु:</strong> मुग्लिङ</p>
+            </div>
+            <div class="road-card">
+                <h3>बीपी राजमार्ग</h3>
+                <p><strong>लम्बाई:</strong> १९८ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> भित्तामोड सीमा, जलेश्वर</p>
+                <p><strong>समाप्ति बिन्दु:</strong> धुलिखेल</p>
+            </div>
+            <div class="road-card">
+                <h3>मेची राजमार्ग</h3>
+                <p><strong>लम्बाई:</strong> २६८.०६ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> केचना सीमा, भद्रपुर</p>
+                <p><strong>समाप्ति बिन्दु:</strong> ताप्लेजुङ</p>
+            </div>
+            <div class="road-card">
+                <h3>कोशी राजमार्ग</h3>
+                <p><strong>लम्बाई:</strong> १५८.४६ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> रानी सीमा, विराटनगर</p>
+                <p><strong>समाप्ति बिन्दु:</strong> म्याङ्लुङ</p>
+            </div>
+            <div class="road-card">
+                <h3>सगरमाथा राजमार्ग</h3>
+                <p><strong>लम्बाई:</strong> २६५ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> कदमाहा, सप्तरी</p>
+                <p><strong>समाप्ति बिन्दु:</strong> सोलुसल्लेरी, सोलुखुम्बु</p>
+            </div>
+            <div class="road-card">
+                <h3>सिद्धार्थ राजमार्ग</h3>
+                <p><strong>लम्बाई:</strong> १८१.२२ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> सुनौली सीमा</p>
+                <p><strong>समाप्ति बिन्दु:</strong> पृथ्वीचौक, पोखरा</p>
+            </div>
+            <div class="road-card">
+                <h3>राप्ती राजमार्ग</h3>
+                <p><strong>लम्बाई:</strong> १९६ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> अमेलिया, दाङ</p>
+                <p><strong>समाप्ति बिन्दु:</strong> मुसिकोट, रुकुम</p>
+            </div>
+            <div class="road-card">
+                <h3>रत्न राजमार्ग</h3>
+                <p><strong>लम्बाई:</strong> ११३.०८८ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> जमुनिया सीमा, नेपालगञ्ज</p>
+                <p><strong>समाप्ति बिन्दु:</strong> बाङ्गेसिमल, सुर्खेत</p>
+            </div>
+            <div class="road-card">
+                <h3>कर्णाली राजमार्ग</h3>
+                <p><strong>लम्बाई:</strong> २२० किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> सुर्खेत, बाङ्गेसिमल</p>
+                <p><strong>समाप्ति बिन्दु:</strong> जुम्ला, कालीकोट</p>
+            </div>
+            <div class="road-card">
+                <h3>महाकाली राजमार्ग</h3>
+                <p><strong>लम्बाई:</strong> ३२० किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> मोहना पुल, धनगढी</p>
+                <p><strong>समाप्ति बिन्दु:</strong> दार्चुला</p>
+            </div>
+            <div class="road-card">
+                <h3>सेती राजमार्ग</h3>
+                <p><strong>लम्बाई:</strong> ६५.९६ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> स्याउले, डडेलधुरा</p>
+                <p><strong>समाप्ति बिन्दु:</strong> समुवागद</p>
+            </div>
+            <div class="road-card">
+                <h3>कान्ती राजपथ</h3>
+                <p><strong>लम्बाई:</strong> ९० किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> सातदोबाटो, ललितपुर</p>
+                <p><strong>समाप्ति बिन्दु:</strong> बुद्धचोक, हेटौँडा</p>
+            </div>
+            <div class="road-card">
+                <h3>हुलाकी राजमार्ग</h3>
+                <p><strong>लम्बाई:</strong> १७९२ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> मेची</p>
+                <p><strong>समाप्ति बिन्दु:</strong> महाकाली</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="anyasarak" class="content-section">
+        <div class="grid-container">
+            <div class="road-card">
+                <h3>बिर्तामोड - चन्द्रगढी भद्रपुर सडक</h3>
+                <p><strong>लम्बाई:</strong> १२.५३ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> बिर्तामोड</p>
+                <p><strong>समाप्ति बिन्दु:</strong> चन्द्रगढी, भद्रपुर</p>
+            </div>
+            <div class="road-card">
+                <h3>पाडाजुंगी दमक - गौरीगञ्ज सडक</h3>
+                <p><strong>लम्बाई:</strong> २१.९६ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> पाडाजुंगी</p>
+                <p><strong>समाप्ति बिन्दु:</strong> गौरीगञ्ज</p>
+            </div>
+            <div class="road-card">
+                <h3>भारदह - हनुमाननगर - राजविराज सडक</h3>
+                <p><strong>लम्बाई:</strong> १७.७५ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> भारदह</p>
+                <p><strong>समाप्ति बिन्दु:</strong> राजविराज</p>
+            </div>
+            <div class="road-card">
+                <h3>रूपनी - राजविराज - कुनौली सडक</h3>
+                <p><strong>लम्बाई:</strong> २३.१ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> रूपनी</p>
+                <p><strong>समाप्ति बिन्दु:</strong> कुनौली सीमाना</p>
+            </div>
+            <div class="road-card">
+                <h3>चुहरवा - सिराहा - माडर सडक</h3>
+                <p><strong>लम्बाई:</strong> २६.६६ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> चुहरवा</p>
+                <p><strong>समाप्ति बिन्दु:</strong> माडर सीमाना</p>
+            </div>
+            <div class="road-card">
+                <h3>नवलपुर - मलंगवा सडक</h3>
+                <p><strong>लम्बाई:</strong> २६.६३ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> नवलपुर</p>
+                <p><strong>समाप्ति बिन्दु:</strong> मलंगवा सीमाना</p>
+            </div>
+            <div class="road-card">
+                <h3>चन्द्रनिगाहपुर - गौर सडक</h3>
+                <p><strong>लम्बाई:</strong> ४४.१४ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> चन्द्रनिगाहपुर</p>
+                <p><strong>समाप्ति बिन्दु:</strong> गौर सीमाना</p>
+            </div>
+            <div class="road-card">
+                <h3>बर्दाघाट - प्रतापपुर - सूरजपुर सडक</h3>
+                <p><strong>लम्बाई:</strong> २३.०५ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> बर्दाघाट</p>
+                <p><strong>समाप्ति बिन्दु:</strong> हरपुर (सूरजपुर) सीमाना</p>
+            </div>
+            <div class="road-card">
+                <h3>सुनवल - परासी सडक</h3>
+                <p><strong>लम्बाई:</strong> ८.९५ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> सुनवल</p>
+                <p><strong>समाप्ति बिन्दु:</strong> परासी</p>
+            </div>
+            <div class="road-card">
+                <h3>जीतपुर - तौलीहवा - खुनुवा सडक</h3>
+                <p><strong>लम्बाई:</strong> ३३.३९ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> जीतपुर</p>
+                <p><strong>समाप्ति बिन्दु:</strong> खुनुवा, तौलीहवा सीमाना</p>
+            </div>
+            <div class="road-card">
+                <h3>गोरुसिंगे -सन्धिखर्क सडक</h3>
+                <p><strong>लम्बाई:</strong> ६९.१३ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> गोरुसिंगे</p>
+                <p><strong>समाप्ति बिन्दु:</strong> सन्धिखर्क</p>
+            </div>
+            <div class="road-card">
+                <h3>चन्द्रौटा – कृष्णनगर सडक</h3>
+                <p><strong>लम्बाई:</strong> २०.०६ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> चन्द्रौटा</p>
+                <p><strong>समाप्ति बिन्दु:</strong> कृष्णनगर</p>
+            </div>
+            <div class="road-card">
+                <h3>भालूवांग - रोल्पा सडक</h3>
+                <p><strong>लम्बाई:</strong> १०७.७९ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> भालूवांग</p>
+                <p><strong>समाप्ति बिन्दु:</strong> लिवांग, रोल्पा</p>
+            </div>
+            <div class="road-card">
+                <h3>चकचके - प्युठान सडक</h3>
+                <p><strong>लम्बाई:</strong> २५.०० किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> चकचके</p>
+                <p><strong>समाप्ति बिन्दु:</strong> प्युठान</p>
+            </div>
+            <div class="road-card">
+                <h3>लमही - घोराही - तुलसीपुर सडक</h3>
+                <p><strong>लम्बाई:</strong> ४६.६२ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> लमही</p>
+                <p><strong>समाप्ति बिन्दु:</strong> तुलसीपुर</p>
+            </div>
+            <div class="road-card">
+                <h3>भूरीगाउँ - गुलरिया सडक</h3>
+                <p><strong>लम्बाई:</strong> ३२.३१ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> भूरीगाउँ</p>
+                <p><strong>समाप्ति बिन्दु:</strong> गुलरिया</p>
+            </div>
+            <div class="road-card">
+                <h3>जुंगा - राजापुर सडक</h3>
+                <p><strong>लम्बाई:</strong> २८.१२ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> जुंगा</p>
+                <p><strong>समाप्ति बिन्दु:</strong> राजापुर</p>
+            </div>
+            <div class="road-card">
+                <h3>वीरगञ्ज - कलैया सडक</h3>
+                <p><strong>लम्बाई:</strong> ११.६६ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> वीरगञ्ज</p>
+                <p><strong>समाप्ति बिन्दु:</strong> कलैया</p>
+            </div>
+            <div class="road-card">
+                <h3>भईसे - भीमफेदी सडक</h3>
+                <p><strong>लम्बाई:</strong> १२.०० किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> भईसे</p>
+                <p><strong>समाप्ति बिन्दु:</strong> भीमफेदी</p>
+            </div>
+            <div class="road-card">
+                <h3>पालुंग - कुलेखानी - बालाजू बाईपास सडक</h3>
+                <p><strong>लम्बाई:</strong> २०.५७ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> पालुंग</p>
+                <p><strong>समाप्ति बिन्दु:</strong> कुलेखानी</p>
+            </div>
+            <div class="road-card">
+                <h3>काठमाण्डौं - त्रिशुली - धुन्चे सडक</h3>
+                <p><strong>लम्बाई:</strong> ११८.२६ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> त्रिपुरेश्वर</p>
+                <p><strong>समाप्ति बिन्दु:</strong> धुन्चे</p>
+            </div>
+            <div class="road-card">
+                <h3>बल्खु - दक्षिणकाली सडक</h3>
+                <p><strong>लम्बाई:</strong> १६.३९ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> बल्खु रिंग रोड</p>
+                <p><strong>समाप्ति बिन्दु:</strong> दक्षिणकाली</p>
+            </div>
+            <div class="road-card">
+                <h3>सातदोबाटो - टिकाभैरव सडक</h3>
+                <p><strong>लम्बाई:</strong> ११.५७ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> सातदोबाटो, रिंग रोड</p>
+                <p><strong>समाप्ति बिन्दु:</strong> टिकाभैरव</p>
+            </div>
+            <div class="road-card">
+                <h3>सातदोबाटो - फूलचौकी सडक</h3>
+                <p><strong>लम्बाई:</strong> २३.२४ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> सातदोबाटो</p>
+                <p><strong>समाप्ति बिन्दु:</strong> फूलचौकी</p>
+            </div>
+            <div class="road-card">
+                <h3>महाराजगञ्ज - बुढानीलकण्ठ सडक</h3>
+                <p><strong>लम्बाई:</strong> ४.८९ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> महाराजगञ्ज, रिंग रोड</p>
+                <p><strong>समाप्ति बिन्दु:</strong> बुढानीलकण्ठ स्टेशन</p>
+            </div>
+            <div class="road-card">
+                <h3>चावहिल - साँखु सडक</h3>
+                <p><strong>लम्बाई:</strong> १२.७८ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> चावहिल, रिंग रोड</p>
+                <p><strong>समाप्ति बिन्दु:</strong> साँखु</p>
+            </div>
+            <div class="road-card">
+                <h3>जोरपाटी - सुन्दरीजल सडक</h3>
+                <p><strong>लम्बाई:</strong> ७.१३ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> जोरपाटी</p>
+                <p><strong>समाप्ति बिन्दु:</strong> सुन्दरीजल</p>
+            </div>
+            <div class="road-card">
+                <h3>भक्तपुर - नगरकोट सडक</h3>
+                <p><strong>लम्बाई:</strong> २३.०० किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> तिनकुने, भक्तपुर</p>
+                <p><strong>समाप्ति बिन्दु:</strong> नगरकोट</p>
+            </div>
+            <div class="road-card">
+                <h3>बनेपा - पनौती - खोपसी सडक</h3>
+                <p><strong>लम्बाई:</strong> ९.५४ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> बनेपा</p>
+                <p><strong>समाप्ति बिन्दु:</strong> खोपसी</p>
+            </div>
+            <div class="road-card">
+                <h3>पाँचखाल - हेलम्बु सडक</h3>
+                <p><strong>लम्बाई:</strong> ६३.०० किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> लामीडाँडा</p>
+                <p><strong>समाप्ति बिन्दु:</strong> हेलम्बु</p>
+            </div>
+            <div class="road-card">
+                <h3>दोलालघाट - चौतारा सडक</h3>
+                <p><strong>लम्बाई:</strong> २५.११ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> बनदेव</p>
+                <p><strong>समाप्ति बिन्दु:</strong> चौतारा</p>
+            </div>
+            <div class="road-card">
+                <h3>लामोसाँघु - तामाकोशी - रामेछाप सडक</h3>
+                <p><strong>लम्बाई:</strong> १२४.९२ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> सुनकोशी पुल</p>
+                <p><strong>समाप्ति बिन्दु:</strong> रामेछाप</p>
+            </div>
+            <div class="road-card">
+                <h3>तामाकोशी (बस्ती) - जिरी सडक</h3>
+                <p><strong>लम्बाई:</strong> ३८.०३ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> तामाकोशी बस्ती</p>
+                <p><strong>समाप्ति बिन्दु:</strong> जिरी</p>
+            </div>
+            <div class="road-card">
+                <h3>मलेखु - धादिङ सडक</h3>
+                <p><strong>लम्बाई:</strong> १७.५० किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> त्रिशुली पुल, मलेखु</p>
+                <p><strong>समाप्ति बिन्दु:</strong> धादिङ</p>
+            </div>
+            <div class="road-card">
+                <h3>आंबुखैरेनी - गोर्खा सडक</h3>
+                <p><strong>लम्बाई:</strong> २४.६९ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> आंबुखैरेनी</p>
+                <p><strong>समाप्ति बिन्दु:</strong> गोर्खा</p>
+            </div>
+            <div class="road-card">
+                <h3>डुम्रे - बेसीसहर सडक</h3>
+                <p><strong>लम्बाई:</strong> ४३.४३ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> डुम्रे</p>
+                <p><strong>समाप्ति बिन्दु:</strong> बेसीसहर</p>
+            </div>
+            <div class="road-card">
+                <h3>भरतपुर बाई-पास सडक</h3>
+                <p><strong>लम्बाई:</strong> ४.४९ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> दियालो बंगलो</p>
+                <p><strong>समाप्ति बिन्दु:</strong> भरतपुर एमआरएम</p>
+            </div>
+            <div class="road-card">
+                <h3>फिक्कल - पशुपतिनगर सडक</h3>
+                <p><strong>लम्बाई:</strong> १०.७५ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> फिक्कल</p>
+                <p><strong>समाप्ति बिन्दु:</strong> पशुपतिनगर</p>
+            </div>
+            <div class="road-card">
+                <h3>विराटनगर - रंगेली सडक</h3>
+                <p><strong>लम्बाई:</strong> २३.८८ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> महेन्द्र चोक, विराटनगर</p>
+                <p><strong>समाप्ति बिन्दु:</strong> रंगेली</p>
+            </div>
+            <div class="road-card">
+                <h3>हिले - बसंतपुर - तेह्रथुम सडक</h3>
+                <p><strong>लम्बाई:</strong> ४८.०० किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> हिले</p>
+                <p><strong>समाप्ति बिन्दु:</strong> तेह्रथुम</p>
+            </div>
+            <div class="road-card">
+                <h3>पोखरा - बागलुङ - सारंगकोट सडक</h3>
+                <p><strong>लम्बाई:</strong> ४.८० किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> पोखरा</p>
+                <p><strong>समाप्ति बिन्दु:</strong> सारंगकोट</p>
+            </div>
+            <div class="road-card">
+                <h3>पोखरा - बागलुङ - बेनी सडक</h3>
+                <p><strong>लम्बाई:</strong> ९०.०० किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> पृथ्वी चोक, पोखरा</p>
+                <p><strong>समाप्ति बिन्दु:</strong> बेनी, म्याग्दी</p>
+            </div>
+            <div class="road-card">
+                <h3>बारतुंग - तानसेन - रिदी - तमघास सडक</h3>
+                <p><strong>लम्बाई:</strong> ८०.२० किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> बारतुंग</p>
+                <p><strong>समाप्ति बिन्दु:</strong> तमघास</p>
+            </div>
+            <div class="road-card">
+                <h3>भैरहवा - लुम्बिनी सडक</h3>
+                <p><strong>लम्बाई:</strong> २२.७८ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> भैरहवा</p>
+                <p><strong>समाप्ति बिन्दु:</strong> पडरिया चौराहा, लुम्बिनी</p>
+            </div>
+            <div class="road-card">
+                <h3>लुम्बिनी - तौलिहवा सडक</h3>
+                <p><strong>लम्बाई:</strong> २४.५५ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> लुम्बिनी</p>
+                <p><strong>समाप्ति बिन्दु:</strong> तौलिहवा</p>
+            </div>
+            <div class="road-card">
+                <h3>नेपालगञ्ज - गुलरिया सडक</h3>
+                <p><strong>लम्बाई:</strong> ३५.२२ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> वीरेन्द्रचोक</p>
+                <p><strong>समाप्ति बिन्दु:</strong> गुलरिया</p>
+            </div>
+            <div class="road-card">
+                <h3>छिन्चु - जाजरकोट सडक</h3>
+                <p><strong>लम्बाई:</strong> १०७.०० किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> छिन्चु</p>
+                <p><strong>समाप्ति बिन्दु:</strong> जाजरकोट</p>
+            </div>
+            <div class="road-card">
+                <h3>वीरेन्द्रनगर (सुर्खेत) - दैलेख सडक</h3>
+                <p><strong>लम्बाई:</strong> ६७.०० किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> वीरेन्द्रनगर</p>
+                <p><strong>समाप्ति बिन्दु:</strong> दैलेख</p>
+            </div>
+            <div class="road-card">
+                <h3>खोड्पे - बाझाङ सडक</h3>
+                <p><strong>लम्बाई:</strong> १०८.२६ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> खोड्पे</p>
+                <p><strong>समाप्ति बिन्दु:</strong> चैनपुर, बझाङ</p>
+            </div>
+            <div class="road-card">
+                <h3>सतबाँझ - बैतडी - झूलाघाट सडक</h3>
+                <p><strong>लम्बाई:</strong> ३७.१८ किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> सतबाँझ</p>
+                <p><strong>समाप्ति बिन्दु:</strong> झूलाघाट बैतडी</p>
+            </div>
+            <div class="road-card">
+                <h3>सिलगढ़ी - साँफेबगर सडक</h3>
+                <p><strong>लम्बाई:</strong> ६७.०० किमी</p>
+                <p><strong>प्रारम्भिक बिन्दु:</strong> सिलगढ़ी</p>
+                <p><strong>समाप्ति बिन्दु:</strong> साँफेबगर</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showTab(tabId) {
+        var contentSections = document.querySelectorAll('.content-section');
+        contentSections.forEach(function(section) {
+            section.classList.remove('active');
+        });
+
+        var tabButtons = document.querySelectorAll('.tab-button');
+        tabButtons.forEach(function(button) {
+            button.classList.remove('active');
+        });
+
+        document.getElementById(tabId).classList.add('active');
+        event.target.classList.add('active');
+    }
+</script>
+
+</body>
+</html>

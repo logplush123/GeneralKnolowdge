@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ne">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>नेपाल एकिकरण — स्थान र नेतृत्व</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* --- Variables and Base Styling --- */
+    :root {
+      --bg: #0b1220;
+      --card: #091826;
+      --accentA: #ffb86b; /* Gold/Orange */
+      --accentB: #6be7ff; /* Cyan/Light Blue */
+      --text: #eaf6ff;
+      --muted: #9fb3c8;
+      --radius: 16px;
+      font-family: 'Kalimati', 'Noto Sans Devanagari', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: linear-gradient(180deg, #020c1a, #07142a 80%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .app {
+      max-width: 960px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    /* --- Header Styling --- */
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin: 0;
+      color: var(--accentB);
+      border-bottom: 2px solid rgba(107, 231, 255, 0.3);
+      padding-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 0;
+      color: var(--accentA);
+    }
+
+    p.lead {
+      margin: 10px 0 20px 0;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    /* --- Card/Section Styling --- */
+    main {
+      display: grid;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* --- Table Styling (Large Devices) --- */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    th {
+      color: var(--accentA);
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.05);
+      border-top: 2px solid var(--accentA);
+    }
+
+    tr:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr {
+      animation: fadeIn 0.5s ease both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- Responsive Table (Small Devices) --- */
+    @media (max-width: 600px) {
+      table, thead, tbody, tr, th, td {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      td {
+        border: none;
+        padding: 8px 0;
+        text-align: right;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        color: var(--accentB);
+        text-align: left;
+        flex-shrink: 0;
+        padding-right: 15px;
+      }
+
+      tr:nth-child(even) {
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+    }
+
+    /* --- Footer and Notes --- */
+    p.note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 20px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.1);
+      padding-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 30px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>नेपाल एकिकरण — स्थान र नेतृत्व</h1>
+      <p class="lead">पृथ्वीनारायण शाहद्वारा सुरु गरिएको ऐतिहासिक एकिकरण अभियानका मुख्य स्थान र नेतृत्व विवरण</p>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>एकिकरण तालिका</h2>
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>क्र.सं.</th>
+                <th>स्थान</th>
+                <th>एकिकरण भएको साल (वि.सं.)</th>
+                <th>नेतृत्व गर्ने व्यक्ति</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td data-label="क्र.सं.">१</td><td data-label="स्थान">नुवाकोट</td><td data-label="एकिकरण भएको साल (वि.सं.)">१८०१</td><td data-label="नेतृत्व गर्ने व्यक्ति">पृथ्वीनारायण शाह</td></tr>
+              <tr><td data-label="क्र.सं.">२</td><td data-label="स्थान">नगरकोट</td><td data-label="एकिकरण भएको साल (वि.सं.)">१८०३</td><td data-label="नेतृत्व गर्ने व्यक्ति">जहाँगिर शाह</td></tr>
+              <tr><td data-label="क्र.सं.">३</td><td data-label="स्थान">काभ्रे</td><td data-label="एकिकरण भएको साल (वि.सं.)">१८१६</td><td data-label="नेतृत्व गर्ने व्यक्ति">रामकृष्ण कुवर</td></tr>
+              <tr><td data-label="क्र.सं.">४</td><td data-label="स्थान">धुलिखेल</td><td data-label="एकिकरण भएको साल (वि.सं.)">१८१८</td><td data-label="नेतृत्व गर्ने व्यक्ति">दलवीर शाह र रामकृष्ण कुवर</td></tr>
+              <tr><td data-label="क्र.सं.">५</td><td data-label="स्थान">मकवानपुर</td><td data-label="एकिकरण भएको साल (वि.सं.)">१८१९</td><td data-label="नेतृत्व गर्ने व्यक्ति">किर्तिशाह</td></tr>
+              <tr><td data-label="क्र.सं.">६</td><td data-label="स्थान">हरिहरपुर</td><td data-label="एकिकरण भएको साल (वि.सं.)">१८१९</td><td data-label="नेतृत्व गर्ने व्यक्ति">सुरप्रताप शाह</td></tr>
+              <tr><td data-label="क्र.सं.">७</td><td data-label="स्थान">किर्तिपुर</td><td data-label="एकिकरण भएको साल (वि.सं.)">१८२२</td><td data-label="नेतृत्व गर्ने व्यक्ति">सुरप्रताप शाह</td></tr>
+              <tr><td data-label="क्र.सं.">८</td><td data-label="स्थान">काठमाडौँ</td><td data-label="एकिकरण भएको साल (वि.सं.)">१८२५</td><td data-label="नेतृत्व गर्ने व्यक्ति">पृथ्वीनारायण शाह</td></tr>
+              <tr><td data-label="क्र.सं.">९</td><td data-label="स्थान">ललितपुर</td><td data-label="एकिकरण भएको साल (वि.सं.)">१८२५</td><td data-label="नेतृत्व गर्ने व्यक्ति">पृथ्वीनारायण शाह</td></tr>
+              <tr><td data-label="क्र.सं.">१०</td><td data-label="स्थान">भक्तपुर (भादगाउँ)</td><td data-label="एकिकरण भएको साल (वि.सं.)">१८२६</td><td data-label="नेतृत्व गर्ने व्यक्ति">वंभराज पाण्डे, सुरप्रताप शाह</td></tr>
+              <tr><td data-label="क्र.सं.">११</td><td data-label="स्थान">भिरकोट</td><td data-label="एकिकरण भएको साल (वि.सं.)">१८२८</td><td data-label="नेतृत्व गर्ने व्यक्ति">नभराज पाण्डे, सुरप्रताप शाह</td></tr>
+              <tr><td data-label="क्र.सं.">१२</td><td data-label="स्थान">इलाम</td><td data-label="एकिकरण भएको साल (वि.सं.)">१८३१</td><td data-label="नेतृत्व गर्ने व्यक्ति">रामकृष्ण कुवर, रणजित शाह</td></tr>
+              <tr><td data-label="क्र.सं.">१३</td><td data-label="स्थान">लमजुङ</td><td data-label="एकिकरण भएको साल (वि.सं.)">१८३९</td><td data-label="नेतृत्व गर्ने व्यक्ति">दामोदर पाण्डे</td></tr>
+              <tr><td data-label="क्र.सं.">१४</td><td data-label="स्थान">कास्की</td><td data-label="एकिकरण भएको साल (वि.सं.)">१८४२</td><td data-label="नेतृत्व गर्ने व्यक्ति">दामोदर पाण्डे, जिन शाह</td></tr>
+              <tr><td data-label="क्र.सं.">१५</td><td data-label="स्थान">पर्वत</td><td data-label="एकिकरण भएको साल (वि.सं.)">१८४३</td><td data-label="नेतृत्व गर्ने व्यक्ति">दामोदर पाण्डे</td></tr>
+              <tr><td data-label="क्र.सं.">१६</td><td data-label="स्थान">गुल्मी</td><td data-label="एकिकरण भएको साल (वि.सं.)">१८४३</td><td data-label="नेतृत्व गर्ने व्यक्ति">काजी बम शाह</td></tr>
+              <tr><td data-label="क्र.सं.">१७</td><td data-label="स्थान">तनहुँ</td><td data-label="एकिकरण भएको साल (वि.सं.)">१८४५</td><td data-label="नेतृत्व गर्ने व्यक्ति">अमरसिंह थापा</td></tr>
+              <tr><td data-label="क्र.सं.">१८</td><td data-label="स्थान">पाल्पा</td><td data-label="एकिकरण भएको साल (वि.सं.)">१८५४</td><td data-label="नेतृत्व गर्ने व्यक्ति">रणबहादुर शाह</td></tr>
+              <tr><td data-label="क्र.सं.">१९</td><td data-label="स्थान">स्याङ्जा</td><td data-label="एकिकरण भएको साल (वि.सं.)">१८५५</td><td data-label="नेतृत्व गर्ने व्यक्ति">वीरबहादुर शाह</td></tr>
+              <tr><td data-label="क्र.सं.">२०</td><td data-label="स्थान">बाजुरा</td><td data-label="एकिकरण भएको साल (वि.सं.)">१८५६</td><td data-label="नेतृत्व गर्ने व्यक्ति">अमरसिंह थापा</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">नोट: यी विवरण ऐतिहासिक अभिलेख अनुसार परिमार्जन गरिएका हुन्।</p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

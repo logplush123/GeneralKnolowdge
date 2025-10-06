@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ne">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>नेपालका नदी, उद्गम, ताल/कुण्ड र झरना — स्थान र विवरण</title>
+  <meta name="description" content="नेपालका प्रमुख नदीहरूको उद्गमस्थल, संस्कृत नाम, ताल/कुण्ड र झरनाहरू — आकर्षक डार्क थिममा।">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1220;
+      --card: #091826;
+      --accentA: #ffb86b;
+      --accentB: #6be7ff;
+      --text: #eaf6ff;
+      --muted: #9fb3c8;
+      --radius: 16px;
+      font-family: 'Noto Sans Devanagari', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: linear-gradient(180deg, #020c1a, #07142a 80%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .app {
+      max-width: 960px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    /* --- Header --- */
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin: 0;
+      color: var(--accentB);
+      border-bottom: 2px solid rgba(107, 231, 255, 0.3);
+      padding-bottom: 10px;
+    }
+    p.lead {
+      margin: 10px 0 20px 0;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    /* --- Section / Card --- */
+    main {
+      display: grid;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      animation: fadeIn 0.5s ease both;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 0;
+      color: var(--accentA);
+    }
+
+    p {
+      margin: 8px 0;
+    }
+
+    /* --- Table Styling --- */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    th {
+      color: var(--accentA);
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.05);
+      border-top: 2px solid var(--accentA);
+    }
+
+    tr:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- Responsive Table (small screens) --- */
+    @media(max-width:600px){
+      table, thead, tbody, tr, th, td {
+        display: block;
+      }
+      thead {
+        display: none;
+      }
+      tr {
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      }
+      td {
+        border: none;
+        padding: 8px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: right;
+      }
+      td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        color: var(--accentB);
+        text-align: left;
+        flex-shrink: 0;
+        width: 50%;
+      }
+      tr:nth-child(even) {
+        background-color: rgba(255,255,255,0.05);
+      }
+    }
+
+    /* --- Lists --- */
+    ul.list {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+    ul.list li {
+      margin-bottom: 6px;
+    }
+
+    /* --- Notes and Footer --- */
+    p.note {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 15px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.1);
+      padding-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 30px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>नेपालका नदी, उद्गम, ताल/कुण्ड र झरना</h1>
+      <p class="lead">नेपालका प्रमुख नदीहरू, तिनका उद्गमस्थान, संस्कृत नाम, ताल/कुण्ड र झरनाहरूको संक्षिप्त सूची</p>
+    </header>
+
+    <main>
+      <!-- Rivers -->
+      <section class="card">
+        <h2>नदी र तिनका उद्गमस्थल (चयनित)</h2>
+        <p>प्रमुख नदीहरू र तिनको उद्गमस्थल तल तालिकामा प्रस्तुत गरिएको छ।</p>
+        <table>
+          <thead>
+            <tr><th>नदी</th><th>उद्गमस्थल</th><th>टिप्पणी</th></tr>
+          </thead>
+          <tbody>
+            <tr><td data-label="नदी">बुढी गण्डकी</td><td data-label="उद्गमस्थल">गणेश हिमाल / अन्नपूर्ण क्षेत्र</td><td data-label="टिप्पणी">हिमाली स्रोत क्षेत्र</td></tr>
+            <tr><td data-label="नदी">बाग्मती</td><td data-label="उद्गमस्थल">बागद्वार, शिवपुरी क्षेत्र</td><td data-label="टिप्पणी">काठमाडौँ उपत्यकाको मुख्य नदी</td></tr>
+            <tr><td data-label="नदी">दूधकोशी</td><td data-label="उद्गमस्थल">दूधकुण्ड, सोलुखुम्बु</td><td data-label="टिप्पणी">उच्च हिमाली स्रोत</td></tr>
+            <tr><td data-label="नदी">ठुलो भेरी</td><td data-label="उद्गमस्थल">मुकुट हिमाल</td><td data-label="टिप्पणी">पश्चिम नेपालको शक्तिशाली नदी</td></tr>
+            <tr><td data-label="नदी">त्रिशुली</td><td data-label="उद्गमस्थल">गोसाईकुण्ड, लाङटाङ</td><td data-label="टिप्पणी">पौराणिक र व्यावहारिक दृष्टिले महत्त्वपूर्ण</td></tr>
+            <tr><td data-label="नदी">कर्णाली</td><td data-label="उद्गमस्थल">तिब्बती क्षेत्र</td><td data-label="टिप्पणी">नेपालको सबैभन्दा लामो नदी</td></tr>
+          </tbody>
+        </table>
+        <p class="note">नोट: यी विवरण स्थानीय मान्यता र उपलब्ध स्रोत अनुसार छन्।</p>
+      </section>
+
+      <!-- Rivers in India -->
+      <section class="card">
+        <h2>भारतमा चिनिने नामहरू</h2>
+        <table>
+          <thead><tr><th>नेपालमा</th><th>भारतमा</th></tr></thead>
+          <tbody>
+            <tr><td data-label="नेपालमा">बबई</td><td data-label="भारतमा">सरयू</td></tr>
+            <tr><td data-label="नेपालमा">कर्णाली</td><td data-label="भारतमा">घाघरा</td></tr>
+            <tr><td data-label="नेपालमा">महाकाली</td><td data-label="भारतमा">शारदा / काली</td></tr>
+            <tr><td data-label="नेपालमा">मेची</td><td data-label="भारतमा">महानन्दा</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Sanskrit Names -->
+      <section class="card">
+        <h2>नदीहरूको संस्कृत/पौराणिक नाम</h2>
+        <table>
+          <thead><tr><th>नेपाली नाम</th><th>संस्कृत नाम</th></tr></thead>
+          <tbody>
+            <tr><td data-label="नेपाली नाम">अरुण</td><td data-label="संस्कृत नाम">चम्पावती</td></tr>
+            <tr><td data-label="नेपाली नाम">सुनकोशी</td><td data-label="संस्कृत नाम">सुवर्णसरिता</td></tr>
+            <tr><td data-label="नेपाली नाम">त्रिशुली</td><td data-label="संस्कृत नाम">त्रिशुलीगंगा</td></tr>
+            <tr><td data-label="नेपाली नाम">इन्द्रावती</td><td data-label="संस्कृत नाम">इन्द्रावती</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Lakes -->
+      <section class="card">
+        <h2>ताल/कुण्ड र पोखरीहरू</h2>
+        <ul class="list">
+          <li>फेवा, बेगनास, रुपाताल — कास्की</li>
+          <li>गोसाईकुण्ड, नागकुण्ड, दुधकुण्ड — हिमाली क्षेत्र</li>
+          <li>घोडाघोडी ताल — कैलाली</li>
+          <li>रानीपोखरी, कमलपोखरी — काठमाडौं</li>
+          <li>इन्द्रसरोवर — मकवानपुर</li>
+        </ul>
+        <p class="note">ताल र कुण्डहरूको नाम र स्थानमा क्षेत्रीय भिन्नता हुन सक्छ।</p>
+      </section>
+
+      <!-- Waterfalls -->
+      <section class="card">
+        <h2>प्रमुख झरनाहरू</h2>
+        <table>
+          <thead><tr><th>झरना</th><th>स्थान</th></tr></thead>
+          <tbody>
+            <tr><td data-label="झरना">पचाल झरना</td><td data-label="स्थान">कालिकोट</td></tr>
+            <tr><td data-label="झरना">ह्यातुङ झरना</td><td data-label="स्थान">इलाम</td></tr>
+            <tr><td data-label="झरना">डेभिड फल्स</td><td data-label="स्थान">पोखरा, कास्की</td></tr>
+            <tr><td data-label="झरना">रुप्से झरना</td><td data-label="स्थान">म्याग्दी</td></tr>
+            <tr><td data-label="झरना">गंगाजमुना झरना</td><td data-label="स्थान">धादिङ</td></tr>
+          </tbody>
+        </table>
+        
+      </section>
+    </main>
+
+    
+  </div>
+</body>
+</html>

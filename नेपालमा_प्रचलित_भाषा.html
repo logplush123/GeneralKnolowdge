@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>नेपालका भाषाहरू र भाषिक परिवार (२०७८)</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+    /* CSS कोड */
+    
+    :root {
+        --primary-color: #3498db; /* निलो */
+        --secondary-color: #2ecc71; /* हरियो */
+        --accent-color: #e74c3c; /* रातो/सुन्तला */
+        --background-color: #f4f7f9;
+        --card-background: #ffffff;
+        --text-color: #34495e;
+        --base-font-size: 1.0rem; /* मोबाइलको लागि आधारभूत फन्ट साइज */
+        --small-font-size: 0.9rem;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Mukta', Arial, sans-serif; 
+        line-height: 1.5;
+    }
+
+    body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+        overflow-x: hidden; 
+    }
+
+    /* Application Container - Full width on mobile */
+    .app-container {
+        width: 100%;
+        max-width: 650px; 
+        margin: 0 auto;
+        background-color: #ffffff;
+        min-height: 100vh;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header Styling */
+    .app-header {
+        background: linear-gradient(135deg, var(--primary-color), #2980b9);
+        color: white;
+        padding: 20px 15px;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        animation: fadeInDown 0.5s ease-out;
+    }
+
+    .app-header h1 {
+        font-size: 1.7rem;
+        margin: 0;
+    }
+
+    /* Main Content and Section Styling */
+    .main-content {
+        padding: 15px;
+        display: grid;
+        gap: 20px;
+    }
+
+    .info-section {
+        background: var(--card-background);
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        animation: fadeInUp 0.5s ease-out forwards;
+        opacity: 0;
+        border-left: 5px solid var(--secondary-color);
+        transition: transform 0.3s ease;
+    }
+    
+    .info-section:hover {
+        transform: translateY(-2px);
+    }
+
+    .info-section h2 {
+        font-size: 1.3rem;
+        color: var(--primary-color);
+        margin-bottom: 12px;
+        padding-bottom: 5px;
+        border-bottom: 2px dashed #ecf0f1;
+    }
+
+    /* Key Facts List Styling */
+    .key-facts {
+        font-size: var(--base-font-size);
+    }
+    
+    .key-facts ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .key-facts li {
+        padding: 8px 0;
+        display: flex;
+        align-items: flex-start;
+        border-bottom: 1px dotted #e0e0e0;
+        /* FIX: सानो स्क्रिनका लागि लेबल र मानलाई एक-अर्काको तल राख्ने */
+        flex-direction: column; 
+    }
+
+    .key-facts li:last-child {
+        border-bottom: none;
+    }
+
+    .key-facts li strong {
+        color: var(--accent-color);
+        /* FIX: min-width हटाई चौडाइ 100% राख्ने ताकि लेबलले पूर्ण स्थान लेओस् */
+        width: 100%; 
+        flex-shrink: 0;
+        text-align: left;
+        margin-right: 0; /* साइड मार्जिन हटाउने */
+    }
+
+    .key-facts li span {
+        flex-grow: 1;
+        text-align: justify;
+        /* FIX: लेबलबाट केही तल मार्जिन दिने */
+        margin-top: 2px;
+        display: block; /* यो सुनिश्चित गर्छ कि यो नयाँ लाइनमा सुरु हुन्छ */
+    }
+
+    /* Language Family Styling */
+    .family-container {
+        display: grid;
+        gap: 15px;
+        font-size: var(--small-font-size);
+    }
+    
+    .family-card {
+        background-color: #f9f9f9;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+    }
+    
+    .family-card h3 {
+        font-size: 1.1rem;
+        color: var(--secondary-color);
+        margin-bottom: 5px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 3px;
+    }
+
+    /* Top 10 Language Table (Grid Layout for Responsiveness) */
+    .language-table {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* मोबाइलमा दुई स्तम्भ */
+        gap: 1px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        overflow: hidden;
+        margin-top: 10px;
+        font-size: var(--small-font-size);
+    }
+
+    .language-table .header-cell {
+        background-color: var(--primary-color);
+        color: white;
+        font-weight: bold;
+        padding: 10px 5px;
+        text-align: center;
+    }
+
+    .language-table .data-cell {
+        background-color: #f7f9fb;
+        padding: 10px 5px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .language-table .data-cell:nth-child(4n+3) {
+        background-color: #fff;
+    }
+    .language-table .data-cell:nth-child(4n+4) {
+        background-color: #fff;
+    }
+
+    /* Script Section Styling */
+    .script-table {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 10px;
+        font-size: var(--small-font-size);
+    }
+    
+    .script-table .script-item {
+        background-color: #f2f7ff;
+        padding: 10px;
+        border-left: 3px solid var(--primary-color);
+        border-radius: 5px;
+    }
+
+    .script-table .script-item strong {
+        display: block;
+        color: var(--text-color);
+        margin-bottom: 3px;
+    }
+
+
+    /* Keyframe Animations */
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Animation delay for sections */
+    .info-section:nth-child(1) { animation-delay: 0.1s; }
+    .info-section:nth-child(2) { animation-delay: 0.3s; }
+    .info-section:nth-child(3) { animation-delay: 0.5s; }
+    .info-section:nth-child(4) { animation-delay: 0.7s; }
+    .info-section:nth-child(5) { animation-delay: 0.9s; }
+    
+    /* Desktop/Tablet Adjustments */
+    @media (min-width: 601px) {
+        .app-header h1 {
+            font-size: 2rem;
+        }
+        .main-content {
+            padding: 20px;
+        }
+        
+        /* FIX: ठूलो स्क्रिनका लागि लेबल र मानलाई फेरि साइड-बाइ-साइड राख्ने */
+        .key-facts li {
+            flex-direction: row; /* तेर्सो बनाउने */
+        }
+        .key-facts li strong {
+            min-width: 150px; /* निश्चित चौडाइ फर्काउने */
+            width: auto;
+            margin-right: 10px;
+        }
+        .key-facts li span {
+            margin-top: 0;
+        }
+        /* FIX END */
+        
+        .language-table {
+             grid-template-columns: 1fr 1fr 1fr 1fr; /* ठूलो स्क्रिनमा ४ स्तम्भ */
+        }
+        .script-table {
+            grid-template-columns: 1fr 1fr 1fr; /* ठूलो स्क्रिनमा ३ स्तम्भ */
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>नेपालका भाषा र भाषिक परिवार </h1>
+        </header>
+        
+        <main class="main-content">
+            
+            <section class="info-section">
+                <h2>नेपालमा प्रचलित मुख्य भाषिक तथ्यहरू</h2>
+                <div class="key-facts">
+                    <ul>
+                        <li>
+                            <strong>राष्ट्रिय जनगणना २०७८ अनुसार:</strong>
+                            <span>नेपालमा **१२४** भाषाभाषीहरू रहेका छन्।</span>
+                        </li>
+                        <li>
+                            <strong>नेपाली मूल भाषीको सङ्ख्या (२०७८):</strong>
+                            <span>कुल जनसङ्ख्याको **४४.८६%** (२०६८ मा ४४.६%)</span>
+                        </li>
+                         <li>
+                            <strong>अन्तर्राष्ट्रिय मातृभाषा दिवस:</strong>
+                            <span>प्रत्येक वर्ष **फेब्रुअरी २१** मा मनाइन्छ।</span>
+                        </li>
+                        <li>
+                            <strong>विश्वमा प्रचलित भाषा परिवार:</strong>
+                            <span>मुख्यतया **४** परिवारहरू मानिन्छन् (नेपालमा भने कुसुण्डालाई **एकल भाषा परिवार** मानिन्छ)।</span>
+                        </li>
+                        <li>
+                            <strong>नेपाली भाषाको उत्पत्ति:</strong>
+                            <span>जुम्लाको **सिंजा उपत्यका** बाट (खस अपभ्रंशबाट विकसित)।</span>
+                        </li>
+                        <li>
+                            <strong>कानुनी राष्ट्रभाषाको मान्यता:</strong>
+                            <span>खस भाषा/नेपाली भाषाले वि.सं. **२०१५** मा राष्ट्रभाषाको मान्यता प्राप्त गरेको।</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="info-section">
+                <h2>विश्वका ४ प्रमुख भाषा परिवार र नेपालमा तिनको उपस्थिति</h2>
+                <div class="family-container">
+                    
+                    <div class="family-card">
+                        <h3>क) भारोपेली भाषा परिवार (Indo-European)</h3>
+                        <p>संसारको सबैभन्दा ठूलो भाषा परिवार। यसका भाषाहरू भारतीय उपमहाद्वीप र युरोपमा बोलिन्छन्।</p>
+                        <p><strong>नेपालमा:</strong> **नेपाली, मैथिली, भोजपुरी, अवधि, थारु, राजवंशी, माझी, दराई, कुमाल, उर्दू** आदि पर्दछन्।</p>
+                    </div>
+
+                    <div class="family-card">
+                        <h3>ख) भोट बर्मेली (चीनियाँ तिब्बती) (Sino-Tibetan)</h3>
+                        <p>संसारको दोस्रो ठूलो भाषा परिवार। चीन, नेपाल, बर्मा आदिमा बोलिन्छ।</p>
+                        <p><strong>नेपालमा:</strong> **नेवारी, तामाङ, मगर, गुरुङ, लिम्बू, शेर्पा, जिरेल, चेपाङ, राई, हायु** आदि पर्दछन्।</p>
+                    </div>
+                    
+                    <div class="family-card">
+                        <h3>ग) द्रविड भाषा परिवार (Dravidian)</h3>
+                        <p>विशेष गरी भारतको तमिलनाडु र दक्षिण भारतमा बोलिन्छन्।</p>
+                        <p><strong>नेपालमा:</strong> **झाँगड वा धाँगड (उराउ)** भाषा यसै परिवारअन्तर्गत पर्दछ।</p>
+                    </div>
+                    
+                    <div class="family-card">
+                        <h3>घ) आग्नेय भाषा परिवार (Austro-Asiatic)</h3>
+                        <p>दक्षिणपूर्वी एशियामा बढी प्रचलित छ।</p>
+                        <p><strong>नेपालमा:</strong> **सतार वा सन्थाली**, मुण्डा र खरिया यस परिवारअन्तर्गत पर्दछन्।</p>
+                    </div>
+
+                </div>
+            </section>
+            
+            <section class="info-section">
+                <h2>राष्ट्रिय जनगणना २०७८ अनुसार नेपालमा बोलिने प्रमुख भाषाहरू (शीर्ष १०)</h2>
+                <div class="language-table">
+                    <div class="header-cell">क्रम</div>
+                    <div class="header-cell">भाषा</div>
+                    <div class="header-cell">वक्ता सङ्ख्या (प्रतिशत)</div>
+                    <div class="header-cell">भाषा परिवार</div>
+
+                    <div class="data-cell">१</div>
+                    <div class="data-cell">नेपाली</div>
+                    <div class="data-cell">**४४.८६%**</div>
+                    <div class="data-cell">भारोपेली</div>
+
+                    <div class="data-cell">२</div>
+                    <div class="data-cell">मैथिली</div>
+                    <div class="data-cell">**११.७३%**</div>
+                    <div class="data-cell">भारोपेली</div>
+
+                    <div class="data-cell">३</div>
+                    <div class="data-cell">भोजपुरी</div>
+                    <div class="data-cell">**६.२४%**</div>
+                    <div class="data-cell">भारोपेली</div>
+                    
+                    <div class="data-cell">४</div>
+                    <div class="data-cell">थारु</div>
+                    <div class="data-cell">**५.८८%**</div>
+                    <div class="data-cell">भारोपेली</div>
+
+                    <div class="data-cell">५</div>
+                    <div class="data-cell">तामाङ</div>
+                    <div class="data-cell">**४.८८%**</div>
+                    <div class="data-cell">भोट बर्मेली</div>
+
+                    <div class="data-cell">६</div>
+                    <div class="data-cell">नेवारी (नेपाल भाषा)</div>
+                    <div class="data-cell">**३.१६%**</div>
+                    <div class="data-cell">भोट बर्मेली</div>
+
+                    <div class="data-cell">७</div>
+                    <div class="data-cell">मगर ढुट</div>
+                    <div class="data-cell">**२.७८%**</div>
+                    <div class="data-cell">भोट बर्मेली</div>
+
+                    <div class="data-cell">८</div>
+                    <div class="data-cell">बज्जिका</div>
+                    <div class="data-cell">**२.४७%**</div>
+                    <div class="data-cell">भारोपेली</div>
+
+                    <div class="data-cell">९</div>
+                    <div class="data-cell">डोटेली</div>
+                    <div class="data-cell">**२.२८%**</div>
+                    <div class="data-cell">भारोपेली</div>
+
+                    <div class="data-cell">१०</div>
+                    <div class="data-cell">उर्दू</div>
+                    <div class="data-cell">**२.०५%**</div>
+                    <div class="data-cell">भारोपेली</div>
+                    
+                    </div>
+            </section>
+            
+            <section class="info-section">
+                <h2>नेपाली भाषा सम्बन्धी महत्त्वपूर्ण तथ्यहरू</h2>
+                <div class="key-facts">
+                    <ul>
+                        <li>
+                            <strong>नेपालीलाई राजभाषा बनाउने राजा:</strong>
+                            <span>जुम्लाका राजा **नागराज** (खस भाषाका रूपमा)।</span>
+                        </li>
+                         <li>
+                            <strong>अड्डा अदालतमा नेपाली भाषा:</strong>
+                            <span>वि.सं. **२०२१ वैशाख २ गते** बाट नेपाली भाषामा मात्र कामकाज गर्ने निर्णय भयो।</span>
+                        </li>
+                        <li>
+                            <strong>नेपाली भाषाको आधुनिक काल:</strong>
+                            <span>वि.सं. १९५८ मा **गोरखापत्र प्रकाशन** भएपछिको अवधिलाई मानिन्छ।</span>
+                        </li>
+                        <li>
+                            <strong>विश्व भाषाहरूमा नेपालीको स्थान:</strong>
+                            <span>वक्ता सङ्ख्याको आधारमा करिब **३६औं** स्थानमा पर्दछ।</span>
+                        </li>
+                        <li>
+                            <strong>नेपाली भाषाको जननी:</strong>
+                            <span>**संस्कृत** भाषालाई मानिन्छ।</span>
+                        </li>
+                        <li>
+                            <strong>नेपाली भाषालाई मान्यता दिने सार्क राष्ट्र:</strong>
+                            <span>नेपालबाहेक **३ देश** (भारत, श्रीलङ्का, र बङ्गलादेश)।</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>केही भाषा र तिनका लिपीहरू</h2>
+                <div class="script-table">
+                    <div class="script-item">
+                        <strong>नेपाली भाषा</strong>
+                        <span>देवनागरी लिपी</span>
+                    </div>
+                     <div class="script-item">
+                        <strong>नेवार (नेपाल भाषा)</strong>
+                        <span>रञ्जना र भुजिमोल लिपी</span>
+                    </div>
+                    <div class="script-item">
+                        <strong>मैथिली भाषा</strong>
+                        <span>तिरहुता लिपी</span>
+                    </div>
+                    <div class="script-item">
+                        <strong>लिम्बू भाषा</strong>
+                        <span>सिरिजङ्गा लिपी</span>
+                    </div>
+                    <div class="script-item">
+                        <strong>राई भाषा</strong>
+                        <span>ब्राह्मी लिपी (अन्य लिपी पनि प्रयोग हुन्छन्)</span>
+                    </div>
+                    <div class="script-item">
+                        <strong>नेपालको सबैभन्दा पुरानो लिपी</strong>
+                        <span>**ब्राह्मी लिपी**</span>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="info-section">
+                 <h2>थप विविध भाषिक जानकारी</h2>
+                <div class="key-facts">
+                    <ul>
+                        <li>
+                            <strong>रेडियो नेपालबाट समाचार प्रशारण:</strong>
+                            <span>हाल **२० भाषा** भन्दा बढी भाषामा समाचार प्रशारण हुने गर्दछ (पहिले २१ भाषा थियो, तर समयअनुसार परिवर्तन भइरहन्छ)।</span>
+                        </li>
+                        <li>
+                            <strong>भारतको संविधानमा नेपाली:</strong>
+                            <span>भारतको संविधानको **८औं अनुसूची** मा राखिएको छ।</span>
+                        </li>
+                        <li>
+                            <strong>कम शब्द भएको भाषा (अपुष्ट जानकारी):</strong>
+                            <span>प्रस्तुत जानकारी अनुसार: **इटालियन**। (तर यसमा विभिन्न मतहरू छन्, अंग्रेजीमा सबैभन्दा धेरै शब्द छन् भन्ने मानिन्छ।)</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.info-section');
+            sections.forEach((section, index) => {
+                
+                section.style.opacity = 1;
+            });
+        });
+    </script>
+</body>
+</html>
