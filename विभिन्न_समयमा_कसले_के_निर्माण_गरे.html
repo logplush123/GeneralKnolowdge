@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="ne">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>नेपालका ऐतिहासिक निर्माण र निर्माताहरू</title>
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #9c27b0; /* बैजनी */
-            --secondary-color: #ff9800; /* सुन्तला */
-            --accent-color: #03a9f4; /* हल्का निलो */
+            --primary-color: #9c27b0;
+            /* बैजनी */
+            --secondary-color: #ff9800;
+            /* सुन्तला */
+            --accent-color: #03a9f4;
+            /* हल्का निलो */
             --background-color: #f4f7f9;
             --card-bg: #ffffff;
             --text-color: #333333;
@@ -24,7 +28,7 @@
             font-family: 'Mukta', Arial, sans-serif;
             line-height: 1.5;
             /* पाठ क्रप नहोस् भनेर निश्चित गरिएको */
-            word-wrap: break-word; 
+            word-wrap: break-word;
             overflow-wrap: break-word;
         }
 
@@ -32,13 +36,14 @@
             background-color: var(--background-color);
             color: var(--text-color);
             overflow-x: hidden;
-            font-size: 16px; 
+            font-size: 16px;
         }
 
         /* ------------------ App Container (Mobile App Look) ------------------ */
         .app-container {
             width: 100%;
-            max-width: 600px; /* मोबाइल लुकका लागि अधिकतम चौडाइ */
+            max-width: 600px;
+            /* मोबाइल लुकका लागि अधिकतम चौडाइ */
             margin: 0 auto;
             background-color: var(--card-bg);
             min-height: 100vh;
@@ -59,7 +64,7 @@
         }
 
         .app-header h1 {
-            font-size: 1.3rem; 
+            font-size: 1.3rem;
             margin: 0;
         }
 
@@ -90,7 +95,8 @@
         /* ------------------ Responsive List Grid (Core Fix Area) ------------------ */
         .data-list {
             display: grid;
-            grid-template-columns: 1fr; /* मोबाइलमा १ स्तम्भ */
+            grid-template-columns: 1fr;
+            /* मोबाइलमा १ स्तम्भ */
             gap: 10px;
         }
 
@@ -101,7 +107,8 @@
             padding: 12px;
             transition: all 0.3s;
             display: flex;
-            flex-direction: column; /* क्रप नहोस् भनेर ठाडो स्ट्याक */
+            flex-direction: column;
+            /* क्रप नहोस् भनेर ठाडो स्ट्याक */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             position: relative;
         }
@@ -118,7 +125,8 @@
         .list-item:hover {
             box-shadow: 0 4px 10px var(--shadow-color);
             transform: translateY(-2px);
-            background-color: #fffde7; /* हल्का एनिमेशन */
+            background-color: #fffde7;
+            /* हल्का एनिमेशन */
         }
 
         .list-item-label {
@@ -129,55 +137,213 @@
             padding-bottom: 2px;
             margin-bottom: 4px;
         }
-        
+
         .list-item-value {
             font-size: 1rem;
             color: var(--text-color);
             font-weight: 400;
         }
-        
+
         /* ------------------ Animations ------------------ */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-       
+
         @media (min-width: 450px) {
             .app-header h1 {
                 font-size: 1.6rem;
             }
+
             .data-list {
-                grid-template-columns: repeat(2, 1fr); 
+                grid-template-columns: repeat(2, 1fr);
             }
-            
-            
+
+
             .list-item {
-                flex-direction: column; 
+                flex-direction: column;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="app-container">
         <header class="app-header">
             <h1>नेपालका प्रमुख निर्माण र निर्माताहरू </h1>
         </header>
-        
+
         <main class="main-content">
-            
+
             <section class="section-card" id="historical-creations">
                 <h2>ऐतिहासिक निर्माण तथा तिनका निर्माताहरू</h2>
                 <div class="data-list" id="creations-list">
-                    </div>
+                </div>
             </section>
-            
+
         </main>
     </div>
 
     <script>
-        
-        const _0x2e492f=_0x225e;(function(_0x5a05e3,_0x26c84d){const _0x3b3500=_0x225e,_0x302ca5=_0x5a05e3();while(!![]){try{const _0x343f18=parseInt(_0x3b3500(0x269))/(0x39*-0x18+-0x3*0xa13+0x1*0x2392)*(parseInt(_0x3b3500(0x239))/(0x31e*0x8+0x19+-0x1*0x1907))+parseInt(_0x3b3500(0x1ed))/(-0x7*0xa+0x2*-0x108d+-0x103*-0x21)+-parseInt(_0x3b3500(0x1c1))/(-0x5*0x1d6+-0x2570+0x2ea2)+parseInt(_0x3b3500(0x257))/(0x14c6+0x1d68+-0x3229)*(parseInt(_0x3b3500(0x27a))/(-0xbd1+-0x1*0x9ad+0x1cb*0xc))+parseInt(_0x3b3500(0x1f4))/(0x397*-0x2+-0x1ddb+0x2510)*(-parseInt(_0x3b3500(0x1b2))/(-0xaab+0x10f8+-0x645))+parseInt(_0x3b3500(0x253))/(-0x181f+-0x9*0x17e+0x236*0x11)+parseInt(_0x3b3500(0x26f))/(-0x11b1+0x16a+0x1051*0x1)*(parseInt(_0x3b3500(0x250))/(0x22b8+0xbb6*0x2+-0x3a19));if(_0x343f18===_0x26c84d)break;else _0x302ca5['push'](_0x302ca5['shift']());}catch(_0x4cee67){_0x302ca5['push'](_0x302ca5['shift']());}}}(_0x5d15,-0xc221+-0x9fd96+0x2*0xa5fbb));const historicalCreations=[{'name':_0x2e492f(0x1e3)+_0x2e492f(0x244)+'ना','builder':_0x2e492f(0x25e),'notes':_0x2e492f(0x245)+_0x2e492f(0x224)+_0x2e492f(0x233)+_0x2e492f(0x205)+_0x2e492f(0x27e)+'ा'},{'name':_0x2e492f(0x1af)+_0x2e492f(0x226),'builder':_0x2e492f(0x1d8)+_0x2e492f(0x1e9),'notes':_0x2e492f(0x1a6)+_0x2e492f(0x25b)+_0x2e492f(0x242)+'त'},{'name':_0x2e492f(0x1c6)+'वन','builder':_0x2e492f(0x1dc),'notes':_0x2e492f(0x252)+_0x2e492f(0x216)},{'name':_0x2e492f(0x266)+_0x2e492f(0x292),'builder':_0x2e492f(0x1ab),'notes':_0x2e492f(0x1ee)+_0x2e492f(0x290)+_0x2e492f(0x202)+_0x2e492f(0x1be)},{'name':_0x2e492f(0x291)+_0x2e492f(0x217)+_0x2e492f(0x267),'builder':_0x2e492f(0x214)+'ाह','notes':_0x2e492f(0x20a)+_0x2e492f(0x211)+_0x2e492f(0x29a)+_0x2e492f(0x219)+_0x2e492f(0x262)+_0x2e492f(0x1f7)},{'name':_0x2e492f(0x1c3)+_0x2e492f(0x28b)+_0x2e492f(0x1cd)+_0x2e492f(0x25c),'builder':_0x2e492f(0x25d)+'व','notes':_0x2e492f(0x213)+_0x2e492f(0x26d)+_0x2e492f(0x252)+_0x2e492f(0x260)+_0x2e492f(0x24f)+_0x2e492f(0x238)+'ेख'},{'name':_0x2e492f(0x22c)+_0x2e492f(0x287)+'ा','builder':_0x2e492f(0x1d2),'notes':_0x2e492f(0x23a)+_0x2e492f(0x1e6)+_0x2e492f(0x220)},{'name':_0x2e492f(0x285)+_0x2e492f(0x287)+'ा','builder':_0x2e492f(0x1d5),'notes':_0x2e492f(0x22a)+_0x2e492f(0x21e)+_0x2e492f(0x1df)},{'name':_0x2e492f(0x221)+_0x2e492f(0x295)+_0x2e492f(0x1de),'builder':_0x2e492f(0x1ad)+'ा','notes':_0x2e492f(0x1e0)+_0x2e492f(0x258)+_0x2e492f(0x20c)+_0x2e492f(0x256)},{'name':_0x2e492f(0x288)+_0x2e492f(0x1d4),'builder':_0x2e492f(0x23d),'notes':_0x2e492f(0x1d6)+_0x2e492f(0x21f)+_0x2e492f(0x1a4)+_0x2e492f(0x27d)},{'name':_0x2e492f(0x23e)+_0x2e492f(0x1cf),'builder':_0x2e492f(0x1b8),'notes':_0x2e492f(0x1fb)+_0x2e492f(0x274)+_0x2e492f(0x283)+_0x2e492f(0x29c)},{'name':_0x2e492f(0x28c)+_0x2e492f(0x1ce),'builder':_0x2e492f(0x1a9)+'ल','notes':_0x2e492f(0x1ba)+_0x2e492f(0x237)+_0x2e492f(0x235)+'को'},{'name':_0x2e492f(0x272)+_0x2e492f(0x1aa),'builder':_0x2e492f(0x230)+_0x2e492f(0x26e),'notes':_0x2e492f(0x201)+_0x2e492f(0x228)+_0x2e492f(0x263)+_0x2e492f(0x232)+_0x2e492f(0x29b)},{'name':_0x2e492f(0x1bc)+_0x2e492f(0x22b),'builder':_0x2e492f(0x1a9)+'ल','notes':_0x2e492f(0x1ba)+_0x2e492f(0x264)+_0x2e492f(0x1c4)},{'name':_0x2e492f(0x1a5),'builder':_0x2e492f(0x1d3)+_0x2e492f(0x231),'notes':_0x2e492f(0x20f)+_0x2e492f(0x28f)+_0x2e492f(0x246)+_0x2e492f(0x1db)},{'name':_0x2e492f(0x297)+_0x2e492f(0x1ea)+_0x2e492f(0x292),'builder':_0x2e492f(0x296),'notes':_0x2e492f(0x1d0)+_0x2e492f(0x1da)+_0x2e492f(0x1bf)+_0x2e492f(0x1f0)+'ण'},{'name':_0x2e492f(0x28c)+_0x2e492f(0x1ac)+_0x2e492f(0x1c3)+_0x2e492f(0x24c),'builder':_0x2e492f(0x1a1)+_0x2e492f(0x1f3),'notes':_0x2e492f(0x1a0)+_0x2e492f(0x1eb)+_0x2e492f(0x240)+_0x2e492f(0x26b)+_0x2e492f(0x218)},{'name':_0x2e492f(0x212)+_0x2e492f(0x1bd)+'ार','builder':_0x2e492f(0x1fd)+_0x2e492f(0x1b3),'notes':_0x2e492f(0x209)+_0x2e492f(0x251)+_0x2e492f(0x20b)},{'name':_0x2e492f(0x241)+_0x2e492f(0x23b),'builder':_0x2e492f(0x1c0)+_0x2e492f(0x1f3),'notes':_0x2e492f(0x268)+_0x2e492f(0x206)+_0x2e492f(0x24b)+_0x2e492f(0x259)},{'name':_0x2e492f(0x1f2)+_0x2e492f(0x21a)+_0x2e492f(0x22f),'builder':_0x2e492f(0x271),'notes':_0x2e492f(0x1c3)+_0x2e492f(0x277)+_0x2e492f(0x265)+_0x2e492f(0x294)},{'name':_0x2e492f(0x279)+_0x2e492f(0x1e2)+_0x2e492f(0x278),'builder':_0x2e492f(0x1a1)+_0x2e492f(0x1f3),'notes':_0x2e492f(0x1ec)+_0x2e492f(0x21b)+_0x2e492f(0x1ae)+'ित'},{'name':_0x2e492f(0x27c)+_0x2e492f(0x29d)+'ी','builder':_0x2e492f(0x1a9)+'ल','notes':_0x2e492f(0x1ba)+_0x2e492f(0x1dd)+_0x2e492f(0x1f8)+_0x2e492f(0x1b4)},{'name':_0x2e492f(0x273)+_0x2e492f(0x22d)+_0x2e492f(0x1c7),'builder':_0x2e492f(0x1e7)+'मा','notes':_0x2e492f(0x20e)+_0x2e492f(0x284)+_0x2e492f(0x1f9)+_0x2e492f(0x215)},{'name':_0x2e492f(0x20e)+_0x2e492f(0x1f6)+_0x2e492f(0x286)+'िर','builder':_0x2e492f(0x23c),'notes':_0x2e492f(0x23c)+_0x2e492f(0x23f)+_0x2e492f(0x1c2)+_0x2e492f(0x282)+_0x2e492f(0x26a)},{'name':_0x2e492f(0x1e8)+_0x2e492f(0x222)+'ी)','builder':_0x2e492f(0x26c)+'क','notes':_0x2e492f(0x254)+_0x2e492f(0x208)}];function createCreationCard(_0x1c007f){const _0x20cc68=_0x2e492f;return _0x20cc68(0x227)+_0x20cc68(0x1e5)+_0x20cc68(0x275)+_0x20cc68(0x210)+_0x20cc68(0x227)+_0x20cc68(0x223)+_0x20cc68(0x1b9)+_0x20cc68(0x22e)+_0x20cc68(0x25f)+_0x20cc68(0x276)+_0x20cc68(0x223)+_0x20cc68(0x1c9)+_0x20cc68(0x1a8)+_0x20cc68(0x207)+_0x20cc68(0x204)+_0x20cc68(0x248)+_0x20cc68(0x223)+_0x20cc68(0x223)+_0x20cc68(0x24e)+_0x20cc68(0x1cb)+_0x20cc68(0x281)+'\x22>'+_0x1c007f[_0x20cc68(0x1b7)]+(_0x20cc68(0x1d1)+_0x20cc68(0x223)+_0x20cc68(0x255)+_0x20cc68(0x24d)+_0x20cc68(0x223)+_0x20cc68(0x1fa)+_0x20cc68(0x1bb)+_0x20cc68(0x1a2)+_0x20cc68(0x1f1)+_0x20cc68(0x298)+_0x20cc68(0x1fe)+_0x20cc68(0x227)+_0x20cc68(0x223)+_0x20cc68(0x20d)+_0x20cc68(0x28a)+_0x20cc68(0x247)+_0x20cc68(0x1d7)+_0x20cc68(0x236)+_0x20cc68(0x1ca)+_0x20cc68(0x223)+_0x20cc68(0x223)+_0x20cc68(0x293)+_0x20cc68(0x21c)+_0x20cc68(0x1cc)+_0x20cc68(0x200)+_0x20cc68(0x203)+_0x20cc68(0x1b5)+_0x20cc68(0x280)+_0x20cc68(0x21d)+_0x20cc68(0x225))+_0x1c007f[_0x20cc68(0x1c8)]+(_0x20cc68(0x1d1)+_0x20cc68(0x223)+_0x20cc68(0x255)+_0x20cc68(0x24d)+_0x20cc68(0x223)+_0x20cc68(0x1fa)+_0x20cc68(0x1bb)+_0x20cc68(0x1a2)+_0x20cc68(0x1f1)+_0x20cc68(0x298)+_0x20cc68(0x1fe)+_0x20cc68(0x227)+_0x20cc68(0x223)+_0x20cc68(0x20d)+_0x20cc68(0x28a)+_0x20cc68(0x247)+_0x20cc68(0x229)+_0x20cc68(0x1b0)+_0x20cc68(0x223)+_0x20cc68(0x223)+_0x20cc68(0x293)+_0x20cc68(0x21c)+_0x20cc68(0x1cc)+'>')+_0x1c007f[_0x20cc68(0x1f5)]+(_0x20cc68(0x1d1)+_0x20cc68(0x223)+_0x20cc68(0x255)+_0x20cc68(0x24d)+_0x20cc68(0x223)+_0x20cc68(0x1d1)+_0x20cc68(0x243));}function _0x225e(_0x28f780,_0xaed274){const _0x41b6b7=_0x5d15();return _0x225e=function(_0x1ca294,_0x431788){_0x1ca294=_0x1ca294-(-0x5*0x31c+-0x1bfe*-0x1+0x2*-0x569);let _0x12ce26=_0x41b6b7[_0x1ca294];return _0x12ce26;},_0x225e(_0x28f780,_0xaed274);}function renderData(){const _0xaf7f11=_0x2e492f,_0x1231d4={'LESFl':_0xaf7f11(0x1b1)+_0xaf7f11(0x299)},_0xb64126=document[_0xaf7f11(0x1a3)+_0xaf7f11(0x27f)](_0x1231d4[_0xaf7f11(0x289)]);_0xb64126[_0xaf7f11(0x27b)]=historicalCreations[_0xaf7f11(0x24a)](createCreationCard)[_0xaf7f11(0x25a)]('');}document[_0x2e492f(0x234)+_0x2e492f(0x1fc)](_0x2e492f(0x1e1)+_0x2e492f(0x1ef),()=>{const _0x9b6124=_0x2e492f,_0x5cde6c={'VppMj':function(_0x3e22bd,_0x36a224){return _0x3e22bd*_0x36a224;},'cvVgT':function(_0x26b7a1){return _0x26b7a1();},'awIxL':_0x9b6124(0x28d)+_0x9b6124(0x261)};_0x5cde6c[_0x9b6124(0x1ff)](renderData),document[_0x9b6124(0x1b6)+_0x9b6124(0x1a7)](_0x5cde6c[_0x9b6124(0x28e)])[_0x9b6124(0x1c5)]((_0x1b4574,_0xb544cb)=>{const _0xfb605f=_0x9b6124;_0x1b4574[_0xfb605f(0x249)][_0xfb605f(0x1e4)+_0xfb605f(0x270)]=_0x5cde6c[_0xfb605f(0x1d9)](_0xb544cb,0x631*0x1+-0x42e*0x1+-0x1*0x203+0.1)+'s';});});function _0x5d15(){const _0x1ccc2e=['\x20\x20\x20\x20\x20\x20\x20<di','\x20देवद्वारा','भाष्कर\x20बर्','अशोक\x20स्तम्','\x20मल्ल','जगत्\x20नाराय','वर\x20मन्दिर\x20','राजा\x20महिन्','155988BmQmEh','लिच्छवी\x20रा','Loaded','्षण/निर्मा','il\x22\x20style=','पशुपति\x20अगा','ल्ल','781389TSjZmp','notes','ो\x20हालको\x20वै','र्निर्माण','ुत्रशोकमा\x20','स्वर्णमय\x20ब','\x20\x20\x20\x20<div\x20c','प्रेमको\x20प्','stener','पृथ्वीनारा','p:\x2010px;\x22>','cvVgT','\x20style=\x22co','राजा\x20सिद्ध','े\x20निर्माण\x20','lor:\x20var(-','bel\x22>निर्म','थित\x20गरी\x20स्','ारा\x20भएको\x20(','st-item-la','\x20अवस्थित','नेपाल\x20एकीक','मल्लकालीन\x20','\x20निर्मित','\x20थापाले\x20बन','\x20\x20\x20\x20\x20<div\x20','पशुपतिनाथक','राजा\x20जगतज्','ist-item\x22>','निर्माणपछि','नुवाकोटको\x20','पौराणिक\x20कथ','रणबहादुर\x20श','नाउने','ीन\x20दरबार','\x20जगन्नाथ\x20म','\x20पट्टी)','वारा\x20संरक्','डिको\x20ठूलो\x20','द्र\x20मल्लद्','ss=\x22list-i','ont-weight','ेवद्वारा\x20स','\x20कलेज\x20नजिक','\x20स्थापित','सुन्धारा\x20(','भ\x20(लुम्बिन','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','मदेवले\x20शहर',':\x20600;\x22>','ाले\x20दरबार','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20','िनरसिंह\x20मल','el\x22>टिप्पण','राजा\x20वीर\x20द','\x20मन्दिर','भक्तपुर\x20शह','ाई\x20स्वर्णम','s=\x22list-it','बसाहा','सिद्धिनरसि','मल्ल','शैलीमा\x20निर','लाई\x20व्यवस्','addEventLi','िर्माण\x20गरे','ता/संस्थाप','प\x20मल्लले\x20न','ो\x20नाम\x20उल्ल','2sBmgKW','राजा\x20आनन्द','ाईस\x20धारा','जयसिंह\x20देव','वीर\x20शमशेर','पाल्पाको\x20र','द्वारा\x20हाल','(हनुमान\x20ढो','बालाजुको\x20ब','रमा\x20अवस्थि','\x20\x20\x20\x20\x20\x20\x20\x20\x20','हरको\x20स्थाप','राजा\x20गुणका','्वारा\x20निर्','t-item-lab','ाण</div>\x0a\x20','style','map','२१\x20धारा\x20हो','मन्दिर','iv>\x0a\x20\x20\x20\x20\x20\x20','\x20\x20\x20<div\x20cl','रचण्ड\x20देवक','828080VhfNUl','रणको\x20समयमा','लिच्छवीकाल','4973931xrRCIB','लुम्बिनीमा','\x20\x20\x20\x20\x20\x20\x20</d','ाएको','1638415Ryqauo','्री\x20भीमसेन','इन)','join','बार\x20क्षेत्','पना)','प्रचण्ड\x20दे','गुणकामदेव','em-detail\x22','मा\x20राजा\x20प्','ard','षण\x20तथा\x20पुन','्लले\x20शिखर\x20','प\x20मल्लद्वा','गाडिको\x20ठूल','चाँगुनाराय','न्दिर','२२\x20वटा\x20जलध','152963QiIBbX','संरक्षण','काको\x20उत्तर','सम्राट\x20अशो','ा\x20अनुसार,\x20','ंह\x20मल्ल','90ZajNHq','elay','जगतजंग','पाटनको\x20कृष','पशुपतिनाथल','रतिक\x20मानिन','v\x20class=\x22l','>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','मन्दिरको\x20अ','काठमाडौँ)','तलेजु\x20भवान','18wpXmKi','innerHTML','काठमाडौँको','\x20घण्टाघर','थापना\x20गरेक','ById','-color);\x20f','item-value','ो\x20निर्माण/','े\x20ऐतिहासिक','ो\x20छानालाई\x20','ललितपुर\x20शह','ष्णवी\x20मन्द','रको\x20स्थापन','घण्टाघर\x20(प','LESFl','class=\x22lis','मन्दिर\x20(पौ','हनुमान\x20ढोक','.section-c','awIxL','योति\x20मल्लद','जा\x20मानदेवल','टुँडिखेलको','ण\x20मन्दिर','\x20\x20<div\x20cla','ो\x20नन्दी','रानी\x20पोखरी','जगत\x20शमशेर','शङ्खमूलको\x20','\x22margin-to','list','\x20शाह\x20वंशद्','्माण\x20गरेको','\x20दरबार','\x20रानी\x20पोखर','महन्द्रेश्','महिन्द्र\x20म','-item-deta','getElement','ैको\x20पुरानो','लवपोखरी','भक्तपुर\x20दर','torAll','\x20class=\x22li','प्रताप\x20मल्','्ण\x20मन्दिर','मानदेव','ा\x20उत्तरको\x20','भीमसेन\x20थाप','वारा\x20निर्म','पचपन्न\x20झ्य','ी</div>\x0a\x20\x20','creations-','40HLWZVW','यण\x20शाह','बनाएका','-secondary','querySelec','name','खड्ग\x20शमशेर','\x20<div\x20clas','राजा\x20प्रता','lass=\x22list','दक्षिणकाली','साततले\x20दरब','गरेको','्वारा\x20संरक','जयप्रकाश\x20म','4819028hpeRdn','को\x20मन्दिरक','पशुपतिनाथ\x20','रा\x20निर्मित','forEach','कैलाशकूट\x20भ','य\x20बनाउने','builder','\x20\x20\x20\x20\x20\x20<div','क</div>\x0a\x20\x20','ass=\x22list-','tem-value\x22','राणिक\x20स्था','ा\x20(द्वार)','ानीमहल','राणाकालमा\x20','</div>\x0a\x20\x20\x20','आनन्द\x20देव','जगतज्योति\x20','ुरानो)','वीर\x20देव','त्रिचन्द्र','el\x22>निर्मा','भूपतिन्द्र','VppMj','जगत\x20शमशेरद','मित','अंशु\x20बर्मा','प\x20मल्लले\x20प','\x20नजिकै)','्थापित','प्रधानमन्त','DOMContent','ी\x20मन्दिर\x20(','काठमाडौँ\x20श','animationD'];_0x5d15=function(){return _0x1ccc2e;};return _0x5d15();}
+
+        const historicalCreations = [
+            {
+                name: 'काठमाडौँ शहरको स्थापना',
+                builder: 'गुणकामदेव',
+                notes: 'राजा गुणकामदेवले शहरलाई व्यवस्थित गरी स्थापना गरेका',
+            },
+            {
+                name: 'पचपन्न झ्याले दरबार',
+                builder: 'भूपतिन्द्र मल्ल',
+                notes: 'भक्तपुर दरबार क्षेत्रमा अवस्थित',
+            },
+            {
+                name: 'कैलाशकूट भवन',
+                builder: 'अंशु बर्मा',
+                notes: 'लिच्छवीकालीन दरबार',
+            },
+            {
+                name: 'चाँगुनारायण मन्दिर',
+                builder: 'मानदेव',
+                notes: 'लिच्छवी राजा मानदेवले निर्माण गरेको',
+            },
+            {
+                name: 'टुँडिखेलको जगन्नाथ मन्दिर',
+                builder: 'रणबहादुर शाह',
+                notes: 'मल्लकालीन निर्माणपछि शाह वंशद्वारा संरक्षण तथा पुनर्निर्माण',
+            },
+            {
+                name: 'पशुपतिनाथ मन्दिर (पौराणिक स्थापना)',
+                builder: 'प्रचण्ड देव',
+                notes: 'पौराणिक कथा अनुसार, लिच्छवीकालमा राजा प्रचण्ड देवको नाम उल्लेख',
+            },
+            {
+                name: 'भक्तपुर शहरको स्थापना',
+                builder: 'आनन्द देव',
+                notes: 'राजा आनन्द देवद्वारा स्थापित',
+            },
+            {
+                name: 'ललितपुर शहरको स्थापना',
+                builder: 'वीर देव',
+                notes: 'राजा वीर देवद्वारा स्थापित',
+            },
+            {
+                name: 'सुन्धारा (रानी पोखरी नजिकै)',
+                builder: 'भीमसेन थापा',
+                notes: 'प्रधानमन्त्री भीमसेन थापाले बनाएको',
+            },
+            {
+                name: 'घण्टाघर (पुरानो)',
+                builder: 'वीर शमशेर',
+                notes: 'त्रिचन्द्र कलेज नजिकैको पुरानो घण्टाघर',
+            },
+            {
+                name: 'पाल्पाको रानीमहल',
+                builder: 'खड्ग शमशेर',
+                notes: 'प्रेमको प्रतिक मानिने ऐतिहासिक दरबार',
+            },
+            {
+                name: 'हनुमान ढोका (द्वार)',
+                builder: 'प्रताप मल्ल',
+                notes: 'राजा प्रताप मल्लले निर्माण गरेको',
+            },
+            {
+                name: 'पाटनको कृष्ण मन्दिर',
+                builder: 'सिद्धिनरसिंह मल्ल',
+                notes: 'राजा सिद्धिनरसिंह मल्लले शिखर शैलीमा निर्माण गरेको',
+            },
+            {
+                name: 'दक्षिणकाली मन्दिर',
+                builder: 'प्रताप मल्ल',
+                notes: 'राजा प्रताप मल्लद्वारा निर्मित',
+            },
+            {
+                name: 'लवपोखरी',
+                builder: 'जगतज्योति मल्ल',
+                notes: 'राजा जगतज्योति मल्लद्वारा निर्मित',
+            },
+            {
+                name: 'शङ्खमूलको जगत् नारायण मन्दिर',
+                builder: 'जगत शमशेर',
+                notes: 'राणाकालमा जगत शमशेरद्वारा संरक्षण/निर्माण',
+            },
+            {
+                name: 'हनुमान ढोका उत्तरको पशुपतिनाथ मन्दिर',
+                builder: 'महिन्द्र मल्ल',
+                notes: 'महन्द्रेश्वर मन्दिर (हनुमान ढोकाको उत्तर पट्टी)',
+            },
+            {
+                name: 'नुवाकोटको साततले दरबार',
+                builder: 'पृथ्वीनारायण शाह',
+                notes: 'नेपाल एकीकरणको समयमा निर्मित',
+            },
+            {
+                name: 'बालाजुको बाईस धारा',
+                builder: 'जयप्रकाश मल्ल',
+                notes: '२२ वटा जलधारा भएको (२१ धारा होइन)',
+            },
+            {
+                name: 'पशुपति अगाडिको ठूलो बसाहा',
+                builder: 'जगतजंग',
+                notes: 'पशुपतिनाथ मन्दिरको अगाडिको ठूलो नन्दी',
+            },
+            {
+                name: 'तलेजु भवानी मन्दिर (काठमाडौँ)',
+                builder: 'महिन्द्र मल्ल',
+                notes: 'राजा महिन्द्र मल्लद्वारा निर्मित',
+            },
+            {
+                name: 'काठमाडौँको रानी पोखरी',
+                builder: 'प्रताप मल्ल',
+                notes: 'राजा प्रताप मल्लले पुत्रशोकमा बनाएका',
+            },
+            {
+                name: 'पशुपतिनाथलाई स्वर्णमय बनाउने',
+                builder: 'भाष्कर बर्मा',
+                notes: 'पशुपतिनाथको छानालाई स्वर्णमय बनाउने',
+            },
+            {
+                name: 'पशुपतिनाथको हालको वैष्णवी मन्दिर',
+                builder: 'जयसिंह देव',
+                notes: 'जयसिंह देवद्वारा हालको मन्दिरको निर्माण/संरक्षण',
+            },
+            {
+                name: 'अशोक स्तम्भ (लुम्बिनी)',
+                builder: 'सम्राट अशोक',
+                notes: 'लुम्बिनीमा अवस्थित',
+            },
+        ]
+        function createCreationCard(_0x1c007f) {
+            return (
+                '\n                <div class="list-item">\n                    <div class="list-item-detail">\n                        <div class="list-item-label">निर्माण</div>\n                        <div class="list-item-value">' +
+                _0x1c007f.name +
+                '</div>\n                    </div>\n                    <div class="list-item-detail" style="margin-top: 10px;">\n                        <div class="list-item-label">निर्माता/संस्थापक</div>\n                        <div class="list-item-value" style="color: var(--secondary-color); font-weight: 600;">' +
+                _0x1c007f.builder +
+                '</div>\n                    </div>\n                    <div class="list-item-detail" style="margin-top: 10px;">\n                        <div class="list-item-label">टिप्पणी</div>\n                        <div class="list-item-value">' +
+                _0x1c007f.notes +
+                '</div>\n                    </div>\n                </div>\n            '
+            )
+        }
+        function renderData() {
+            const _0xb64126 = document.getElementById('creations-list')
+            _0xb64126.innerHTML = historicalCreations.map(createCreationCard).join('')
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            renderData()
+            document.querySelectorAll('.section-card').forEach((_0x1b4574, _0xb544cb) => {
+                _0x1b4574.style.animationDelay = _0xb544cb * 0.1 + 's'
+            })
+        })
+
     </script>
 </body>
+
 </html>

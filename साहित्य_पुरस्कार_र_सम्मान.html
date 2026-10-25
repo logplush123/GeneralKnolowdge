@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="ne">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>साहित्य र पुरस्कार - नेपाली ज्ञानकोष</title>
     <style>
         /* Global Reset and Nepali Font Setup */
-        @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap'); /* Using Mukta as a highly readable South Asian font placeholder. */
+        @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap');
+        /* Using Mukta as a highly readable South Asian font placeholder. */
         /* Replace with Kalimati or a similar locally hosted font for best results if web license allows */
 
         :root {
-            --primary-color: #4CAF50; /* Green - vibrant for buttons/accents */
-            --secondary-color: #2196F3; /* Blue */
+            --primary-color: #4CAF50;
+            /* Green - vibrant for buttons/accents */
+            --secondary-color: #2196F3;
+            /* Blue */
             --background-color: #f7f7f7;
             --card-background: #ffffff;
             --text-color: #333333;
             --heading-color: #1a1a1a;
-            --shadow: 0 4px 8px rgba(0,0,0,0.1);
+            --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             --border-radius: 12px;
         }
 
@@ -24,14 +28,16 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Mukta', Arial, sans-serif; /* Use your preferred Nepali font here */
+            font-family: 'Mukta', Arial, sans-serif;
+            /* Use your preferred Nepali font here */
         }
 
         body {
             background-color: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
-            padding-bottom: 70px; /* Space for fixed bottom nav if added */
+            padding-bottom: 70px;
+            /* Space for fixed bottom nav if added */
         }
 
         /* --- Header (App Bar) --- */
@@ -80,7 +86,8 @@
             background: none;
             padding: 10px 5px;
             cursor: pointer;
-            font-size: 0.8rem; /* Smaller for mobile tabs */
+            font-size: 0.8rem;
+            /* Smaller for mobile tabs */
             font-weight: 700;
             color: #888;
             transition: all 0.3s ease;
@@ -121,14 +128,17 @@
 
         .card-group {
             display: flex;
-            flex-direction: column; /* Stack vertically on mobile */
+            flex-direction: column;
+            /* Stack vertically on mobile */
             gap: 15px;
         }
 
         @media (min-width: 600px) {
             .card-group {
-                flex-direction: row; /* Side-by-side on desktop/tablet */
+                flex-direction: row;
+                /* Side-by-side on desktop/tablet */
             }
+
             .award-card {
                 flex: 1;
             }
@@ -169,6 +179,7 @@
             color: var(--heading-color);
             margin-bottom: 5px;
         }
+
         .period-detail p {
             font-size: 0.9rem;
             color: #555;
@@ -190,7 +201,8 @@
             margin-bottom: 20px;
         }
 
-        #qa-search, #qa-filter {
+        #qa-search,
+        #qa-filter {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 8px;
@@ -200,6 +212,7 @@
         #qa-search {
             flex-grow: 2;
         }
+
         #qa-filter {
             flex-grow: 1;
         }
@@ -208,13 +221,14 @@
             background: var(--card-background);
             margin-bottom: 10px;
             border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
             overflow: hidden;
         }
 
         .qa-question {
             padding: 15px;
-            background: #e8f5e9; /* Light primary background */
+            background: #e8f5e9;
+            /* Light primary background */
             font-weight: bold;
             color: var(--heading-color);
             cursor: pointer;
@@ -222,7 +236,8 @@
             border: none;
             width: 100%;
             text-align: left;
-            font-size: 1rem; /* High readability on small screens */
+            font-size: 1rem;
+            /* High readability on small screens */
             position: relative;
             transition: background 0.3s;
         }
@@ -303,18 +318,22 @@
             transition: max-height 0.4s ease-in-out;
             background: #ffffff;
         }
+
         .accordion-content ul {
             list-style: none;
             padding: 10px 0;
         }
+
         .accordion-content li {
             padding: 8px 0;
             border-bottom: 1px dashed #eee;
             font-size: 0.95rem;
         }
+
         .accordion-content li:last-child {
             border-bottom: none;
         }
+
         .accordion-content strong {
             color: var(--primary-color);
             margin-right: 5px;
@@ -323,21 +342,31 @@
 
         /* --- Animation Keyframes --- */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* General Readability Fixes */
-        p, ul {
-            font-size: 1rem; /* Base size for good mobile readability */
+        p,
+        ul {
+            font-size: 1rem;
+            /* Base size for good mobile readability */
         }
     </style>
-    
+
 </head>
+
 <body>
 
     <header class="app-header">
-        
+
         <p>नेपाली साहित्य, पुरस्कार र सम्मान</p>
     </header>
 
@@ -350,7 +379,7 @@
         </nav>
 
         <section id="home-section" class="content-section active">
-            
+
             <div class="card-group">
                 <div class="info-card award-card">
                     <h2>मदन पुरस्कार</h2>
@@ -366,7 +395,7 @@
             <div class="info-card literature-periods-card">
                 <h2>नेपाली साहित्यको काल विभाजन</h2>
                 <div id="literature-periods">
-                    </div>
+                </div>
             </div>
 
         </section>
@@ -378,12 +407,12 @@
                     <option value="all">सबै विधा</option>
                     <option value="साहित्य">साहित्य</option>
                     <option value="पुरस्कार">पुरस्कार</option>
-                    
+
                 </select>
             </div>
-            
+
             <div id="qa-list" class="qa-list">
-                </div>
+            </div>
         </section>
 
         <section id="honors-section" class="content-section">
@@ -391,20 +420,779 @@
                 <h2>नेपाल राज्यका मान पदवी, अलङ्कार तथा पदकहरू</h2>
                 <p class="summary">विभूषण ऐन, २०६४ अनुसार:</p>
                 <div class="badge-summary">
-                    <span>मानपदवी: ४</span> 
-                    <span>अलङ्कार: ९</span> 
+                    <span>मानपदवी: ४</span>
+                    <span>अलङ्कार: ९</span>
                     <span>पदक: १३</span>
                 </div>
-                
+
                 <div class="accordion-group" id="honors-accordion">
-                    </div>
+                </div>
             </div>
         </section>
 
     </main>
 
     <script>
-        const _0x4ffe09=_0x1f20;function _0x46e2(){const _0x5b571c=['विद्यया\x20मृ','\x20र\x20निर्गुण','ार-२०७२\x20कस','**वासुदेव\x20','TfBby','ान्**\x20को\x20ह','maxHeight','नेवार\x20भाषा','याल,\x20उदयान','2582418dNLqCF','\x20सम**','YikDV','्र\x20प्रेम।','्दछन्।','आत्मबल\x20सर्','ृति\x20\x27उलार\x27','हिलो\x20रचना\x20','ाप\x20सुभूषण','नेपाली\x20उपन','ापआभूषण','कला/चलचित्','म**','मासिक\x20पत्र','मानपदवी\x20४\x20','िय\x20वनस्पति','toLowerCas','literature','२९\x20राष्ट्र','र्यो?','ास\x20नेपालका','KreHK','उत्साह\x20शक्','्य\x20\x27सुलोचन','नेपालमा\x20सर','\x27पृथ्वी\x20पु','ि.सं.\x20१९८५','हासमा\x20सबभन','ार\x20शर्मा\x20न','ार\x20डा.\x20ध्र','नेपालको\x20सर','चन्द्रकान्','ट्रभक्ति\x20अ','\x20प्रवीण','म\x20पुण्याय','न\x20प्रदान\x20ग','रुषार्थ','जनसेवा\x20श्र','\x20भएको\x20हो?','यण\x20शाह\x20कवि','००७\x20देखि\x20२','लम\x20चलाउने\x20','वभूतेषु','मा\x20कुनलाई\x20','ंगेल,\x20गोपी','\x20न्ह्यू\x20बज','पाउने\x20महिल','madanPuras','म्ब**','नेपालको\x20प्','sjSvJ','ङ्देल\x20पुरस','सर्वप्रथम\x20','्वको\x20समय\x20य','स्थापना','म्मानित\x20हु','**डा.\x20राजे','header\x22\x20da','सत्कार्य\x20प','ुण्ठ\x20मानन्','\x20गरेको\x20छ?','तिरको\x20आयाम','ि\x20को\x20हुन्?','विभिन्न\x20अभ','मायण\x27**','ेको\x20छ?','\x20देवकोटाले','ित्यमा\x20आधु','ाई**\x20(चलचि','्ति\x20मानिने','हादुर\x20मल्ल','title','नेपाल\x20प्रत','qa-search','PfAFV','्द\x20दासद्वा','**माधव\x20घिम','मानपदवी\x20(T','ञान\x20तथा\x20प्','मानिन्छन्।','र\x20गद्यका\x20प','मदन\x20पुरस्क','change','\x20गरिएको\x20छ।','ZjRZA','को\x20\x27असारको','२\x20सालको\x20\x27प','**ऋद्धिबहा','रिने\x20\x27वनस्','सुन्तली\x27\x20क','नु\x20जयन्ती\x20','\x27नेपाली\x20**','**सुलोचना*','ण्डेको\x20\x27रू','name','\x20\x20\x20<p>','स्थापना/घो','puraskar-d','h3>\x0a\x20\x20\x20\x20\x20\x20','०२५**','madan-pura','ात\x20हुनुपूर','पाल\x20म्युजि','०६७**\x20(गद्','राशिको\x20\x27जग','**११**','्ञा-प्रतिष','बहादुर\x20सिं','त्य\x20पुरस्क','**हास्य\x20कद','प्रारम्भदे','लेखनाथ\x20पौड','ाथ\x20पोखरेल)','ीव्र\x20गति\x20ल','Loaded','ass=\x22qa-it','क\x20एवार्ड\x27\x20','्कार-२०७२\x20','ुवचन्द्र\x20ग','िबन्ध\x20(वि.','्मश्री\x20साह','म\x20सम्पादक\x20','मुनाल**','विधा','्याल\x20आदि।','ाई\x20चिनिन्छ','Nxtbi','ाहरूको\x20युग','सलाई\x20प्रदा','question','कारी**','रिने\x20\x27पानो','महाकाव्य**','राणाको\x20नाम','०७२\x27\x20बाट\x20स','को\x20\x27मुटुको','ZofgL','ारायण\x20शाह\x20','ुद्रराज\x20पा','periods','ना\x20पृथ्वीन',',\x20महाकवि\x20ल','रू.\x20४,०००','\x20भएकाले\x20तत','पुरस्कार\x20२','**प्राकृत\x20','रज्ञा\x20प्रत','न्द्र\x20ज्ञव','यसलाई\x20पूर्','value','स्कारबाट\x20२','\x20डा.\x20ध्रुव','चलचित्र\x20\x27क','हो?','\x20विभाजन','ाक्रम,\x20वीर','राशिको\x20\x27पद','ालाई\x20\x27छ\x20हज','\x20</div>\x0a\x20\x20','ि\x20भनिन्छ।','ट)\x20ले\x20प्रद','\x20\x20\x20\x20\x20\x20\x20</d','कनकपत्र\x20आद','**डा.\x20रमेश','मराजेश्वरी','थापक)','map','लागि\x20कसलाई','\x20प्रदान\x20गर','रणोपरान्त)','विधिले\x20योग','य**','ुविचार\x27\x20का','पुरस्कार-२','९९१\x20देखि**','\x20राशिको\x20\x27भ','\x20शक्ति','दर्श\x20वाक्य','target','्तिधारा\x20(भ','ृहत','शित\x20भएको\x20प','शिको\x20\x27रत्न','उचो\x20बनाउने','**प्रियंका','दोस्रो**\x20स','**नयनराज\x20प','\x20\x20\x20\x20<span>','**निर्मला\x20','ZMSMs','heading','5085899YeYFYf','forEach','ित्यमा\x20पनि','वि.सं.\x20२०७','ection','मलको\x20भुवा\x27','\x20\x20\x20\x20\x20\x20\x20<h3','्यालको\x20\x27ऋत','\x20Balakrish','ायण\x20शाहको\x20','</ul>\x0a\x20\x20\x20\x20','ान\x20गर्ने\x20व','न्छ?','na\x20Sama,\x20b','ोतीराम\x20भट्','le=\x22font-s','DOMContent','गरिएको\x20थिय','ajMKn','\x20लाख\x20राशिक','्यासको\x20जनन','२\x20सालको\x20\x27ल','पछि\x20भक्तिक','ेखनाथ\x20साहि','साहित्यिक\x20','टको\x20समय\x20तथ','भट्ट,\x20शम्भ','्थापना,\x20मद','\x20पुरस्कार\x27','chNaf','रतिष्ठा\x20अन','्रज्ञा\x20पुर','ई\x20प्रदान\x20ग','उत्कृष्ट\x20च','अक्षराङ्क\x20','etails','जनजाति\x20साह','न\x20गरियो?','५\x20देखि\x20हाल','खि\x20कार्यान','ाक्य:\x20राष्','एको\x20पाइन्छ','मा\x20उत्कृष्','ontext)','\x20पदक\x20१३\x20वट','\x20भयो।\x20यसला','.\x20१९३९\x20सम्','ुम्की\x27\x20को\x20','180pMFUse','हासमा\x20स्वर','सेवाधर्म\x20प','bSAxA','शिक्षा\x20कसल','राष्ट्र\x20यश','>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','DINPd','वीरधाराकाल','ा\x20सर्वोपरी','कृति','रू\x20समेत\x20पर','थाकार\x20गुरू','**संगीतकार','त\x20जीवन\x27\x20ना','zZzQN','िकाका\x20प्रथ','नेपाल\x20एकीक','\x20\x20\x20','add','ाधि\x20कसले\x20द','प्रथम\x20विदे','\x20राष्ट्रिय','वि.सं.\x20२०१','ामा\x20लेखिएक','ं.\x20१८३१\x20मा','्डी\x27\x20का\x20ला','\x20लिखित\x20नेप','descriptio','ुरुवात\x20कहि','नले\x20नेपाली','लाई\x20सम्मान','1bqaQIr','pJWeu','गरिएको)।\x20आ','्धु\x27\x20को\x20प्','ो\x20प्रारम्भ','category','\x20जस्ता\x20गति','filter','मूल्य\x20भक्त','रकाल\x20शुरुव','कार-२०७२\x27\x20','र,\x20उच्च\x20वि','\x20\x20\x20\x20','\x20शुरुवात\x20म','<div\x20class','\x20\x20\x20\x20\x20','ित्यको\x20आधु','्रसाद\x20देवक','गि)','ta-index=\x22','\x20कसलाई\x20प्र','ार्यको\x20\x27रा','</div>\x0a\x20\x20\x20','**भृकुटी\x20ब','्ति','ालकृष्ण\x20सम','kYLPo','ार\x20९\x20वटा\x20र','वि.सं.\x20२०४','ased\x20on\x20hi','qa-list','skar-detai','्य\x20कुन\x20हो?','िवल्लभ\x20अर्','ास्तोला**','.accordion','०७२\x20कसलाई\x20','ट\x20संगीतकार','टन**','वियोगी**','\x20देखा\x20परेक','\x20को\x20हुन्?','को\x20लिपिलाई','िड\x20का\x20संस्','ा**','वीरता\x20पदक','शान्ति\x20पदक','dataset','toggle','न्द\x20अर्याल','a\x20Shree\x20Pu','ो\x20हो?','.nav-tab','६-२०१७\x20साल','ाहित्यले\x20त',')\x20गरी\x20२\x20भा','ित्य\x20लेखनक','महा\x20पौरख\x20भ','आत्मबलमा\x20श','ुन\x20चलचित्र','समकालीन\x20कव','ालीको\x20\x27नास','४/०४/३२\x20दे','wHMGY','राष्ट्रसेव','कवितामा\x20आध','ानुभक्त\x20आच','**रुद्रराज','ी\x20भन्नाले\x20','निक\x20युगका\x20','डा.\x20डिल्ली','\x20शुरुवात\x20भ','classList','महाकवि\x20लक्','**रूपमती**','4887873GWeGca','\x20व्यक्ति\x20क','</p>\x0a\x20\x20\x20\x20\x20','ाको\x20व्याकर','रेका\x20थिए।','नेपाल\x20विज्','्ट्रिय\x20पुर','मयलाई\x20चिनि','scrollTop','(चलचित्र\x20\x27','app-contai','ाम्रपत्र,\x20','hreePurask','ाट\x20२०७२\x20मा','खक\x20को\x20हुन्','ुप्रसाद\x20ढु','िराम\x20भट्टक','lass=\x22qa-q','\x20मातृभूमि।','getElement','duration','ित्यको\x20काल','ाष्ट्रिय\x20प','active','भाजन\x20गरिएक','यका\x20मान\x20पद','रकाशित\x20भएप','dion-item\x22','**लीलबहादु','OVtJk','”\x20नामक\x20गीत','ति\x20समर्पण','साहित्य','चार','\x20(रुम\x20टू\x20र','ार\x27\x20को\x20स्थ','\x20गरियो**?','ाली**','योगक्षेप\x20ब','ह**','रविधि\x20प्रज','्त\x20आदि।','स्कार\x20वि.स','ाली\x20पछि\x20**','ार-२०७२\x27\x20क','देखि\x20वि.सं','्राप्त\x20गरे','ि)\x20र\x20प्राच','**दयाहाङ\x20र','अलङ्कार\x20(D','प्रकोप\x20पीड','**गोकुल\x20प्','न\x20पुरस्कार','s\x20Satya\x20Mo','व्यको\x20रचना','ो\x20उदयदेखि\x20','\x27सुक्तिसिन','मलाई\x20\x27पृथ्','बाँचेकाहरू','साहसीको\x20शी','्रदान\x20गरिए','\x20कुन\x20हो?','utton>\x0a\x20\x20\x20',':\x20राष्ट्रो','ल\x20(श्रृङ्ग','िक\x20पत्रिका','न्नाले\x20कति','रण\x20उपाध्या','ित्य\x20पुरस्','ान\x20दिएबापत','सम्मानित\x20ह','लैनसिंह\x20बा','ली\x20महाकाव्','\x20लागि)','ाप्त\x20गरे?','माध्यमिक\x20क','र\x20उच्च','em\x22>\x0a\x20\x20\x20\x20\x20','्वयन)','ार–२०१५\x27\x20क','धर**','all',':\x20मोतिराम\x20','\x20गुमानी\x20पन','सुवानन्द\x20द','परोपकार\x20पर','ीमा\x20विभाजि','्ट**','लेदेखि\x20भएक','िज्ञान\x20तथा','ो\x27\x20कथा\x20(वि','**ध्रुवचन्','yCXTc','**४\x20लाख\x20२\x20','ं.\x20२०७२\x20मा','प्रत्येक\x20व','ता\x27\x20र\x20वि.स','.सं.\x20१९९२)','्यका\x20पद्य\x20','चन्द्र\x20गौत','AwjQC','ो\x20मानिन्छ?','\x20त्यसको\x20प्','\x20\x20\x20</li>\x0a\x20','नामाकरण','यास\x20(वि.सं','त्रकारिता\x20','r\x20Hridaya,','Periods','नगद\x20रु.\x20एक','वसरमा\x20कसला','सेवा\x20परायण','क्ष्मीप्रस','िनाटकका\x20ले','ार\x20झमक\x20घिम','storical\x20c','शुरुदेखि\x20म','का\x20लेखक\x20को','हित्य\x20कुन\x20','\x20बहादुर**\x20','दान\x20गरियो?','हिलो\x20व्याक','चलचित्र\x20\x27झ','ृष्ण\x20भक्ति','ी\x20विभाजन\x20न','ित\x20गरिएको\x20','रमा\x20पुरस्क','\x20२०७२\x20कसला','ि\x20लेखनाथ\x20प','\x20भक्तिधारा','\x20\x20\x20\x20\x20\x20\x20\x20<d','**साहित्यक','addEventLi','\x20(अगम\x20दिलद','yvGzP','\x20दियो।','गमा\x20विभाजन','्रेणीमा\x20वि','\x20राजकीय\x20प्','ेली\x20आन्दोल','ि\x20\x27ऐना\x27\x20का','वटा,\x20अलङ्क','समाज\x20सेवा\x20','रू.\x20२\x20लाख','ष्मीप्रसाद','न-२०७२\x27\x20कस','\x20व्यथा\x27\x20(व','\x20कृष्णप्रस','कृतिको\x20रूप','रकाशनसम्मक','10ddgFUW','को\x20भाषा\x20सा','ुरेल**','मक\x20साहित्य','VJdXd','\x20माधव\x20घिमि','list','जगदम्बाश्र','विज्ञान\x20प्','alankar','ई\x20नयाँ\x20मोड','विज्ञान\x20पद','क्ति','द्र\x20गौतम**','includes','कबड्डी\x20कबड','्वप्रथम\x20शि','नागरिक\x20अभि','रायण\x20वैद्य','**वि.सं.\x20२','summary','यको\x20पहिलो\x20','\x20मस्तु','्देशक\x20को\x20ह','परित्राणाय','\x20निर्देशक\x20','ित्य)\x20र\x20उत','**नारायण\x20र','ाम\x20कुन\x20साह','ो\x20समय\x20हो।','०\x20देखि\x20१९७','ित्य\x20सम्मा','दिलदास)\x20मा','गोठाले\x20उपन','्तर्राष्ट्','input','ार्थको\x20कवि','**प्रा.डा.','div>\x0a\x20\x20\x20\x20\x20','नसँगै\x20भएको','ङ्गीत,\x20कला','पाधि**\x20कहि','्वोच्च\x20विभ','हुने\x20व्यक्','**झुम्की**','४\x20सम्म','ecoration)','बाट','्कार\x27\x20को\x20र','रविधि\x20आजको','े\x20कसले\x20चिन','ख\x20राशिको\x20व','्थानमा\x20रहे','गुरुङ**','लाई\x20प्रदान','्ण\x20युग\x20भन्','ासकार\x20को\x20ह','िर्देशक\x20पु','\x20उत्तम','यो\x20काल\x20मोत','ी),\x20राम\x20भक','चलचित्र\x20\x27स','र\x20झुक्दैन','पुरुषार्थम','वी\x20प्रज्ञा','रण\x20कुन\x20हो?','ार\x27\x20कसले\x20प','\x20पुरस्कार\x20','कवि\x20सुवानन','िका\x20\x27शारदा','ानु\x20पुरस्क','raskar)','ुनिक\x20कालको','्मश्री\x20साध','**मुकुन्दश','सिंहद्वारा','प्रदान\x20गरि','तात्मक\x20अभि','ो\x20\x27दिव्योप','kXAul','<li>','पति\x20पुरस्क','\x20पहिलो\x20कवि','दुई\x20लाख\x20नग','style','प्रमुख\x20रचन','ीन\x20हस्तलिख','Nxjri','िज्ञान\x20पुर','कार-२०७२\x20क','नेपाली\x20भाष','\x20गरियो?','का\x20हुन्?','नामक\x20कविता','468jAXFeb','िधामा\x20योगद','पदक','\x20के\x20भनिन्छ','्म।','लोकश्री\x20पद','innerHTML','रु.\x20३\x20लाख\x20','शब्दकोश**\x20','ुने\x20व्यक्त','**डा.\x20गोपी','.\x20१९७३)\x20प्','85160wAzwkb','र्ष\x20चैत्र\x20','एको\x20छ?','ँछ।','ा\x27\x20का\x20लेखक','ById','uFqXf','य\x20र\x20पद्य\x20व','शिक्षा\x20ज्य','-periods','ssUcf','ति\x20अनुपम\x20श','नेपाल\x20रत्न','nor)','कसलाई\x20प्रद','ण\x20लेखनमा\x20क','GhFXM','िलेखहरू\x20(श','्टले\x20वि.सं','रस्कार-२०७','\x20छविलाल\x20गज','त्थानको\x20बि','**जयपृथ्वी','\x20कसलाई\x20**प','साहित्य,\x20स','ले\x20प्राप्त','सचिब\x20(Saji','\x20स\x20जीवनी','नारायण\x20गोप','<ul>','ितको\x20\x27प्रे','पाउनेहरू','\x20दिवसको\x20दि','ायिका\x20पुरस','निन्छ?','**वि.सं.\x20१','ाथमिककाल\x20भ','ideal_mott','“हिमालपारि','(भक्ति\x20साह','jagadamba-','सर्वजन\x20हित','ता\x20र\x20पुरुष','चालिसे,\x20सो','ले\x20प्रदान\x20','िरस,\x20विद्य','iv>\x0a\x20\x20\x20\x20\x20\x20','२०७२\x27\x20को\x20अ','ली\x20भाषाको\x20','प्रदानको\x20घ','**लक्ष्मीप','qa-filter','मनाथ\x20सिग्द','ान\x20गरियो?','्मको\x20अवधिल','स्कार\x20२०७२','रम\x20शाह\x20(नी','रियो?','ार्य,\x20रघुन','लचित्र\x20पुर','बड्डी\x20कबड्','दा\x20ठूलो\x20**','छि\x20नेपाली\x20','चम्कन्छ\x20पु','\x20\x20<ul>','jagadambaS','n-content\x22','DFmKs','label','वि.सं.\x20१९३','\x20वटा\x20महाका','iv\x20class=\x22','ाक्य:\x20सेवा','**साहित्य\x20','साहित्यकार','\x27नेपाल\x20संग','द\x20ज्ञवाली*','िएका\x20थिए?','षणा','्ञा\x20प्रतिष','्य:\x20','उपन्यास\x20कु','लागि\x20जागौं','ारण्य\x20केशर','answer','b\x20–\x201st\x20wa','तस्तुते','manpadavi','रिय\x20जगतमा\x20','ाहरू:\x20नाट्','उत्कृष्ट\x20न','पाँच\x20श्रेण','\x20माता\x20समान','त।\x20आदर्श\x20व','</span>\x0a\x20\x20','</li>','सम्म','रस्कार,\x20२०','**लीलाध्वज','\x20गरिने।\x20आद','uestion\x22\x20d','\x20कार्की**\x20','कवि\x20शिरोमण','ाशी\x20कति\x20रह','रूपमती\x20उपन','\x20साधू\x20नाम','\x20आफ्नो\x20जीव','ार\x27\x20भन्नाल','पाली\x20साहित','िएको\x20छ?','ित्यको\x20प्र','क\x20को\x20हुन्?','व\x20मध्यकाल\x20','्कालीन\x20साह','डी\x27\x20को\x20निर','पमती\x27\x20उपन्','िरे**','ा\x20पदक','qa-answer-','ालाई\x20**महा','=\x22accordio','\x20\x20\x20<li>\x0a\x20\x20','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20',',\x20सुन्दरान','शिव\x20संकल्प','ी\x20कबड्डी\x27\x20','**जोन\x20उड**','२०७२\x27\x20बाट\x20','ाण्डे**\x20(क','**प्रारम्भ','स्कार-२०७२','ाष्कर','ुरस्कार\x27\x20ब','्तर\x20मध्यका','नाले\x20कुन\x20स','ार\x27\x20कसलाई\x20','\x20मानिन्छ।','िष्ठानको\x20स','रभाव\x20पर्न\x20','ति\x20को\x20हुन्','क्षाको\x20सुर','०७२\x20मा\x20सम्','९\x20सम्म\x20नेप','यस\x20अवधिमा\x20','\x20Chittadha','अति\x20पौरख\x20भ','8914254xOyREE','**भाग्यले\x20','\x20तारानन्द\x20','join','**रमेश\x20अधि','ाद\x20पौडेल**','contains','\x20\x20\x20\x20\x20\x20\x20</b','मदन\x20शमशेर\x20','\x20हिमालवारि','</strong>\x20','ियो।\x20नेपाल','निककालको\x20स','२\x20सालको\x20\x27भ','\x20(कृति\x20\x27सि','०६६\x20साल**','रत्न','torAll','\x20\x20\x20\x20\x20\x20\x20\x20</','रकाशित\x20भएक','ी\x20पुरस्कार','\x20बाँडिएको\x20','ata-index=','लाकार\x20को\x20ह','ass=\x22accor','**अपिल\x20विष','य\x20कुन\x20हो?','सगरमाथा\x20पद','प्राकृतिक\x20','ारिक\x20काव्य','नेपाल\x20प्रज','कीर्तियस्य','हिचान\x20पुरस','hfYIt','\x20(Jagadamb','**रामायण\x20(','रु.\x20२\x20लाख\x20','qFfyG','remove','वि.सं.\x20२००','.\x20१९९१),\x20क','GMkrW','्यासका\x20लेख','ई\x20जनालाई\x20ब','वि.सं.\x20१९७','padak','नेपाली\x20साह','ोइराला**','१९३९','राष्ट्रदीप','ूषण\x20(श्रेण','ाउँथे?','ायमाझी**','२०७२\x20कसलाई','\x20थापा**\x20(म','प्रथम\x20व्यक','ordion','र\x20लोप्चन**','**वसन्तकुम','ई\x20मोतिराम\x20',')</span></','ाप\x20भुषण','पाउने\x20व्यक','पहिलो\x20नाटक','\x20\x20\x20<div\x20cl','\x20चक्रपाणी\x20','सुरुको\x20राश','\x20थापा\x20साहि','\x20प्रकाशन\x20ग','त्र\x20\x27कबड्ड','कुन\x20उपन्या','**रामबाबु\x20','\x20हुन्?','ास,\x20अखण्ड\x20','),\x20सरदार\x20र','scrollTo','ass=\x22perio','\x20पाण्डे**','ोवर्द्धक','्कार,\x20२०७२','र\x20तथा\x20पदकह','रख्यात\x20र\x20स','नन्दनबाट\x20स','नाथ\x20लोहनी,','ा\x20लागि)','्राचार्य**','\x27\x20प्रदान\x20ग','\x20२०६४\x20(२०६','sQIus','हालको\x20राशि','्दा\x20बढी\x20प्','को\x20स्थापना','**गोविन्दब','ेपाल**','\x20तुल्सी\x20ना','TTlhZ','व्य\x20(वि.सं','8Wrsene','पारिजात','\x20गरेका\x20थिए','ालमै\x20प्रका','सं.\x20१९९२)।','र्श\x20वाक्य:','**रामप्रसा','नेपाल\x20राज्','**वि.पी.\x20क','ित\x20ग्रन्थह','swer\x22\x20id=\x22','**रामलाल\x20ज','ाल\x20शुरु\x20भय','ा\x20सेवा','भानुभक्त\x20आ','लक्ष्मीप्र','Puraskar)','लेखनका\x20हिस','सौर्य\x20पदक','ो\x20पहिलो\x20रच','ो\x20\x27सङ्गीता','kar','दम्बाश्री\x20','राष्ट्रका\x20','16918begtNX','र\x20कसले\x20प्र','स्वच्छ\x20आचा','ौतम**','र\x20शाह)**','व्यक्तिबाट','ित्यको\x20इति','\x20मा\x20कसलाई\x20','दुई\x20लाख\x20रा','**जे.\x20ए.\x20ए','\x20\x20\x20\x20\x20\x20\x20','शारदा\x20पत्र','ने\x20व्यक्ति','**वीरबहादु','ize:0.9em;','हाकविको\x27\x20उ','देखि\x20कतिसम','चार्य)**','ो।\x20आदर्श\x20व','ो,\x20जसलाई\x20क','्कार\x27\x20कसला','र\x27\x20वि.सं.\x20','शब्दसागर**','द\x20सहितको\x20र','zFuLQ','nextElemen','रसाद\x20जोशी*','\x20सम्मानित\x20','भट्टकाल\x20पन','\x20\x20\x20\x20<stron','honors-acc','ना\x20सम्मान-','निस्वार्थ\x20','रदान\x20गरियो','ाद\x20देवकोटा','.content-s','सकारलाई\x20चि','स\x20कालमा\x20आउ','(आदर्श\x20वाक','cmTTz','विलासी\x20राण','प्रसाद\x20मैन','ाली\x20साहित्','**धावक\x20वैक','्य\x20पुरस्का','.\x20१९४३\x20मा\x20','\x20\x20\x20\x20\x20\x20','\x20प्रविधि\x20प','VDnbG','वानी\x20साहित','arNXM','\x27मदन\x20पुरस्','\x20थियो,\x20जसल','ुन्?','२\x20कसलाई\x20प्','परम\x20पौरख\x20भ','\x20का\x20लागि)','का\x20लागि)','को\x20छ**?','को\x20पुरस्का','विभूषण\x20ऐन,','दोस्रो\x20\x27ने','792477wOqeNX','दान\x20पुर्या','िहरू:\x20शक्त','देश\x27\x20नै\x20ने','ner','ार\x20साहित्य','**आहुति\x20र\x20','्य\x20प्रज्ञा','मानित\x20हुने','रुवात\x20भएको','\x20साहित्यका','पृथ्वीनारा','ित्यकारहरू','\x20पुरस्कारब','</li>\x0a\x20\x20\x20\x20','सुकीर्ति\x20प',',\x20कविताहरू','ानिन्छ।','गमनसँगै\x20शु','\x20मानिन्छन्','न्दु\x20राष्ट','९९१**','रेलाई\x20**\x27म','२०७२\x27\x20कसला','को\x20हुन्?','zjkng','values','साद\x20देवकोट','\x27गोरखा\x20भार','सीतायान\x20**','ोषणा','\x20<span\x20sty','ा\x20श्रृङ्गा','RXgaw','\x27\x20कहिले\x20प्','गई\x20श्रृङ्ग','को\x20थिए?','ो\x20हुन्?','ाट\x20वितरण\x20ग','ने\x20प्रथम\x20क','ाय\x20सुरक्षा','d-detail\x22>','दुर\x20मल्ल**','ीत\x20तथा\x20नाट','शक्त\x20उपन्य','itle\x20of\x20Ho','ई\x20\x27भानुभक्','ोशी**\x20(कृत','विकास\x20रत्न','कविको**\x20उप','रमण\x20रेग्मी','्ठानले\x20\x27भा','र\x20क्षेत्री','ुवात\x20गर्ने','रु.\x20एक\x20लाख','रा\x20लिखित\x20\x27','रणको\x20अभिया','७\x20सालपछि\x20स','विजयी\x20श्री','्ठान\x20(नास्','व्याकरण**','han\x20Joshi,','\x20पदक','मानिन्छ?','रू.\x20दुई\x20ला','stener','scrollHeig','**नेवारी**','ौड्यालको\x20आ','**बालकृष्ण','click','न्द\x20बाँडा,','ाहस','राष्ट्रकवि','पाँच\x20वटा\x20श','धारा\x20(इन्द','wtxuD','गुरुङ**\x20(\x27','roUzR','तेस्रो\x20नेप','ाली\x20महाकाव','.qa-questi','े\x20लेखेका\x20ह','शाहसीको\x20शि','\x20पन्ध्र\x27\x20न','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20','पदक\x20(Medal','\x20<button\x20c','ितोद्वार\x20प','मोतिराम\x20भट','शी\x20**विद्व','\x20अन्तर्राष','त\x20पुरस्कार','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20','ोटा**','ापना\x20कहिले','राष्ट्रप्र','nationalHo','KonxT','प्रमुख\x20साह','नेपाल\x20सेवा','\x20नै\x20परम\x20धर','\x27\x20का\x20लेखक\x20','वी,\x20अलङ्का','चन्द्र\x20अधि','त\x20न्यौपाने','य\x20सम्राट\x20ब','कृष्ण\x20शर्म','नगद\x20राशिसह','र\x20को\x20हुन्?','\x20द्वारा\x20कस','accordion-','शर्मा**','\x20color:#77','ित्यकारको\x20','**आदिकवि\x20भ','\x20\x20</div>\x0a\x20','ाँडिएको)','राष्ट्र\x20गौ','cTkqr','खि\x20वि.सं.\x20','हजार**\x20(दु','ायक\x20पुरस्क','पहिलो\x20नेपा','lCMSW','७२\x27\x20सालका\x20','\x20पुरस्कार-','**नीर\x20विक्','ोति\x20पदक','tSibling','\x20थियो\x20भने\x20','ाको\x20सबैभन्','**रञ्जना**','ass=\x22qa-an','चलचित्र\x20वि','वि.सं.\x20१९४','े\x20साहस,\x20पर','ाबले**\x20नेप','पुरस्कार','details','ुन्तली\x27\x20को','को\x20सिर्जना','प्राथमिक\x20क','SLRFg','िलापत्र,\x20त','\x20साहित्य\x20प','न\x20हो?','PHxfc','\x20साहित्यला','-header','ियो?','ार\x20(Madan\x20','आधुनिक\x20काल','ई\x20**प्रदान','नकालमा\x20कति','कास\x20बोर्डब','\x20पृथ्वीनार','निर्देशक\x20क','nors','7;\x22>(','querySelec','रम\x20गहन'];_0x46e2=function(){return _0x5b571c;};return _0x46e2();}function _0x1f20(_0x13b5fe,_0x9a0296){const _0x1d3370=_0x46e2();return _0x1f20=function(_0x2805b8,_0x55838f){_0x2805b8=_0x2805b8-(-0x25*0xa3+0x1bde+0x1*-0x37b);let _0xed5c74=_0x1d3370[_0x2805b8];return _0xed5c74;},_0x1f20(_0x13b5fe,_0x9a0296);}(function(_0x1d2b63,_0x59ec0d){const _0x6d724a=_0x1f20,_0x49481e=_0x1d2b63();while(!![]){try{const _0x12aaf7=parseInt(_0x6d724a(0x50c))/(-0x5fd+0x47*0x20+0x2e2*-0x1)*(-parseInt(_0x6d724a(0x3fd))/(-0x136a+-0x1250+0x25bc))+-parseInt(_0x6d724a(0x352))/(-0x64*0x34+-0x8b9+0x1d0c)+parseInt(_0x6d724a(0x4ec))/(0x9*-0x36e+-0xc9d*-0x1+0x1*0x1245)*(parseInt(_0x6d724a(0x209))/(-0x2487+0x23ec+-0x20*-0x5))+parseInt(_0x6d724a(0x29b))/(0x2033+0x354*-0x1+0x1*-0x1cd9)+parseInt(_0x6d724a(0x4bc))/(0xa6*0x37+-0x25*-0x108+-0x49cb)*(parseInt(_0x6d724a(0x2fc))/(0x1*0x2147+0x22ad+-0x43ec))+-parseInt(_0x6d724a(0x109))/(0x235f+-0x497+-0x1ebf)*(parseInt(_0x6d724a(0x19f))/(-0xb6f*-0x3+-0xdf0*-0x1+-0x3033))+-parseInt(_0x6d724a(0x314))/(-0x1214+0x1998+-0x779)*(-parseInt(_0x6d724a(0x1fd))/(0x1df5+-0x2313+-0x295*-0x2));if(_0x12aaf7===_0x59ec0d)break;else _0x49481e['push'](_0x49481e['shift']());}catch(_0x5e4648){_0x49481e['push'](_0x49481e['shift']());}}}(_0x46e2,-0x1562*-0x49+0xda227*0x1+0x2b*-0x200e));const APP_DATA={'madanPuraskar':{'title':_0x4ffe09(0x44e)+_0x4ffe09(0x3e9)+_0x4ffe09(0x30c),'details':[{'label':_0x4ffe09(0x45d)+_0x4ffe09(0x257),'value':_0x4ffe09(0x503)+'२'},{'label':_0x4ffe09(0x2dd)+'ि','value':_0x4ffe09(0x48b)},{'label':_0x4ffe09(0x2f4),'value':_0x4ffe09(0x198)},{'label':_0x4ffe09(0x431)+_0x4ffe09(0x23a)+_0x4ffe09(0x370),'value':_0x4ffe09(0x503)+'३'},{'label':_0x4ffe09(0x431)+_0x4ffe09(0x228),'value':_0x4ffe09(0x223)+_0x4ffe09(0x25e)+_0x4ffe09(0x13e)+_0x4ffe09(0x38f)+_0x4ffe09(0x299)+_0x4ffe09(0x174)+_0x4ffe09(0x4c4)+_0x4ffe09(0x4c9)+_0x4ffe09(0xdb)+_0x4ffe09(0x17c)+_0x4ffe09(0x4e7)},{'label':_0x4ffe09(0x431)+_0x4ffe09(0x42b)+'ा','value':_0x4ffe09(0x2fd)},{'label':_0x4ffe09(0x171),'value':_0x4ffe09(0x2a3)+_0x4ffe09(0x482)+_0x4ffe09(0x1ce)},{'label':_0x4ffe09(0x478),'value':_0x4ffe09(0x4d4)+_0x4ffe09(0x4f6)}]},'jagadambaShreePuraskar':{'title':_0x4ffe09(0x1a6)+_0x4ffe09(0x2af)+_0x4ffe09(0x2bd)+_0x4ffe09(0xf0)+_0x4ffe09(0x1e6),'details':[{'label':_0x4ffe09(0x433),'value':_0x4ffe09(0xda)+'५'},{'label':_0x4ffe09(0x431)+_0x4ffe09(0x2d9)+_0x4ffe09(0xd6),'value':_0x4ffe09(0x225)+'ाल'},{'label':_0x4ffe09(0x2f4),'value':_0x4ffe09(0x198)},{'label':_0x4ffe09(0x478),'value':_0x4ffe09(0x221)+_0x4ffe09(0x1c7)}]},'literaturePeriods':{'title':_0x4ffe09(0x2c9)+_0x4ffe09(0x11e)+_0x4ffe09(0x497),'periods':[{'name':_0x4ffe09(0x3e0)+'ाल','duration':_0x4ffe09(0x46b)+_0x4ffe09(0x3ca)+_0x4ffe09(0x2cb),'summary':[_0x4ffe09(0x17d)+_0x4ffe09(0x4ca)+_0x4ffe09(0x4d5)+_0x4ffe09(0x372)+_0x4ffe09(0x515)+_0x4ffe09(0x462)+_0x4ffe09(0x432)+_0x4ffe09(0x339)+_0x4ffe09(0x20c),_0x4ffe09(0x298)+_0x4ffe09(0x43c)+_0x4ffe09(0x21a)+_0x4ffe09(0x3e2)+_0x4ffe09(0x114)+_0x4ffe09(0x49f)+_0x4ffe09(0x138)+_0x4ffe09(0x1f5)+_0x4ffe09(0x305)+_0x4ffe09(0x4f7)+_0x4ffe09(0x401),_0x4ffe09(0x2c9)+_0x4ffe09(0xf6)+_0x4ffe09(0x510)+_0x4ffe09(0x3ee)+_0x4ffe09(0x4c5)+_0x4ffe09(0x4fd)+_0x4ffe09(0x38a)+_0x4ffe09(0x1c6)+_0x4ffe09(0x348)+_0x4ffe09(0x3da)+_0x4ffe09(0x498)+_0x4ffe09(0x233)+_0x4ffe09(0x1c3)+_0x4ffe09(0x1ec)+_0x4ffe09(0x319)+_0x4ffe09(0x105)+_0x4ffe09(0x4e5)+'।',_0x4ffe09(0x15d)+_0x4ffe09(0x411)+_0x4ffe09(0x1f1)+_0x4ffe09(0x365)+'।',_0x4ffe09(0x1e3)+_0x4ffe09(0x448)+_0x4ffe09(0x389)+_0x4ffe09(0x35d)+_0x4ffe09(0x424)+_0x4ffe09(0x169)+_0x4ffe09(0x505)+_0x4ffe09(0xe6)+_0x4ffe09(0x1ed)+_0x4ffe09(0x355)+_0x4ffe09(0x275)+_0x4ffe09(0x16b)+_0x4ffe09(0x44d)+_0x4ffe09(0x404)+_0x4ffe09(0x44c),_0x4ffe09(0xfa)+_0x4ffe09(0x354)+_0x4ffe09(0xdf)+_0x4ffe09(0x3fc)+_0x4ffe09(0xef)+_0x4ffe09(0x284)+_0x4ffe09(0x399)+_0x4ffe09(0x15c)+_0x4ffe09(0x132),_0x4ffe09(0x4f4)+_0x4ffe09(0x4d2)+_0x4ffe09(0x308)+_0x4ffe09(0x327)+_0x4ffe09(0x184)+_0x4ffe09(0x39d)+_0x4ffe09(0x236)+_0x4ffe09(0x25c)+_0x4ffe09(0x1db)+_0x4ffe09(0x4b0)+_0x4ffe09(0x100)+_0x4ffe09(0x243)+_0x4ffe09(0x46d)+_0x4ffe09(0x3f5)+_0x4ffe09(0x18a)+_0x4ffe09(0x18e)+_0x4ffe09(0x2e4)+_0x4ffe09(0x1bf)+_0x4ffe09(0x2b0)+'छ।']},{'name':_0x4ffe09(0x154)+'ाल','duration':_0x4ffe09(0x3d9)+_0x4ffe09(0x1bd)+_0x4ffe09(0x1cc),'summary':[_0x4ffe09(0x1da)+_0x4ffe09(0x119)+_0x4ffe09(0x140)+_0x4ffe09(0x141)+_0x4ffe09(0x50f)+_0x4ffe09(0x19e)+_0x4ffe09(0x1bc),_0x4ffe09(0x33c)+_0x4ffe09(0x47c)+_0x4ffe09(0x48c)+_0x4ffe09(0x27a)+_0x4ffe09(0x4be)+_0x4ffe09(0x16f)+_0x4ffe09(0x293)+_0x4ffe09(0x375)+_0x4ffe09(0x2b8)+_0x4ffe09(0x362)+_0x4ffe09(0x3df)+_0x4ffe09(0x4e9)+_0x4ffe09(0x2d6)+_0x4ffe09(0x330)+_0x4ffe09(0x49c),_0x4ffe09(0x3ab)+_0x4ffe09(0x21b)+_0x4ffe09(0x341)+_0x4ffe09(0x36e)+_0x4ffe09(0x4fa)+_0x4ffe09(0x1a2)+_0x4ffe09(0x14a)+_0x4ffe09(0x2df)+_0x4ffe09(0x10d),_0x4ffe09(0x3b5)+_0x4ffe09(0x35e)+_0x4ffe09(0x15b)+_0x4ffe09(0x4d6)+_0x4ffe09(0x118)+_0x4ffe09(0x429)+_0x4ffe09(0x2ee)+_0x4ffe09(0x2dc)+_0x4ffe09(0x234)+_0x4ffe09(0x23d)+_0x4ffe09(0x479),_0x4ffe09(0x491)+_0x4ffe09(0x279)+_0x4ffe09(0x230)+_0x4ffe09(0x1b9)+_0x4ffe09(0x28e)+_0x4ffe09(0x149)+_0x4ffe09(0x357)+_0x4ffe09(0xf5)+_0x4ffe09(0x191)+_0x4ffe09(0x450)]},{'name':_0x4ffe09(0x3ea),'duration':_0x4ffe09(0x2c7)+_0x4ffe09(0x4e2)+_0x4ffe09(0x269),'summary':[_0x4ffe09(0x26f)+_0x4ffe09(0x189)+_0x4ffe09(0x396)+_0x4ffe09(0x364)+_0x4ffe09(0x35b)+_0x4ffe09(0x291),_0x4ffe09(0x46c)+_0x4ffe09(0x4c3)+_0x4ffe09(0x4a9)+_0x4ffe09(0x2fb)+_0x4ffe09(0x208)+_0x4ffe09(0x123)+_0x4ffe09(0x247)+_0x4ffe09(0xff)+_0x4ffe09(0x1e7)+_0x4ffe09(0x519)+_0x4ffe09(0x363),_0x4ffe09(0x1f4)+_0x4ffe09(0x262)+_0x4ffe09(0x3bc)+_0x4ffe09(0xd7)+_0x4ffe09(0x484)+_0x4ffe09(0x19b)+_0x4ffe09(0x417)+_0x4ffe09(0x2e5)+_0x4ffe09(0x487)+_0x4ffe09(0x45a)+_0x4ffe09(0x27c)+_0x4ffe09(0x172)+_0x4ffe09(0x2c3)+_0x4ffe09(0x4f8)+_0x4ffe09(0x33d)+_0x4ffe09(0xfb)+_0x4ffe09(0x163)+_0x4ffe09(0x16a)+_0x4ffe09(0x48a)+_0x4ffe09(0x179)+_0x4ffe09(0x336)+_0x4ffe09(0x452)+_0x4ffe09(0x3a6)+_0x4ffe09(0x474)+_0x4ffe09(0x300),_0x4ffe09(0x2c2)+_0x4ffe09(0x38b)+_0x4ffe09(0xf4)+_0x4ffe09(0x46e)+_0x4ffe09(0x2a6)+_0x4ffe09(0x193)+_0x4ffe09(0x48f)+_0x4ffe09(0x292)+_0x4ffe09(0x4d7)+_0x4ffe09(0x13d)+_0x4ffe09(0x2f6)+_0x4ffe09(0x512)+_0x4ffe09(0x4a7)+_0x4ffe09(0x353)+'ए।',_0x4ffe09(0x503)+_0x4ffe09(0xf3)+_0x4ffe09(0x43a)+_0x4ffe09(0x194)+_0x4ffe09(0x50a)+_0x4ffe09(0x3e6)+_0x4ffe09(0x1a9)+_0x4ffe09(0x190)]}]},'nationalHonors':{'title':_0x4ffe09(0x303)+_0x4ffe09(0x122)+_0x4ffe09(0x3b9)+_0x4ffe09(0x2eb)+'रू','act':_0x4ffe09(0x350)+_0x4ffe09(0x2f2)+_0x4ffe09(0xfc)+_0x4ffe09(0x4e3)+_0x4ffe09(0x157),'counts':_0x4ffe09(0x40b)+_0x4ffe09(0x196)+_0x4ffe09(0xd9)+_0x4ffe09(0x4e8)+'ा','manpadavi':{'heading':_0x4ffe09(0x44a)+_0x4ffe09(0x37f)+_0x4ffe09(0x216),'list':[{'name':_0x4ffe09(0x215),'description':_0x4ffe09(0x41b)+_0x4ffe09(0x1c9)+_0x4ffe09(0x2cd)+_0x4ffe09(0x185)+_0x4ffe09(0x50e)+_0x4ffe09(0x4ae)+_0x4ffe09(0x148)+_0x4ffe09(0x21e)+_0x4ffe09(0x366)+_0x4ffe09(0x400)},{'name':_0x4ffe09(0x3c8)+'रव','description':_0x4ffe09(0x42e)+_0x4ffe09(0x4da)+_0x4ffe09(0x1c1)+_0x4ffe09(0x261)+_0x4ffe09(0x4b4)+_0x4ffe09(0x1d5)+_0x4ffe09(0x26c)+_0x4ffe09(0x301)+_0x4ffe09(0x265)+_0x4ffe09(0x11b)},{'name':_0x4ffe09(0x2cc),'description':_0x4ffe09(0x264)+_0x4ffe09(0x15f)+_0x4ffe09(0x266)+_0x4ffe09(0x4e4)+_0x4ffe09(0x41d)+_0x4ffe09(0x514)+'ि।'},{'name':_0x4ffe09(0x422)+'ी','description':_0x4ffe09(0x39c)+_0x4ffe09(0x192)+_0x4ffe09(0x121)+_0x4ffe09(0x326)+_0x4ffe09(0x251)+_0x4ffe09(0x3b7)+_0x4ffe09(0x201)}]},'alankar':{'heading':_0x4ffe09(0x13a)+_0x4ffe09(0x1cd),'list':[{'name':_0x4ffe09(0x4f1)+_0x4ffe09(0x2e9),'ideal_motto':_0x4ffe09(0x12f)+_0x4ffe09(0x4b1)},{'name':_0x4ffe09(0x34b)+_0x4ffe09(0x28c),'ideal_motto':_0x4ffe09(0x413)+_0x4ffe09(0x214)+_0x4ffe09(0x1ab)},{'name':_0x4ffe09(0x445)+_0x4ffe09(0x405),'ideal_motto':_0x4ffe09(0x38c)+_0x4ffe09(0x1d9)},{'name':_0x4ffe09(0x3b6)+_0x4ffe09(0x41e),'ideal_motto':_0x4ffe09(0x4ee)+_0x4ffe09(0x3f3)},{'name':_0x4ffe09(0x29a)+_0x4ffe09(0x28c),'ideal_motto':_0x4ffe09(0x1de)+_0x4ffe09(0x309)},{'name':_0x4ffe09(0x445)+_0x4ffe09(0x407),'ideal_motto':_0x4ffe09(0x3a5)+_0x4ffe09(0x155)},{'name':_0x4ffe09(0x197)+_0x4ffe09(0x2ab),'ideal_motto':_0x4ffe09(0x313)+_0x4ffe09(0x25b)},{'name':_0x4ffe09(0xf7)+_0x4ffe09(0x28c),'ideal_motto':_0x4ffe09(0x248)+_0x4ffe09(0x421)},{'name':_0x4ffe09(0x445)+_0x4ffe09(0x2d8),'ideal_motto':_0x4ffe09(0x1b7)+_0x4ffe09(0x272)}]},'padak':{'heading':_0x4ffe09(0x3a8)+')','list':[{'name':_0x4ffe09(0x202)+'क','ideal_motto':_0x4ffe09(0x316)+_0x4ffe09(0x517)+_0x4ffe09(0x12a)},{'name':_0x4ffe09(0xfe)+_0x4ffe09(0x27e),'ideal_motto':_0x4ffe09(0xfe)+_0x4ffe09(0x4f5)},{'name':_0x4ffe09(0x437)+'दक','ideal_motto':_0x4ffe09(0x232)+_0x4ffe09(0x37a)},{'name':_0x4ffe09(0x197)+_0x4ffe09(0x1ff),'ideal_motto':_0x4ffe09(0x15e)+_0x4ffe09(0x41f)},{'name':_0x4ffe09(0x211)+_0x4ffe09(0x3d2),'ideal_motto':_0x4ffe09(0x3f4)+_0x4ffe09(0x25f)},{'name':_0x4ffe09(0x2b6)+'क','ideal_motto':_0x4ffe09(0x144)+_0x4ffe09(0x1dd)},{'name':_0x4ffe09(0x361)+'दक','ideal_motto':_0x4ffe09(0x2ba)+_0x4ffe09(0x224)},{'name':_0x4ffe09(0xeb),'ideal_motto':_0x4ffe09(0x3b2)+_0x4ffe09(0x128)},{'name':_0x4ffe09(0x30e),'ideal_motto':_0x4ffe09(0xf8)+_0x4ffe09(0x39a)},{'name':_0x4ffe09(0x2b7)+_0x4ffe09(0x13b)+_0x4ffe09(0x3aa)+'दक','ideal_motto':_0x4ffe09(0x402)+_0x4ffe09(0x427)},{'name':_0x4ffe09(0x382)+_0x4ffe09(0x390),'ideal_motto':_0x4ffe09(0x334)+_0x4ffe09(0x178)},{'name':_0x4ffe09(0xec),'ideal_motto':_0x4ffe09(0x285)+_0x4ffe09(0x1b5)},{'name':_0x4ffe09(0x1aa)+'क','ideal_motto':_0x4ffe09(0x1a7)+_0x4ffe09(0x1d0)+_0x4ffe09(0x4ad)}]}},'question11400':{'question':_0x4ffe09(0x36f)+_0x4ffe09(0x481)+_0x4ffe09(0x17e)+_0x4ffe09(0x2e3),'answer':_0x4ffe09(0x4a0)+_0x4ffe09(0x3ba)+_0x4ffe09(0x47f),'category':_0x4ffe09(0x129)},'question11401':{'question':_0x4ffe09(0x22f)+_0x4ffe09(0x2a4)+_0x4ffe09(0x127)+_0x4ffe09(0x17a)+_0x4ffe09(0x117)+'?','answer':_0x4ffe09(0x449)+_0x4ffe09(0x27d),'category':_0x4ffe09(0x129)},'question11402':{'question':_0x4ffe09(0x252)+_0x4ffe09(0x30d)+_0x4ffe09(0x3db)+_0x4ffe09(0x134)+_0x4ffe09(0x4b6)+_0x4ffe09(0x1d3)+_0x4ffe09(0x1a0)+_0x4ffe09(0x17f)+_0x4ffe09(0x496),'answer':_0x4ffe09(0x395),'category':_0x4ffe09(0x129)},'question11403':{'question':_0x4ffe09(0x1f9)+_0x4ffe09(0x504)+_0x4ffe09(0x30f)+_0x4ffe09(0x489)+_0x4ffe09(0x486)+_0x4ffe09(0x1fc)+_0x4ffe09(0x3d4)+_0x4ffe09(0x2da)+_0x4ffe09(0x146),'answer':_0x4ffe09(0x46a)+_0x4ffe09(0x42d),'category':_0x4ffe09(0x129)},'question11404':{'question':_0x4ffe09(0x4de)+_0x4ffe09(0x4f0)+_0x4ffe09(0x3a4)+_0x4ffe09(0x349),'answer':_0x4ffe09(0x21f)+_0x4ffe09(0x468)+_0x4ffe09(0x130),'category':_0x4ffe09(0x129)},'question11405':{'question':_0x4ffe09(0x3fb)+_0x4ffe09(0xe8)+_0x4ffe09(0x200)+'?','answer':_0x4ffe09(0x3d6),'category':_0x4ffe09(0x129)},'question11406':{'question':_0x4ffe09(0x1f9)+_0x4ffe09(0x10c)+_0x4ffe09(0x218)+_0x4ffe09(0x426)+_0x4ffe09(0x501)+_0x4ffe09(0x3ac)+_0x4ffe09(0x3f9)+_0x4ffe09(0x349),'answer':_0x4ffe09(0x31d)+_0x4ffe09(0xe4),'category':_0x4ffe09(0x129)},'question11407':{'question':_0x4ffe09(0x21f)+_0x4ffe09(0x180)+_0x4ffe09(0x1ea)+_0x4ffe09(0x507)+_0x4ffe09(0x2ff)+_0x4ffe09(0x4b2)+_0x4ffe09(0x182)+_0x4ffe09(0x1e0),'answer':_0x4ffe09(0x48e)+_0x4ffe09(0x38e),'category':_0x4ffe09(0x129)},'question11408':{'question':_0x4ffe09(0x1c0)+_0x4ffe09(0x1bb)+_0x4ffe09(0x3c4)+_0x4ffe09(0x496),'answer':_0x4ffe09(0x2f7)+_0x4ffe09(0x443)+'**','category':_0x4ffe09(0x129)},'question11409':{'question':_0x4ffe09(0x1f9)+_0x4ffe09(0x3d5)+_0x4ffe09(0x246)+_0x4ffe09(0x205)+_0x4ffe09(0x458)+_0x4ffe09(0x32a)+_0x4ffe09(0x3b8)+_0x4ffe09(0x36a),'answer':_0x4ffe09(0x2d5)+_0x4ffe09(0x419)+_0x4ffe09(0x2f8),'category':_0x4ffe09(0x129)},'question11410':{'question':_0x4ffe09(0x2c9)+_0x4ffe09(0x277)+_0x4ffe09(0x22d)+_0x4ffe09(0x14b)+_0x4ffe09(0x324)+_0x4ffe09(0x23f)+_0x4ffe09(0x47a)+'?','answer':_0x4ffe09(0x28a)+_0x4ffe09(0x136)+_0x4ffe09(0x4ea)+_0x4ffe09(0x409),'category':_0x4ffe09(0x129)},'question11411':{'question':_0x4ffe09(0x24e)+_0x4ffe09(0x297)+_0x4ffe09(0x33e)+_0x4ffe09(0x1b4)+_0x4ffe09(0x19d)+_0x4ffe09(0x428)+_0x4ffe09(0x391),'answer':_0x4ffe09(0x3c5)+_0x4ffe09(0x100)+_0x4ffe09(0x521)+_0x4ffe09(0x43d),'category':_0x4ffe09(0x129)},'question11412':{'question':_0x4ffe09(0x415)+_0x4ffe09(0x1af)+_0x4ffe09(0x295)+_0x4ffe09(0x387)+_0x4ffe09(0x10a)+_0x4ffe09(0x377),'answer':_0x4ffe09(0x21f)+_0x4ffe09(0x468)+_0x4ffe09(0x130),'category':_0x4ffe09(0x129)},'question11413':{'question':_0x4ffe09(0x3cd)+_0x4ffe09(0x239)+_0x4ffe09(0x25a)+_0x4ffe09(0x3e4),'answer':_0x4ffe09(0x108),'category':_0x4ffe09(0x129)},'question11414':{'question':_0x4ffe09(0x271)+_0x4ffe09(0x2c5)+_0x4ffe09(0x278),'answer':_0x4ffe09(0x101)+_0x4ffe09(0x2e8),'category':_0x4ffe09(0x129)},'question11415':{'question':_0x4ffe09(0x2c9)+_0x4ffe09(0x31a)+_0x4ffe09(0x4ed)+_0x4ffe09(0x1d6)+_0x4ffe09(0x28f)+_0x4ffe09(0x110)+_0x4ffe09(0x4c8),'answer':_0x4ffe09(0x1b2)+_0x4ffe09(0x425)+_0x4ffe09(0x460),'category':_0x4ffe09(0x129)},'question11416':{'question':_0x4ffe09(0x107)+_0x4ffe09(0x199)+_0x4ffe09(0x43f)+_0x4ffe09(0x273)+_0x4ffe09(0x3ec)+_0x4ffe09(0x24f)+_0x4ffe09(0x13f)+_0x4ffe09(0x2fe)+'?','answer':_0x4ffe09(0x466),'category':_0x4ffe09(0x129)},'question11417':{'question':_0x4ffe09(0x406)+_0x4ffe09(0x4d0)+_0x4ffe09(0x102)+_0x4ffe09(0x2e1)+_0x4ffe09(0x338)+_0x4ffe09(0x22b),'answer':_0x4ffe09(0x125)+_0x4ffe09(0x386)+'**','category':_0x4ffe09(0x129)},'question11418':{'question':_0x4ffe09(0x2c9)+_0x4ffe09(0x31a)+_0x4ffe09(0x418)+_0x4ffe09(0x2f5)+_0x4ffe09(0x2ec)+_0x4ffe09(0x37e)+_0x4ffe09(0x1d7)+_0x4ffe09(0x349),'answer':_0x4ffe09(0x397)+_0x4ffe09(0x3fe),'category':_0x4ffe09(0x129)},'question11419':{'question':_0x4ffe09(0x2c9)+_0x4ffe09(0x51c)+_0x4ffe09(0x2a7)+_0x4ffe09(0x509)+_0x4ffe09(0x161)+_0x4ffe09(0x16e),'answer':_0x4ffe09(0x22c)+_0x4ffe09(0x4ab),'category':_0x4ffe09(0x129)},'question11420':{'question':_0x4ffe09(0x3cd)+_0x4ffe09(0x239)+_0x4ffe09(0x40a)+_0x4ffe09(0x1e4)+_0x4ffe09(0x374)+_0x4ffe09(0x2ae)+_0x4ffe09(0xf1),'answer':_0x4ffe09(0x22c)+_0x4ffe09(0x367),'category':_0x4ffe09(0x129)},'question11421':{'question':_0x4ffe09(0x31f)+_0x4ffe09(0x4fc)+_0x4ffe09(0x476)+_0x4ffe09(0x376),'answer':_0x4ffe09(0x454)+_0x4ffe09(0x37c),'category':_0x4ffe09(0x129)},'question11422':{'question':_0x4ffe09(0x2c9)+_0x4ffe09(0x440)+_0x4ffe09(0x103)+_0x4ffe09(0x2d2)+_0x4ffe09(0x442)+_0x4ffe09(0x35c)+_0x4ffe09(0x3bf),'answer':_0x4ffe09(0x397)+_0x4ffe09(0x3fe),'category':_0x4ffe09(0x129)},'question11423':{'question':_0x4ffe09(0x3cd)+_0x4ffe09(0x151)+_0x4ffe09(0x2b5),'answer':_0x4ffe09(0x2be)+_0x4ffe09(0x30a)+_0x4ffe09(0x325),'category':_0x4ffe09(0x129)},'question11424':{'question':_0x4ffe09(0x3a1)+_0x4ffe09(0x3a2)+_0x4ffe09(0xde),'answer':_0x4ffe09(0x459)+'*','category':_0x4ffe09(0x129)},'question11425':{'question':_0x4ffe09(0x3a1)+_0x4ffe09(0x3a2)+_0x4ffe09(0x414)+_0x4ffe09(0x20d)+_0x4ffe09(0xe7),'answer':_0x4ffe09(0x23b)+_0x4ffe09(0x51d)+_0x4ffe09(0x3b0),'category':_0x4ffe09(0x129)},'question11426':{'question':_0x4ffe09(0x30b)+_0x4ffe09(0x36d)+_0x4ffe09(0x280)+_0x4ffe09(0x383)+_0x4ffe09(0x500)+_0x4ffe09(0x256),'answer':_0x4ffe09(0x304)+_0x4ffe09(0x2ca),'category':_0x4ffe09(0x129)},'question11427':{'question':_0x4ffe09(0x30b)+_0x4ffe09(0x36d)+_0x4ffe09(0x49a)+_0x4ffe09(0x274)+_0x4ffe09(0x1d1)+_0x4ffe09(0x2ce),'answer':_0x4ffe09(0x13c)+_0x4ffe09(0x32e)+'*','category':_0x4ffe09(0x129)},'question11428':{'question':_0x4ffe09(0x4bf)+_0x4ffe09(0x453)+_0x4ffe09(0x2bb)+_0x4ffe09(0x328)+_0x4ffe09(0x3eb)+_0x4ffe09(0x12d),'answer':_0x4ffe09(0x358)+_0x4ffe09(0x41c)+_0x4ffe09(0x3bb)+'**','category':_0x4ffe09(0x3dc)},'question11429':{'question':_0x4ffe09(0x4bf)+_0x4ffe09(0x453)+_0x4ffe09(0x2bb)+_0x4ffe09(0x1cf)+_0x4ffe09(0x270)+_0x4ffe09(0x43e),'answer':_0x4ffe09(0x166)+_0x4ffe09(0x3cb)+_0x4ffe09(0x2c6)+_0x4ffe09(0x3c7),'category':_0x4ffe09(0x3dc)},'question11430':{'question':_0x4ffe09(0x1b0)+_0x4ffe09(0x2ed)+_0x4ffe09(0x434)+_0x4ffe09(0x379)+_0x4ffe09(0x2b2)+_0x4ffe09(0x349),'answer':_0x4ffe09(0x3d1)+_0x4ffe09(0x241)+_0x4ffe09(0x318),'category':_0x4ffe09(0x3dc)},'question11431':{'question':_0x4ffe09(0x392)+_0x4ffe09(0x1d2)+_0x4ffe09(0x162)+_0x4ffe09(0x343)+_0x4ffe09(0x4db)+_0x4ffe09(0x133)+_0x4ffe09(0x167)+_0x4ffe09(0x220)+_0x4ffe09(0x145)+_0x4ffe09(0x34e),'answer':_0x4ffe09(0x1c4)+_0x4ffe09(0x21d)+_0x4ffe09(0x1a1),'category':_0x4ffe09(0x3dc)},'question11432':{'question':_0x4ffe09(0x10e)+_0x4ffe09(0x44b)+_0x4ffe09(0x131)+_0x4ffe09(0x258)+_0x4ffe09(0x38d)+_0x4ffe09(0x49d)+_0x4ffe09(0x4c7)+_0x4ffe09(0x1f7)+_0x4ffe09(0x240)+_0x4ffe09(0x31b)+_0x4ffe09(0x1eb)+_0x4ffe09(0x20b),'answer':_0x4ffe09(0x435)+_0x4ffe09(0x490)+_0x4ffe09(0x12e),'category':_0x4ffe09(0x3dc)},'question11433':{'question':_0x4ffe09(0x3d8)+_0x4ffe09(0x3ed)+_0x4ffe09(0x378)+_0x4ffe09(0x480)+_0x4ffe09(0x187)+_0x4ffe09(0x158)+_0x4ffe09(0xf9)+_0x4ffe09(0x222)+_0x4ffe09(0x439),'answer':_0x4ffe09(0x29c)+_0x4ffe09(0x143)+'**','category':_0x4ffe09(0x408)+'र'},'question11434':{'question':_0x4ffe09(0x4bf)+_0x4ffe09(0x4d1)+_0x4ffe09(0x4d3)+_0x4ffe09(0x469)+_0x4ffe09(0x1e1)+_0x4ffe09(0x137)+_0x4ffe09(0x1fb),'answer':_0x4ffe09(0x1e9)+_0x4ffe09(0x14c)+_0x4ffe09(0x4a8),'category':_0x4ffe09(0x3dc)},'question11435':{'question':_0x4ffe09(0x168)+_0x4ffe09(0x20a)+_0x4ffe09(0x40f)+_0x4ffe09(0x40c)+_0x4ffe09(0x229)+_0x4ffe09(0x420)+_0x4ffe09(0x455)+_0x4ffe09(0x1f0)+_0x4ffe09(0x12c)+_0x4ffe09(0x3b1)+_0x4ffe09(0x423),'answer':_0x4ffe09(0x1b2)+_0x4ffe09(0x2aa),'category':_0x4ffe09(0x3dc)},'question11436':{'question':_0x4ffe09(0x104)+_0x4ffe09(0x384)+_0x4ffe09(0x3ad)+_0x4ffe09(0x10f)+_0x4ffe09(0x493)+_0x4ffe09(0x296)+_0x4ffe09(0x35a)+_0x4ffe09(0x10a)+_0x4ffe09(0x377),'answer':_0x4ffe09(0x287)+_0x4ffe09(0x12b)+_0x4ffe09(0xe9)+_0x4ffe09(0x4a2),'category':_0x4ffe09(0x3dc)},'question11437':{'question':_0x4ffe09(0x104)+_0x4ffe09(0x384)+_0x4ffe09(0x502)+_0x4ffe09(0x35f)+_0x4ffe09(0x116)+_0x4ffe09(0x32f)+_0x4ffe09(0x1ca)+_0x4ffe09(0x294)+'?','answer':_0x4ffe09(0x1c4)+_0x4ffe09(0x2f9)+_0x4ffe09(0x1b1)+'**','category':_0x4ffe09(0x3dc)},'question11438':{'question':_0x4ffe09(0x416)+_0x4ffe09(0x26a)+_0x4ffe09(0x3cf)+_0x4ffe09(0x4a4)+_0x4ffe09(0x4a5)+_0x4ffe09(0x276),'answer':_0x4ffe09(0x33f)+_0x4ffe09(0x438)+_0x4ffe09(0x159),'category':_0x4ffe09(0x3dc)},'question11439':{'question':_0x4ffe09(0x150)+_0x4ffe09(0x430)+_0x4ffe09(0x2ea)+_0x4ffe09(0x3c0)+_0x4ffe09(0x50b)+_0x4ffe09(0x186)+_0x4ffe09(0x496),'answer':_0x4ffe09(0x18c)+_0x4ffe09(0x17b)+_0x4ffe09(0x27d),'category':_0x4ffe09(0x3dc)},'question11440':{'question':_0x4ffe09(0x1f2)+_0x4ffe09(0x32b)+_0x4ffe09(0x11f)+_0x4ffe09(0x173)+_0x4ffe09(0x48d)+_0x4ffe09(0xe2)+_0x4ffe09(0x1eb)+_0x4ffe09(0x20b),'answer':_0x4ffe09(0x4b9)+_0x4ffe09(0x3c2),'category':_0x4ffe09(0x3dc)},'question11441':{'question':_0x4ffe09(0x4bf)+_0x4ffe09(0x2a8)+_0x4ffe09(0x1e5)+_0x4ffe09(0x290)+_0x4ffe09(0x1eb)+_0x4ffe09(0x20b),'answer':_0x4ffe09(0x1c4)+_0x4ffe09(0x19c)+_0x4ffe09(0x2a0),'category':_0x4ffe09(0x3dc)},'question11442':{'question':_0x4ffe09(0x31c)+_0x4ffe09(0x4b3)+_0x4ffe09(0x3e3)+_0x4ffe09(0x28d)+_0x4ffe09(0x116)+_0x4ffe09(0x32f)+_0x4ffe09(0x1ca)+_0x4ffe09(0x294)+'?','answer':_0x4ffe09(0x1c4)+_0x4ffe09(0x29d)+_0x4ffe09(0xe5),'category':_0x4ffe09(0x3dc)},'question11443':{'question':_0x4ffe09(0x3be)+_0x4ffe09(0x227)+_0x4ffe09(0x4a1)+_0x4ffe09(0x2de)+_0x4ffe09(0x469)+_0x4ffe09(0x135)+_0x4ffe09(0x47d)+_0x4ffe09(0x4e1),'answer':_0x4ffe09(0x207)+_0x4ffe09(0x3bd)+_0x4ffe09(0xea),'category':_0x4ffe09(0x3dc)},'question11444':{'question':_0x4ffe09(0x176)+_0x4ffe09(0x4cf)+_0x4ffe09(0x310)+_0x4ffe09(0x4d8)+_0x4ffe09(0x188)+_0x4ffe09(0x4dc)+_0x4ffe09(0x242),'answer':_0x4ffe09(0x4f9)+_0x4ffe09(0x42a)+_0x4ffe09(0x2f0),'category':_0x4ffe09(0x3dc)},'question11445':{'question':_0x4ffe09(0x4dd)+_0x4ffe09(0x244)+_0x4ffe09(0x28b)+_0x4ffe09(0x520)+_0x4ffe09(0x181),'answer':_0x4ffe09(0x1cb),'category':_0x4ffe09(0x408)+'र'},'question11446':{'question':_0x4ffe09(0x263)+_0x4ffe09(0x3cc)+_0x4ffe09(0x3f6)+_0x4ffe09(0x1d5)+_0x4ffe09(0x1fa),'answer':_0x4ffe09(0x139)+_0x4ffe09(0x441)+_0x4ffe09(0x2e0)+_0x4ffe09(0x286)+_0x4ffe09(0x34d),'category':_0x4ffe09(0x408)+'र'},'question11447':{'question':_0x4ffe09(0x263)+_0x4ffe09(0x22a)+_0x4ffe09(0x472)+_0x4ffe09(0x217)+_0x4ffe09(0x23e),'answer':_0x4ffe09(0x4b5)+_0x4ffe09(0x26e)+_0x4ffe09(0x112)+_0x4ffe09(0x456)+_0x4ffe09(0x2ef),'category':_0x4ffe09(0x408)+'र'},'question11448':{'question':_0x4ffe09(0x263)+_0x4ffe09(0x1d8)+_0x4ffe09(0x21c)+_0x4ffe09(0x34a)+_0x4ffe09(0x335)+'?','answer':_0x4ffe09(0x2e2)+_0x4ffe09(0x39f)+_0x4ffe09(0x1ae)+_0x4ffe09(0x506)+_0x4ffe09(0x51e),'category':_0x4ffe09(0x408)+'र'},'question11449':{'question':_0x4ffe09(0x351)+_0x4ffe09(0x463)+_0x4ffe09(0x471)+_0x4ffe09(0x4e6)+_0x4ffe09(0xe3)+_0x4ffe09(0x34f)+_0x4ffe09(0x315)+_0x4ffe09(0x153),'answer':_0x4ffe09(0x1ba)+_0x4ffe09(0x2cf),'category':_0x4ffe09(0x3dc)},'question11450':{'question':_0x4ffe09(0x347)+_0x4ffe09(0x516)+_0x4ffe09(0x217)+_0x4ffe09(0x23e),'answer':_0x4ffe09(0x307)+_0x4ffe09(0x381)+_0x4ffe09(0x195)+_0x4ffe09(0x152),'category':_0x4ffe09(0x3dc)},'question11451':{'question':_0x4ffe09(0x2bf)+_0x4ffe09(0x465)+_0x4ffe09(0x312)+_0x4ffe09(0x4aa)+_0x4ffe09(0x483)+_0x4ffe09(0x434)+_0x4ffe09(0x320)+_0x4ffe09(0xe7),'answer':_0x4ffe09(0x26b)+_0x4ffe09(0x2d1)+_0x4ffe09(0x4a6),'category':_0x4ffe09(0x3dc)},'question11452':{'question':_0x4ffe09(0x204)+_0x4ffe09(0x499)+_0x4ffe09(0x475)+_0x4ffe09(0x1be)+_0x4ffe09(0x19a)+_0x4ffe09(0x1d5)+_0x4ffe09(0x1fa),'answer':_0x4ffe09(0x4b7)+_0x4ffe09(0x289)+_0x4ffe09(0x403)+_0x4ffe09(0x34c),'category':_0x4ffe09(0x3dc)},'question11453':{'question':_0x4ffe09(0x2bf)+_0x4ffe09(0x499)+_0x4ffe09(0x1e8)+_0x4ffe09(0x333)+_0x4ffe09(0x369)+_0x4ffe09(0x4dc)+_0x4ffe09(0x242),'answer':_0x4ffe09(0x164)+_0x4ffe09(0x1ac),'category':_0x4ffe09(0x3dc)},'question11454':{'question':_0x4ffe09(0x254)+_0x4ffe09(0x37d)+_0x4ffe09(0x359)+_0x4ffe09(0x3d0)+_0x4ffe09(0x288)+_0x4ffe09(0x14f)+_0x4ffe09(0x206)+_0x4ffe09(0x43b),'answer':_0x4ffe09(0x3f7)+_0x4ffe09(0x477),'category':_0x4ffe09(0x3dc)},'question11455':{'question':_0x4ffe09(0x4e0)+_0x4ffe09(0x14d)+_0x4ffe09(0x1f8)+_0x4ffe09(0x47d)+_0x4ffe09(0x4e1),'answer':_0x4ffe09(0x321)+_0x4ffe09(0x2d4)+_0x4ffe09(0x2a9)+_0x4ffe09(0x4c1)+_0x4ffe09(0x34c),'category':_0x4ffe09(0x3dc)},'question11456':{'question':_0x4ffe09(0x39b)+_0x4ffe09(0x1a4)+_0x4ffe09(0x368)+_0x4ffe09(0x323)+_0x4ffe09(0x1c8)+_0x4ffe09(0x235)+_0x4ffe09(0x4cd)+'ो?','answer':_0x4ffe09(0x1b2)+_0x4ffe09(0x464)+_0x4ffe09(0x210)+_0x4ffe09(0x1fe)+_0x4ffe09(0x14e)+')','category':_0x4ffe09(0x129)},'question11457':{'question':_0x4ffe09(0x388)+_0x4ffe09(0x4ac)+_0x4ffe09(0x345)+_0x4ffe09(0x340)+_0x4ffe09(0x329)+_0x4ffe09(0x2d0)+_0x4ffe09(0x4a5)+_0x4ffe09(0x3e8),'answer':_0x4ffe09(0x29f)+_0x4ffe09(0x47f),'category':_0x4ffe09(0x3dc)},'question11458':{'question':_0x4ffe09(0x2b9)+_0x4ffe09(0x467)+_0x4ffe09(0x385)+_0x4ffe09(0x457)+_0x4ffe09(0x238)+_0x4ffe09(0x177)+_0x4ffe09(0x380)+_0x4ffe09(0x3ae)+_0x4ffe09(0x2f1)+_0x4ffe09(0x410),'answer':_0x4ffe09(0x302)+_0x4ffe09(0x255)+'*','category':_0x4ffe09(0x3dc)},'question11459':{'question':_0x4ffe09(0x253)+_0x4ffe09(0x494)+_0x4ffe09(0x16c)+_0x4ffe09(0x142)+_0x4ffe09(0x1df)+_0x4ffe09(0x1e2)+_0x4ffe09(0x369)+_0x4ffe09(0x4dc)+_0x4ffe09(0x242),'answer':_0x4ffe09(0x18c)+_0x4ffe09(0x41a)+_0x4ffe09(0x473)+_0x4ffe09(0x317),'category':_0x4ffe09(0x3dc)},'question11460':{'question':_0x4ffe09(0x183)+_0x4ffe09(0x4eb)+_0x4ffe09(0x3ef)+_0x4ffe09(0x377),'answer':_0x4ffe09(0x2b4)+_0x4ffe09(0x160),'category':_0x4ffe09(0x408)+'र'},'question11461':{'question':_0x4ffe09(0x1dc)+_0x4ffe09(0x3de)+_0x4ffe09(0x1b8)+_0x4ffe09(0x36a),'answer':_0x4ffe09(0xd5)+_0x4ffe09(0xe0),'category':_0x4ffe09(0x408)+'र'},'question11462':{'question':_0x4ffe09(0x495)+_0x4ffe09(0x245)+_0x4ffe09(0x27b)+_0x4ffe09(0x1b6)+_0x4ffe09(0x349),'answer':_0x4ffe09(0x2e2)+_0x4ffe09(0x1d4),'category':_0x4ffe09(0x408)+'र'}};document[_0x4ffe09(0x18d)+_0x4ffe09(0x393)](_0x4ffe09(0x4cc)+_0x4ffe09(0x46f),()=>{const _0x42ff4b=_0x4ffe09,_0xbdb5ee={'hfYIt':_0x42ff4b(0x120),'VDnbG':_0x42ff4b(0x398),'yvGzP':_0x42ff4b(0x40e)+_0x42ff4b(0x212),'TTlhZ':function(_0x10a1a4,_0x279953){return _0x10a1a4+_0x279953;},'zZzQN':_0x42ff4b(0xe1)+_0x42ff4b(0x3e7),'GhFXM':function(_0x1d700e,_0x30f697,_0x53c010){return _0x1d700e(_0x30f697,_0x53c010);},'chNaf':_0x42ff4b(0x332)+_0x42ff4b(0x2d3),'qFfyG':function(_0x322ede,_0x46e00b){return _0x322ede!==_0x46e00b;},'ssUcf':_0x42ff4b(0x3a3)+'on','sQIus':function(_0x3f5099,_0x2478f1,_0x55fa49){return _0x3f5099(_0x2478f1,_0x55fa49);},'cTkqr':function(_0x441fcb,_0x5bcfb0){return _0x441fcb===_0x5bcfb0;},'OVtJk':_0x42ff4b(0x15a),'Nxtbi':function(_0x3ede9b,_0x51ecab){return _0x3ede9b&&_0x51ecab;},'TfBby':function(_0x2a3201,_0x5b8c5c){return _0x2a3201(_0x5b8c5c);},'PHxfc':_0x42ff4b(0x113)+_0x42ff4b(0x356),'KonxT':_0x42ff4b(0xf2),'RXgaw':_0x42ff4b(0x337)+_0x42ff4b(0x4c0),'ajMKn':function(_0x13a725,_0x426000,_0x15c4b6){return _0x13a725(_0x426000,_0x15c4b6);},'zFuLQ':_0x42ff4b(0x461)+_0x42ff4b(0xdd)+'ls','PfAFV':function(_0x1f28b9,_0x1b7d93,_0x21ec96){return _0x1f28b9(_0x1b7d93,_0x21ec96);},'ZjRZA':_0x42ff4b(0x231)+_0x42ff4b(0x45e)+_0x42ff4b(0x4df),'KreHK':function(_0x56f6dc){return _0x56f6dc();},'kXAul':_0x42ff4b(0xdc),'ZofgL':_0x42ff4b(0x446),'SLRFg':_0x42ff4b(0x23c),'wtxuD':function(_0x1f8098,_0x267cee){return _0x1f8098(_0x267cee);},'Nxjri':_0x42ff4b(0x1c2),'uFqXf':_0x42ff4b(0x44f)},_0xb1e98e=document[_0x42ff4b(0x11c)+_0x42ff4b(0x20e)](_0xbdb5ee[_0x42ff4b(0x3e5)]),_0x59e79f=document[_0x42ff4b(0x3f2)+_0x42ff4b(0x2ac)](_0xbdb5ee[_0x42ff4b(0x3b4)]),_0x575958=document[_0x42ff4b(0x3f2)+_0x42ff4b(0x2ac)](_0xbdb5ee[_0x42ff4b(0x373)]);_0x59e79f[_0x42ff4b(0x4bd)](_0x2df790=>{const _0xde3a04=_0x42ff4b;_0x2df790[_0xde3a04(0x18d)+_0xde3a04(0x393)](_0xbdb5ee[_0xde3a04(0x344)],()=>{const _0x2049dd=_0xde3a04,_0xb7be30=_0x2df790[_0x2049dd(0xed)][_0x2049dd(0x4af)];_0x59e79f[_0x2049dd(0x4bd)](_0xcee52=>_0xcee52[_0x2049dd(0x106)][_0x2049dd(0x2c1)](_0x2049dd(0x120))),_0x575958[_0x2049dd(0x4bd)](_0x70b263=>_0x70b263[_0x2049dd(0x106)][_0x2049dd(0x2c1)](_0x2049dd(0x120))),_0x2df790[_0x2049dd(0x106)][_0x2049dd(0x4ff)](_0xbdb5ee[_0x2049dd(0x2bc)]),document[_0x2049dd(0x11c)+_0x2049dd(0x20e)](_0xb7be30)[_0x2049dd(0x106)][_0x2049dd(0x4ff)](_0xbdb5ee[_0x2049dd(0x2bc)]);if(_0xb1e98e)_0xb1e98e[_0x2049dd(0x111)]=0x10da+-0x84b+0x1*-0x88f;else window[_0x2049dd(0x2e6)](-0x1f56+0x139f+-0x1*-0xbb7,-0x1*-0x1246+-0x218d+-0xf47*-0x1);});});const _0x5989b7=(_0x3562e7,_0x178d04)=>{const _0x476195=_0x42ff4b,_0x2304d1=document[_0x476195(0x11c)+_0x476195(0x20e)](_0x3562e7);if(!_0x2304d1)return;_0x2304d1[_0x476195(0x203)]=_0x178d04[_0x476195(0x3dd)][_0x476195(0x4a3)](_0x36ab65=>_0x476195(0x3a7)+_0x476195(0x282)+_0x476195(0x283)+_0x476195(0x4b8)+_0x36ab65[_0x476195(0x24d)]+(_0x476195(0x267)+_0x476195(0x283)+_0x476195(0x4b8))+_0x36ab65[_0x476195(0x492)]+(_0x476195(0x267)+_0x476195(0x283)+_0x476195(0x360)+_0x476195(0x518)))[_0x476195(0x29e)]('');};if(APP_DATA[_0x42ff4b(0x42c)+_0x42ff4b(0x311)])_0xbdb5ee[_0x42ff4b(0x4ce)](_0x5989b7,_0xbdb5ee[_0x42ff4b(0x32c)],APP_DATA[_0x42ff4b(0x42c)+_0x42ff4b(0x311)]);if(APP_DATA[_0x42ff4b(0x24a)+_0x42ff4b(0x115)+'ar'])_0xbdb5ee[_0x42ff4b(0x447)](_0x5989b7,_0xbdb5ee[_0x42ff4b(0x451)],APP_DATA[_0x42ff4b(0x24a)+_0x42ff4b(0x115)+'ar']);const _0x5d55d3=()=>{const _0x336b93=_0x42ff4b,_0x36aad9=document[_0x336b93(0x11c)+_0x336b93(0x20e)](_0xbdb5ee[_0x336b93(0x18f)]);if(!_0x36aad9||!APP_DATA[_0x336b93(0x40e)+_0x336b93(0x175)])return;_0x36aad9[_0x336b93(0x203)]=APP_DATA[_0x336b93(0x40e)+_0x336b93(0x175)][_0x336b93(0x488)][_0x336b93(0x4a3)](_0x3a7a23=>_0x336b93(0x3a7)+_0x336b93(0x2db)+_0x336b93(0x2e7)+_0x336b93(0x37b)+_0x336b93(0x3a7)+_0x336b93(0x4c2)+'>'+_0x3a7a23[_0x336b93(0x45b)]+(_0x336b93(0x371)+_0x336b93(0x4cb)+_0x336b93(0x322)+_0x336b93(0x3c3)+_0x336b93(0x3f1))+_0x3a7a23[_0x336b93(0x11d)]+(_0x336b93(0x2d7)+_0x336b93(0x45f)+_0x336b93(0x283)+_0x336b93(0x226))+_0x3a7a23[_0x336b93(0x1b3)][_0x336b93(0x4a3)](_0x57d516=>_0x336b93(0x1ef)+_0x57d516+_0x336b93(0x268))[_0x336b93(0x29e)]('')+(_0x336b93(0x4c6)+_0x336b93(0x2ad)+_0x336b93(0x1c5)+_0x336b93(0x4fe)))[_0x336b93(0x29e)]('');};_0xbdb5ee[_0x42ff4b(0x412)](_0x5d55d3);const _0xad5f52=()=>{const _0x4d6612=_0x42ff4b,_0x26c0e1={'lCMSW':_0xbdb5ee[_0x4d6612(0x2bc)],'cmTTz':function(_0x2443b9,_0xb14f30){const _0x286bf9=_0x4d6612;return _0xbdb5ee[_0x286bf9(0x2fa)](_0x2443b9,_0xb14f30);},'YikDV':_0xbdb5ee[_0x4d6612(0x4fb)],'kYLPo':function(_0x12f641,_0x446828,_0x8ef2c2){const _0x2ff3c4=_0x4d6612;return _0xbdb5ee[_0x2ff3c4(0x219)](_0x12f641,_0x446828,_0x8ef2c2);},'wHMGY':_0xbdb5ee[_0x4d6612(0x344)]},_0x2d635d=document[_0x4d6612(0x11c)+_0x4d6612(0x20e)](_0xbdb5ee[_0x4d6612(0x4d9)]);if(!_0x2d635d||!APP_DATA[_0x4d6612(0x3b3)+_0x4d6612(0x3f0)])return;const _0x2005b4=_0xaa8a6f=>_0xaa8a6f[_0x4d6612(0x4a3)](_0x2fcd8a=>_0x4d6612(0x3a7)+_0x4d6612(0x282)+_0x4d6612(0x283)+_0x4d6612(0x331)+'g>'+_0x2fcd8a[_0x4d6612(0x45b)]+(_0x4d6612(0x2a5)+_0x4d6612(0x3a7)+_0x4d6612(0x31e))+(_0x2fcd8a[_0x4d6612(0x22e)+'o']?_0x4d6612(0x33a)+_0x4d6612(0x259)+_0x2fcd8a[_0x4d6612(0x22e)+'o']+')':_0x2fcd8a[_0x4d6612(0x508)+'n']||'')+(_0x4d6612(0x3a7)+_0x4d6612(0x170)+_0x4d6612(0x31e)))[_0x4d6612(0x29e)](''),_0x224b65=[{'title':APP_DATA[_0x4d6612(0x3b3)+_0x4d6612(0x3f0)][_0x4d6612(0x260)][_0x4d6612(0x4bb)],'list':APP_DATA[_0x4d6612(0x3b3)+_0x4d6612(0x3f0)][_0x4d6612(0x260)][_0x4d6612(0x1a5)]},{'title':APP_DATA[_0x4d6612(0x3b3)+_0x4d6612(0x3f0)][_0x4d6612(0x1a8)][_0x4d6612(0x4bb)],'list':APP_DATA[_0x4d6612(0x3b3)+_0x4d6612(0x3f0)][_0x4d6612(0x1a8)][_0x4d6612(0x1a5)]},{'title':APP_DATA[_0x4d6612(0x3b3)+_0x4d6612(0x3f0)][_0x4d6612(0x2c8)][_0x4d6612(0x4bb)],'list':APP_DATA[_0x4d6612(0x3b3)+_0x4d6612(0x3f0)][_0x4d6612(0x2c8)][_0x4d6612(0x1a5)]}];_0x2d635d[_0x4d6612(0x203)]=_0x224b65[_0x4d6612(0x4a3)]((_0x26b292,_0x48db31)=>_0x4d6612(0x3a7)+_0x4d6612(0x2db)+_0x4d6612(0x2b3)+_0x4d6612(0x124)+_0x4d6612(0x4f2)+_0x4d6612(0x18b)+_0x4d6612(0x250)+_0x4d6612(0x3c1)+_0x4d6612(0x436)+_0x4d6612(0x51f)+_0x48db31+(_0x4d6612(0x3af)+_0x4d6612(0x283)+_0x4d6612(0x4fe))+_0x26b292[_0x4d6612(0x444)]+(_0x4d6612(0x3a7)+_0x4d6612(0x49e)+_0x4d6612(0x237)+_0x4d6612(0x283)+_0x4d6612(0x51a)+_0x4d6612(0x281)+_0x4d6612(0x24b)+_0x4d6612(0x4f2)+_0x4d6612(0x283)+_0x4d6612(0x249))+_0x2005b4(_0x26b292[_0x4d6612(0x1a5)])+(_0x4d6612(0x4c6)+_0x4d6612(0x283)+_0x4d6612(0x3c6)+_0x4d6612(0x283)+_0x4d6612(0x49b)+_0x4d6612(0x342)))[_0x4d6612(0x29e)](''),document[_0x4d6612(0x3f2)+_0x4d6612(0x2ac)](_0xbdb5ee[_0x4d6612(0x4fb)])[_0x4d6612(0x4bd)](_0x41e230=>{const _0x270599=_0x4d6612,_0x18c3e8={'AwjQC':_0x26c0e1[_0x270599(0x3ce)],'yCXTc':function(_0x547250,_0x37954b){const _0x2f9c8f=_0x270599;return _0x26c0e1[_0x2f9c8f(0x33b)](_0x547250,_0x37954b);},'ZMSMs':_0x26c0e1[_0x270599(0x3ff)],'roUzR':function(_0x332853,_0x5a8e98,_0x55f016){const _0x301f07=_0x270599;return _0x26c0e1[_0x301f07(0xd8)](_0x332853,_0x5a8e98,_0x55f016);}};_0x41e230[_0x270599(0x18d)+_0x270599(0x393)](_0x26c0e1[_0x270599(0xfd)],function(){const _0x220bc7=_0x270599,_0x230080={'sjSvJ':function(_0x4c09c7,_0x53f462){const _0x28a824=_0x1f20;return _0x18c3e8[_0x28a824(0x165)](_0x4c09c7,_0x53f462);}},_0x1efb5c=this[_0x220bc7(0x32d)+_0x220bc7(0x3d3)],_0x476afe=this[_0x220bc7(0x106)][_0x220bc7(0x2a1)](_0x18c3e8[_0x220bc7(0x16d)]);document[_0x220bc7(0x3f2)+_0x220bc7(0x2ac)](_0x18c3e8[_0x220bc7(0x4ba)])[_0x220bc7(0x4bd)](_0x218261=>{const _0x494741=_0x220bc7;_0x218261[_0x494741(0x106)][_0x494741(0x2c1)](_0x18c3e8[_0x494741(0x16d)]),_0x218261[_0x494741(0x32d)+_0x494741(0x3d3)][_0x494741(0x1f3)][_0x494741(0x3fa)]='0';}),!_0x476afe&&(this[_0x220bc7(0x106)][_0x220bc7(0x4ff)](_0x18c3e8[_0x220bc7(0x16d)]),_0x18c3e8[_0x220bc7(0x3a0)](setTimeout,()=>{const _0x5d2f57=_0x220bc7;_0x1efb5c[_0x5d2f57(0x1f3)][_0x5d2f57(0x3fa)]=_0x230080[_0x5d2f57(0x42f)](_0x1efb5c[_0x5d2f57(0x394)+'ht'],'px');},-0x167*-0xa+0x463*0x7+-0x2cb1));});});};_0xbdb5ee[_0x42ff4b(0x412)](_0xad5f52);const _0x378d2a=document[_0x42ff4b(0x11c)+_0x42ff4b(0x20e)](_0xbdb5ee[_0x42ff4b(0x1ee)]),_0x114269=document[_0x42ff4b(0x11c)+_0x42ff4b(0x20e)](_0xbdb5ee[_0x42ff4b(0x485)]),_0x48fb4f=document[_0x42ff4b(0x11c)+_0x42ff4b(0x20e)](_0xbdb5ee[_0x42ff4b(0x3e1)]),_0x54b78c=Object[_0x42ff4b(0x36c)](APP_DATA)[_0x42ff4b(0x513)](_0x159736=>_0x159736&&_0x159736[_0x42ff4b(0x511)]),_0x1c344e=_0x5531ce=>{const _0x334336=_0x42ff4b;_0x378d2a[_0x334336(0x203)]=_0x5531ce[_0x334336(0x4a3)]((_0x2fb322,_0x550639)=>_0x334336(0x3a7)+_0x334336(0x2db)+_0x334336(0x470)+_0x334336(0x156)+_0x334336(0x283)+_0x334336(0x3a9)+_0x334336(0x11a)+_0x334336(0x26d)+_0x334336(0x2b1)+'\x22'+_0x550639+(_0x334336(0x3af)+_0x334336(0x283)+_0x334336(0x4fe))+_0x2fb322[_0x334336(0x47e)]+(_0x334336(0x3a7)+_0x334336(0x2a2)+_0x334336(0x147)+_0x334336(0x283)+_0x334336(0x2db)+_0x334336(0x3d7)+_0x334336(0x306)+_0x334336(0x27f))+_0x550639+(_0x334336(0x3af)+_0x334336(0x283)+_0x334336(0x45c))+_0x2fb322[_0x334336(0x25d)]+(_0x334336(0x10b)+_0x334336(0x283)+_0x334336(0x49b)+_0x334336(0x283)+_0x334336(0xd4)+_0x334336(0x51b)))[_0x334336(0x29e)](''),document[_0x334336(0x3f2)+_0x334336(0x2ac)](_0xbdb5ee[_0x334336(0x213)])[_0x334336(0x4bd)](_0x1ec1d5=>{const _0x4f6dbe=_0x334336,_0x30d10b={'arNXM':function(_0x17c4b8,_0x39e85e){const _0x3a080c=_0x1f20;return _0xbdb5ee[_0x3a080c(0x2c0)](_0x17c4b8,_0x39e85e);},'pJWeu':_0xbdb5ee[_0x4f6dbe(0x2bc)],'VJdXd':function(_0x1fd01f,_0x5c7e5f){const _0x589b72=_0x4f6dbe;return _0xbdb5ee[_0x589b72(0x2fa)](_0x1fd01f,_0x5c7e5f);},'bSAxA':_0xbdb5ee[_0x4f6dbe(0x213)],'DFmKs':function(_0x496a09,_0x1dc0d8,_0x4fd667){const _0x55639f=_0x4f6dbe;return _0xbdb5ee[_0x55639f(0x2f3)](_0x496a09,_0x1dc0d8,_0x4fd667);}};_0x1ec1d5[_0x4f6dbe(0x18d)+_0x4f6dbe(0x393)](_0xbdb5ee[_0x4f6dbe(0x344)],function(){const _0x15cef8=_0x4f6dbe,_0x346baa=this[_0x15cef8(0x32d)+_0x15cef8(0x3d3)],_0x340041=this[_0x15cef8(0x106)][_0x15cef8(0x2a1)](_0x30d10b[_0x15cef8(0x50d)]);document[_0x15cef8(0x3f2)+_0x15cef8(0x2ac)](_0x30d10b[_0x15cef8(0x4ef)])[_0x15cef8(0x4bd)](_0x5a0786=>{const _0x3fc282=_0x15cef8;_0x30d10b[_0x3fc282(0x346)](_0x5a0786,this)&&(_0x5a0786[_0x3fc282(0x106)][_0x3fc282(0x2c1)](_0x30d10b[_0x3fc282(0x50d)]),_0x5a0786[_0x3fc282(0x32d)+_0x3fc282(0x3d3)][_0x3fc282(0x1f3)][_0x3fc282(0x3fa)]='0');}),this[_0x15cef8(0x106)][_0x15cef8(0xee)](_0x30d10b[_0x15cef8(0x50d)]),_0x340041?_0x346baa[_0x15cef8(0x1f3)][_0x15cef8(0x3fa)]='0':_0x30d10b[_0x15cef8(0x24c)](setTimeout,()=>{const _0x10d10f=_0x15cef8;_0x346baa[_0x10d10f(0x1f3)][_0x10d10f(0x3fa)]=_0x30d10b[_0x10d10f(0x1a3)](_0x346baa[_0x10d10f(0x394)+'ht'],'px');},0x1*0x7c8+0x3*0x39d+-0x1295);});});};_0xbdb5ee[_0x42ff4b(0x39e)](_0x1c344e,_0x54b78c);const _0xc42040=()=>{const _0x1f3f86=_0x42ff4b,_0x5c3018={'DINPd':function(_0x59d002,_0x2ae09f){const _0x2c821a=_0x1f20;return _0xbdb5ee[_0x2c821a(0x3c9)](_0x59d002,_0x2ae09f);},'zjkng':_0xbdb5ee[_0x1f3f86(0x126)],'GMkrW':function(_0x152895,_0xeee562){const _0x550865=_0x1f3f86;return _0xbdb5ee[_0x550865(0x47b)](_0x152895,_0xeee562);}},_0x235eb3=_0x114269[_0x1f3f86(0x492)][_0x1f3f86(0x40d)+'e'](),_0x5f11d8=_0x48fb4f[_0x1f3f86(0x492)],_0x4b615d=_0x54b78c[_0x1f3f86(0x513)](_0x4faf9e=>{const _0x33391a=_0x1f3f86,_0x3d4b1e=_0x5c3018[_0x33391a(0x4f3)](_0x5f11d8,_0x5c3018[_0x33391a(0x36b)])||_0x5c3018[_0x33391a(0x4f3)](_0x4faf9e[_0x33391a(0x511)],_0x5f11d8),_0x378115=_0x4faf9e[_0x33391a(0x47e)][_0x33391a(0x40d)+'e']()[_0x33391a(0x1ad)](_0x235eb3)||_0x4faf9e[_0x33391a(0x25d)][_0x33391a(0x40d)+'e']()[_0x33391a(0x1ad)](_0x235eb3);return _0x5c3018[_0x33391a(0x2c4)](_0x3d4b1e,_0x378115);});_0xbdb5ee[_0x1f3f86(0x3f8)](_0x1c344e,_0x4b615d);};if(_0x114269)_0x114269[_0x42ff4b(0x18d)+_0x42ff4b(0x393)](_0xbdb5ee[_0x42ff4b(0x1f6)],_0xc42040);if(_0x48fb4f)_0x48fb4f[_0x42ff4b(0x18d)+_0x42ff4b(0x393)](_0xbdb5ee[_0x42ff4b(0x20f)],_0xc42040);});
+        const APP_DATA = {
+            madanPuraskar: {
+                title: 'मदन पुरस्कार (Madan Puraskar)',
+                details: [
+                    {
+                        label: 'स्थापना/घोषणा',
+                        value: 'वि.सं. २०१२',
+                    },
+                    {
+                        label: 'सुरुको राशि',
+                        value: 'रू. ४,०००',
+                    },
+                    {
+                        label: 'हालको राशि',
+                        value: 'रू. २ लाख',
+                    },
+                    {
+                        label: 'सर्वप्रथम प्रदानको घोषणा',
+                        value: 'वि.सं. २०१३',
+                    },
+                    {
+                        label: 'सर्वप्रथम पाउनेहरू',
+                        value:
+                            'सचिब (Sajib \u2013 1st was Satya Mohan Joshi, Chittadhar Hridaya, Balakrishna Sama, based on historical context)',
+                    },
+                    {
+                        label: 'सर्वप्रथम पाउने महिला',
+                        value: 'पारिजात',
+                    },
+                    {
+                        label: 'नामाकरण',
+                        value: 'मदन शमशेर राणाको नामबाट',
+                    },
+                    {
+                        label: 'विधा',
+                        value: 'साहित्यिक कृति',
+                    },
+                ],
+            },
+            jagadambaShreePuraskar: {
+                title: 'जगदम्बाश्री पुरस्कार (Jagadamba Shree Puraskar)',
+                details: [
+                    {
+                        label: 'स्थापना',
+                        value: 'वि.सं. २०४५',
+                    },
+                    {
+                        label: 'सर्वप्रथम पाउने व्यक्ति',
+                        value: 'नारायण गोपाल',
+                    },
+                    {
+                        label: 'हालको राशि',
+                        value: 'रू. २ लाख',
+                    },
+                    {
+                        label: 'विधा',
+                        value: 'साहित्य, सङ्गीत, कला',
+                    },
+                ],
+            },
+            literaturePeriods: {
+                title: 'नेपाली साहित्यको काल विभाजन',
+                periods: [
+                    {
+                        name: 'प्राथमिक काल',
+                        duration: 'प्रारम्भदेखि वि.सं. १९३९',
+                        summary: [
+                            'शुरुदेखि मोतीराम भट्टको समय तथा श्रृङ्गारकाल शुरुवात हुनुपूर्वको समय यस कालमा आउँछ\u0964',
+                            'यस अवधिमा विभिन्न अभिलेखहरू (शिलापत्र, ताम्रपत्र, कनकपत्र आदि) र प्राचीन हस्तलिखित ग्रन्थहरू समेत पर्दछन्\u0964',
+                            'नेपाली साहित्य लेखनको प्रारम्भ पृथ्वीनारायण शाहको नेपाल एकीकरणको अभियानसँगै भएको थियो, जसले साहस, पराक्रम, वीरता र पुरुषार्थको कवितात्मक अभिव्यक्तिबाट शुरुवात भएको पाइन्छ\u0964',
+                            'सुवानन्द दास नेपालका पहिलो कवि मानिन्छन्\u0964',
+                            "कवि सुवानन्द दासद्वारा लिखित 'पृथ्वीनारायण शाह कविता' र वि.सं. १८३१ मा देखा परेको 'दिव्योपदेश' नै नेपाली साहित्यका पद्य र गद्यका पहिलो रचना मानिन्छन्\u0964",
+                            'समकालीन कविहरू: शक्तिवल्लभ अर्याल, उदयानन्द अर्याल, सुन्दरानन्द बाँडा, गुमानी पन्त आदि\u0964',
+                            'वीरधाराकालपछि भक्तिकाल शुरु भयो, जसलाई कृष्ण भक्तिधारा (इन्दिरस, विद्यारण्य केशरी), राम भक्तिधारा (भानुभक्त आचार्य, रघुनाथ पोखरेल) र निर्गुण भक्तिधारा (अगम दिलदास, अखण्ड दिलदास) मा बाँडिएको छ\u0964',
+                        ],
+                    },
+                    {
+                        name: 'माध्यमिक काल',
+                        duration: 'वि.सं. १९४० देखि १९७४ सम्म',
+                        summary: [
+                            "यो काल मोतिराम भट्टको उदयदेखि 'सुक्तिसिन्धु' को प्रकाशनसम्मको समय हो\u0964",
+                            'विलासी राणाहरूको युग भएकाले तत्कालीन साहित्यमा पनि त्यसको प्रभाव पर्न गई श्रृङ्गारिक काव्य, कविताहरूको सिर्जना भयो\u0964 यसलाई मोतिराम भट्टकाल पनि भनिन्छ\u0964',
+                            "मोतिराम भट्टले वि.सं. १९४३ मा 'गोरखा भारत जीवन' नामक साहित्यिक पत्रिका प्रकाशन गरेका थिए\u0964",
+                            'प्रमुख साहित्यकारहरू: मोतिराम भट्ट, शम्भुप्रसाद ढुंगेल, गोपीनाथ लोहनी, चक्रपाणी चालिसे, सोमनाथ सिग्द्याल आदि\u0964',
+                            'यसलाई पूर्व मध्यकाल (भक्ति साहित्य) र उत्तर मध्यकाल (श्रृङ्गार साहित्य) गरी २ भागमा विभाजन गरिएको छ\u0964',
+                        ],
+                    },
+                    {
+                        name: 'आधुनिक काल',
+                        duration: 'वि.सं. १९७५ देखि हालसम्म',
+                        summary: [
+                            'कवि शिरोमणि लेखनाथ पौड्यालको आगमनसँगै शुरुवात भएको मानिन्छ\u0964',
+                            "लेखनाथ पौड्यालको 'ऋतुविचार' काव्य (वि.सं. १९७३) प्रकाशित भएपछि नेपाली कवितामा आधुनिक कालको शुरुवात मानिन्छ\u0964",
+                            "प्रमुख रचनाहरू: नाट्य सम्राट बालकृष्ण समको 'मुटुको व्यथा' (वि.सं. १९८५), सरदार रुद्रराज पाण्डेको 'रूपमती' उपन्यास (वि.सं. १९९१), कथाकार गुरूप्रसाद मैनालीको 'नासो' कथा (वि.सं. १९९२), महाकवि लक्ष्मीप्रसाद देवकोटाको 'असारको पन्ध्र' निबन्ध (वि.सं. १९९२)\u0964",
+                            'वि.सं. २००७ सालपछि साहित्यले तीव्र गति लियो\u0964 नेपाल राजकीय प्रज्ञा प्रतिष्ठानको स्थापना, मदन पुरस्कारको स्थापना जस्ता गतिविधिले योगदान पुर्याए\u0964',
+                            'वि.सं. २०१६-२०१७ सालतिरको आयामेली आन्दोलनले नेपाली साहित्यलाई नयाँ मोड दियो\u0964',
+                        ],
+                    },
+                ],
+            },
+            nationalHonors: {
+                title: 'नेपाल राज्यका मान पदवी, अलङ्कार तथा पदकहरू',
+                act: 'विभूषण ऐन, २०६४ (२०६४/०४/३२ देखि कार्यान्वयन)',
+                counts: 'मानपदवी ४ वटा, अलङ्कार ९ वटा र पदक १३ वटा',
+                manpadavi: {
+                    heading: 'मानपदवी (Title of Honor)',
+                    list: [
+                        {
+                            name: 'नेपाल रत्न',
+                            description:
+                                'नेपालको सर्वोच्च विभूषण (श्रेणी विभाजन नगरिएको)\u0964 आदर्श वाक्य: राष्ट्रोत्थानको बिन्दु राष्ट्र प्रेम\u0964',
+                        },
+                        {
+                            name: 'राष्ट्र गौरव',
+                            description:
+                                'नेपालको प्रतिष्ठा अन्तर्राष्ट्रिय जगतमा उचो बनाउनेलाई प्रदान गरिने\u0964 आदर्श वाक्य: माता समान मातृभूमि\u0964',
+                        },
+                        {
+                            name: 'राष्ट्रदीप',
+                            description:
+                                'पाँच श्रेणीमा विभाजित\u0964 आदर्श वाक्य: राष्ट्रभक्ति अमूल्य भक्ति\u0964',
+                        },
+                        {
+                            name: 'जनसेवा श्री',
+                            description:
+                                'पाँच वटा श्रेणीमा विभाजन गरिएको\u0964 आदर्श वाक्य: सेवा नै परम धर्म\u0964',
+                        },
+                    ],
+                },
+                alankar: {
+                    heading: 'अलङ्कार (Decoration)',
+                    list: [
+                        {
+                            name: 'राष्ट्र यशोवर्द्धक',
+                            ideal_motto: 'योगक्षेप बृहत',
+                        },
+                        {
+                            name: 'परम पौरख भाष्कर',
+                            ideal_motto: 'उत्साह शक्ति अनुपम शक्ति',
+                        },
+                        {
+                            name: 'नेपाल प्रताप सुभूषण',
+                            ideal_motto: 'विजयी श्री उत्तम',
+                        },
+                        {
+                            name: 'नेपाल सेवा प्रवीण',
+                            ideal_motto: 'सेवाधर्म परम गहन',
+                        },
+                        {
+                            name: 'अति पौरख भाष्कर',
+                            ideal_motto: 'पुरुषार्थमा सेवा',
+                        },
+                        {
+                            name: 'नेपाल प्रतापआभूषण',
+                            ideal_motto: 'शाहसीको शिर उच्च',
+                        },
+                        {
+                            name: 'समाज सेवा रत्न',
+                            ideal_motto: 'राष्ट्रका लागि जागौं',
+                        },
+                        {
+                            name: 'महा पौरख भाष्कर',
+                            ideal_motto: 'चम्कन्छ पुरुषार्थ',
+                        },
+                        {
+                            name: 'नेपाल प्रताप भुषण',
+                            ideal_motto: 'परित्राणाय साधू नाम',
+                        },
+                    ],
+                },
+                padak: {
+                    heading: 'पदक (Medal)',
+                    list: [
+                        {
+                            name: 'लोकश्री पदक',
+                            ideal_motto: 'स्वच्छ आचार, उच्च विचार',
+                        },
+                        {
+                            name: 'राष्ट्रसेवा पदक',
+                            ideal_motto: 'राष्ट्रसेवा सर्वोपरी',
+                        },
+                        {
+                            name: 'सत्कार्य पदक',
+                            ideal_motto: 'सर्वजन हिताय सुरक्षा',
+                        },
+                        {
+                            name: 'समाज सेवा पदक',
+                            ideal_motto: 'परोपकार परम पुण्याय',
+                        },
+                        {
+                            name: 'शिक्षा ज्योति पदक',
+                            ideal_motto: 'विद्यया मृतस्तुते',
+                        },
+                        {
+                            name: 'सगरमाथा पदक',
+                            ideal_motto: 'साहसीको शीर झुक्दैन',
+                        },
+                        {
+                            name: 'सुकीर्ति पदक',
+                            ideal_motto: 'कीर्तियस्य स जीवनी',
+                        },
+                        {
+                            name: 'वीरता पदक',
+                            ideal_motto: 'राष्ट्रप्रति समर्पण',
+                        },
+                        {
+                            name: 'सौर्य पदक',
+                            ideal_motto: 'आत्मबलमा शाहस',
+                        },
+                        {
+                            name: 'प्राकृतिक प्रकोप पीडितोद्वार पदक',
+                            ideal_motto: 'आत्मबल सर्वभूतेषु',
+                        },
+                        {
+                            name: 'विकास रत्न पदक',
+                            ideal_motto: 'निस्वार्थ सेवा परायण',
+                        },
+                        {
+                            name: 'शान्ति पदक',
+                            ideal_motto: 'शिव संकल्प मस्तु',
+                        },
+                        {
+                            name: 'विज्ञान पदक',
+                            ideal_motto: 'विज्ञान प्रविधि आजको शक्ति',
+                        },
+                    ],
+                },
+            },
+            question11400: {
+                question: 'सीतायान **महाकाव्य**का लेखक को हुन्?',
+                answer: '**डा. रमेशचन्द्र अधिकारी**',
+                category: 'साहित्य',
+            },
+            question11401: {
+                question: '\u201Cहिमालपारि हिमालवारि\u201D नामक गीतिनाटकका लेखक को हुन्?',
+                answer: '**माधव घिमिरे**',
+                category: 'साहित्य',
+            },
+            question11402: {
+                question:
+                    '**साहित्य लेखनका हिसाबले** नेपाली पछि **दोस्रो** स्थानमा रहेको भाषा साहित्य कुन हो?',
+                answer: '**नेवारी**',
+                category: 'साहित्य',
+            },
+            question11403: {
+                question:
+                    'नेपाली भाषामा लेखिएको पहिलो रचना पृथ्वीनारायण शाह नामक कविता थियो भने पहिलो नाटक कुन हो?',
+                answer: '**हास्य कदम्ब**',
+                category: 'साहित्य',
+            },
+            question11404: {
+                question: 'अक्षराङ्क शिक्षा कसले लेखेका हुन्?',
+                answer: '**जयपृथ्वीबहादुर सिंह**',
+                category: 'साहित्य',
+            },
+            question11405: {
+                question: 'नेवार भाषाको लिपिलाई के भनिन्छ?',
+                answer: '**रञ्जना**',
+                category: 'साहित्य',
+            },
+            question11406: {
+                question:
+                    'नेपाली भाषाको व्याकरण लेखनमा कलम चलाउने प्रथम विदेशी **विद्वान्** को हुन्?',
+                answer: '**जे. ए. एटन**',
+                category: 'साहित्य',
+            },
+            question11407: {
+                question:
+                    '**जयपृथ्वी बहादुर** सिंहद्वारा लिखित नेपालमै प्रकाशित भएको पहिलो व्याकरण कुन हो?',
+                answer: '**प्राकृत व्याकरण**',
+                category: 'साहित्य',
+            },
+            question11408: {
+                question: 'गोठाले उपनाम कुन साहित्यकारको हो?',
+                answer: '**गोविन्दबहादुर मल्ल**',
+                category: 'साहित्य',
+            },
+            question11409: {
+                question:
+                    "नेपाली भाषाको सबैभन्दा ठूलो **शब्दकोश** 'नेपाली **शब्दसागर**' का लेखक को हुन्?",
+                answer: '**वसन्तकुमार शर्मा नेपाल**',
+                category: 'साहित्य',
+            },
+            question11410: {
+                question:
+                    'नेपाली साहित्यको प्राथमिककाल भन्नाले कतिदेखि कतिसम्मको अवधिलाई चिनिन्छ?',
+                answer: '**प्रारम्भदेखि वि.सं. १९३९ सम्म**',
+                category: 'साहित्य',
+            },
+            question11411: {
+                question:
+                    'वि.सं. १९३९ सम्म नेपाली साहित्यको पहिलो कृतिको रूपमा कुनलाई मानिन्छ?',
+                answer: "**आदिकवि भानुभक्त आचार्यको 'रामायण'**",
+                category: 'साहित्य',
+            },
+            question11412: {
+                question: 'नेपालमा सर्वप्रथम शिक्षाको सुरुवात गर्ने व्यक्ति को हुन्?',
+                answer: '**जयपृथ्वीबहादुर सिंह**',
+                category: 'साहित्य',
+            },
+            question11413: {
+                question: 'पहिलो नेपाली भाषाको उपन्यास कुन हो?',
+                answer: '**रूपमती**',
+                category: 'साहित्य',
+            },
+            question11414: {
+                question: 'रूपमती उपन्यासका लेखक को हुन्?',
+                answer: '**रुद्रराज पाण्डे**',
+                category: 'साहित्य',
+            },
+            question11415: {
+                question:
+                    'नेपाली साहित्यको इतिहासमा स्वर्ण युग भन्नाले कुन समयलाई चिनिन्छ?',
+                answer: '**वि.सं. २००७ देखि २०२५**',
+                category: 'साहित्य',
+            },
+            question11416: {
+                question:
+                    'महाकवि लक्ष्मीप्रसाद देवकोटाले आफ्नो जीवनकालमा कति वटा महाकाव्यको रचना गरेका थिए?',
+                answer: '**११**',
+                category: 'साहित्य',
+            },
+            question11417: {
+                question: 'नेपाली उपन्यासको जननी भन्नाले कुन उपन्यासकारलाई चिनिन्छ?',
+                answer: '**लीलबहादुर क्षेत्री**',
+                category: 'साहित्य',
+            },
+            question11418: {
+                question:
+                    'नेपाली साहित्यको इतिहासमा सबभन्दा बढी प्रख्यात र सशक्त उपन्यासकार को हुन्?',
+                answer: '**बालकृष्ण सम**',
+                category: 'साहित्य',
+            },
+            question11419: {
+                question: 'नेपाली साहित्यको आधुनिककालको सुरुवात कहिलेदेखि भएको मानिन्छ?',
+                answer: '**वि.सं. १९९१ देखि**',
+                category: 'साहित्य',
+            },
+            question11420: {
+                question:
+                    "पहिलो नेपाली भाषाको मासिक पत्रिका 'शारदा' कहिले प्रकाशित भएको हो?",
+                answer: '**वि.सं. १९९१**',
+                category: 'साहित्य',
+            },
+            question11421: {
+                question: 'शारदा पत्रिकाका प्रथम सम्पादक को थिए?',
+                answer: '**ऋद्धिबहादुर मल्ल**',
+                category: 'साहित्य',
+            },
+            question11422: {
+                question:
+                    'नेपाली साहित्यमा आधुनिक युगका प्रथम व्यक्ति मानिने साहित्यकार को हुन्?',
+                answer: '**बालकृष्ण सम**',
+                category: 'साहित्य',
+            },
+            question11423: {
+                question: 'पहिलो नेपाली महाकाव्य कुन हो?',
+                answer: '**रामायण (भानुभक्त आचार्य)**',
+                category: 'साहित्य',
+            },
+            question11424: {
+                question: 'तेस्रो नेपाली महाकाव्य कुन हो?',
+                answer: '**सुलोचना**',
+                category: 'साहित्य',
+            },
+            question11425: {
+                question: "तेस्रो नेपाली महाकाव्य 'सुलोचना' का लेखक को हुन्?",
+                answer: '**लक्ष्मीप्रसाद देवकोटा**',
+                category: 'साहित्य',
+            },
+            question11426: {
+                question: 'लक्ष्मीप्रसाद देवकोटालाई **महाकविको** उपाधि कसले दिएका थिए?',
+                answer: '**वि.पी. कोइराला**',
+                category: 'साहित्य',
+            },
+            question11427: {
+                question: "लक्ष्मीप्रसाद देवकोटालाई 'छ हजार' भन्नाले कसले चिनाउँथे?",
+                answer: '**गोकुल प्रसाद जोशी**',
+                category: 'साहित्य',
+            },
+            question11428: {
+                question: "वि.सं. २०७२ सालको 'पहिचान पुरस्कार' कसलाई **प्रदान गरियो**?",
+                answer: '**आहुति र चन्द्रकान्त न्यौपाने**',
+                category: 'पुरस्कार',
+            },
+            question11429: {
+                question: "वि.सं. २०७२ सालको 'पहिचान पुरस्कार' को राशी कति रहेको छ?",
+                answer: '**४ लाख २ हजार** (दुई जनालाई बाँडिएको)',
+                category: 'पुरस्कार',
+            },
+            question11430: {
+                question: 'नागरिक अभिनन्दनबाट सम्मानित हुने प्रथम कलाकार को हुन्?',
+                answer: '**नीर विक्रम शाह (नीर शाह)**',
+                category: 'पुरस्कार',
+            },
+            question11431: {
+                question:
+                    'रू. दुई लाख राशिको विज्ञान तथा प्रविधि प्रज्ञा पुरस्कार वि.सं. २०७२ मा कसलाई **प्रदान गरिएको छ**?',
+                answer: '**प्रा.डा. छविलाल गजुरेल**',
+                category: 'पुरस्कार',
+            },
+            question11432: {
+                question:
+                    'नेपाल विज्ञान तथा प्रविधि प्रज्ञा प्रतिष्ठान (नास्ट) ले प्रदान गर्ने विज्ञान पुरस्कार २०७२ मा कसलाई प्रदान गरिएको छ?',
+                answer: '**डा. राजेन्द्र ज्ञवाली**',
+                category: 'पुरस्कार',
+            },
+            question11433: {
+                question:
+                    "चलचित्र विकास बोर्डबाट वितरण गरिने 'पानोरमा पुरस्कार\u2013२०१५' कुन चलचित्रले प्राप्त गरेको छ?",
+                answer: '**भाग्यले बाँचेकाहरू**',
+                category: 'कला/चलचित्र',
+            },
+            question11434: {
+                question:
+                    "वि.सं. २०७२ सालको 'लेखनाथ साहित्य पुरस्कार' कसले प्राप्त गरेका हुन्?",
+                answer: '**मुकुन्दशरण उपाध्याय**',
+                category: 'पुरस्कार',
+            },
+            question11435: {
+                question:
+                    "प्रत्येक वर्ष चैत्र २९ राष्ट्रिय वनस्पति दिवसको दिन प्रदान गरिने 'वनस्पति पुरस्कार' को स्थापना कहिले भएको हो?",
+                answer: '**वि.सं. २०६६ साल**',
+                category: 'पुरस्कार',
+            },
+            question11436: {
+                question:
+                    'डा. डिल्लीरमण रेग्मी अन्तर्राष्ट्रिय पुरस्कारबाट २०७२ मा सम्मानित हुने व्यक्ति को हुन्?',
+                answer: '**जोन उड** (रुम टू रिड का संस्थापक)',
+                category: 'पुरस्कार',
+            },
+            question11437: {
+                question:
+                    'डा. डिल्लीरमण रेग्मी राष्ट्रिय पुरस्कारबाट २०७२ मा सम्मानित हुने व्यक्ति को हुन्?',
+                answer: '**प्रा.डा. तुल्सी नारायण वैद्य**',
+                category: 'पुरस्कार',
+            },
+            question11438: {
+                question: "'पृथ्वी पुरस्कार, २०७२' सालका लागि कसलाई प्रदान गरिएको छ?",
+                answer: '**धावक वैकुण्ठ मानन्धर**',
+                category: 'पुरस्कार',
+            },
+            question11439: {
+                question: 'लैनसिंह बाङ्देल पुरस्कार, २०७२ द्वारा कसलाई सम्मानित गरिएको हो?',
+                answer: '**साहित्यकार झमक घिमिरे**',
+                category: 'पुरस्कार',
+            },
+            question11440: {
+                question:
+                    'दुई लाख नगद सहितको राष्ट्रिय पत्रकारिता पुरस्कार २०७२ कसलाई प्रदान गरिएको छ?',
+                answer: '**निर्मला शर्मा**',
+                category: 'पुरस्कार',
+            },
+            question11441: {
+                question: "वि.सं. २०७२ सालको 'भानु पुरस्कार' कसलाई प्रदान गरिएको छ?",
+                answer: '**प्रा.डा. कृष्णप्रसाद पौडेल**',
+                category: 'पुरस्कार',
+            },
+            question11442: {
+                question:
+                    "दुई लाख राशिको 'रत्न साहित्य पुरस्कार' बाट २०७२ मा सम्मानित हुने व्यक्ति को हुन्?",
+                answer: '**प्रा.डा. तारानन्द वियोगी**',
+                category: 'पुरस्कार',
+            },
+            question11443: {
+                question:
+                    "नगद राशिसहितको 'प्रेमराजेश्वरी थापा साहित्य पुरस्कार-२०७२' कसलाई प्रदान गरियो?",
+                answer: '**डा. गोपीकृष्ण शर्मा**',
+                category: 'पुरस्कार',
+            },
+            question11444: {
+                question:
+                    "नगद रु. एक लाख राशिको 'सङ्गीता पुरस्कार' २०७२ कसलाई प्रदान गरियो?",
+                answer: '**संगीतकार न्ह्यू बज्राचार्य**',
+                category: 'पुरस्कार',
+            },
+            question11445: {
+                question: 'उत्कृष्ट चलचित्र पुरस्कार-२०७२ कसलाई प्रदान गरियो?',
+                answer: '**झुम्की**',
+                category: 'कला/चलचित्र',
+            },
+            question11446: {
+                question: 'उत्कृष्ट नायक पुरस्कार-२०७२ कसलाई प्रदान गरियो?',
+                answer: "**दयाहाङ राई** (चलचित्र 'कबड्डी कबड्डी' का लागि)",
+                category: 'कला/चलचित्र',
+            },
+            question11447: {
+                question: 'उत्कृष्ट नायिका पुरस्कार-२०७२ कसलाई प्रदान गरियो?',
+                answer: "**प्रियंका कार्की** (चलचित्र 'सुन्तली' का लागि)",
+                category: 'कला/चलचित्र',
+            },
+            question11448: {
+                question: 'उत्कृष्ट निर्देशक पुरस्कार-२०७२ कसलाई प्रदान गरियो?',
+                answer: "**रामबाबु गुरुङ** ('कबड्डी कबड्डी' का लागि)",
+                category: 'कला/चलचित्र',
+            },
+            question11449: {
+                question:
+                    "दोस्रो 'नेपाल म्युजिक एवार्ड' मा उत्कृष्ट संगीतकारको पुरस्कार कसले प्राप्त गरे?",
+                answer: '**नारायण रायमाझी**',
+                category: 'पुरस्कार',
+            },
+            question11450: {
+                question: "'मदन पुरस्कार-२०७२' कसलाई प्रदान गरियो?",
+                answer: "**रामलाल जोशी** (कृति 'ऐना' का लागि)",
+                category: 'पुरस्कार',
+            },
+            question11451: {
+                question:
+                    "रु. २ लाख राशिको 'जगदम्बाश्री पुरस्कार-२०७२' बाट सम्मानित हुने व्यक्ति को हुन्?",
+                answer: '**लीलाध्वज थापा** (मरणोपरान्त)',
+                category: 'पुरस्कार',
+            },
+            question11452: {
+                question:
+                    "रु. ३ लाख राशिको 'पद्मश्री साहित्य सम्मान-२०७२' कसलाई प्रदान गरियो?",
+                answer: "**नयनराज पाण्डे** (कृति 'उलार' का लागि)",
+                category: 'पुरस्कार',
+            },
+            question11453: {
+                question:
+                    "रु. २ लाख राशिको 'पद्मश्री साधना सम्मान-२०७२' कसलाई प्रदान गरियो?",
+                answer: '**ध्रुवचन्द्र गौतम**',
+                category: 'पुरस्कार',
+            },
+            question11454: {
+                question:
+                    "'नेपाल संगीत तथा नाट्य प्रज्ञा पुरस्कार-२०७२' बाट सम्मानित हुने व्यक्ति को हुन्?",
+                answer: '**वासुदेव मुनाल**',
+                category: 'पुरस्कार',
+            },
+            question11455: {
+                question: 'जनजाति साहित्य पुरस्कार-२०७२ कसलाई प्रदान गरियो?',
+                answer: "**वीरबहादुर लोप्चन** (कृति 'सिमलको भुवा' का लागि)",
+                category: 'पुरस्कार',
+            },
+            question11456: {
+                question:
+                    "राष्ट्रकवि माधव घिमिरेलाई **'महाकविको' उपाधि** कहिले प्रदान गरिएको थियो?",
+                answer: '**वि.सं. २०६७** (गद्य र पद्य विधामा योगदान दिएबापत)',
+                category: 'साहित्य',
+            },
+            question11457: {
+                question:
+                    "रु. एक लाख राशिको 'भवानी साहित्य पुरस्कार' वि.सं. २०७२ कसलाई प्रदान गरियो?",
+                answer: '**रमेश अधिकारी**',
+                category: 'पुरस्कार',
+            },
+            question11458: {
+                question:
+                    "नेपाल प्रज्ञा-प्रतिष्ठानले 'भानु जयन्ती २०७२' को अवसरमा कसलाई 'भानुभक्त पुरस्कार' प्रदान गर्यो?",
+                answer: '**रामप्रसाद ज्ञवाली**',
+                category: 'पुरस्कार',
+            },
+            question11459: {
+                question:
+                    "साहित्यकार डा. ध्रुवचन्द्र गौतमलाई 'पृथ्वी प्रज्ञा पुरस्कार २०७२' कसलाई प्रदान गरियो?",
+                answer: '**साहित्यकार डा. ध्रुवचन्द्र गौतम**',
+                category: 'पुरस्कार',
+            },
+            question11460: {
+                question: "चलचित्र 'झुम्की' को निर्देशक को हुन्?",
+                answer: '**अपिल विष्ट**',
+                category: 'कला/चलचित्र',
+            },
+            question11461: {
+                question: "चलचित्र 'सुन्तली' को निर्देशक को हुन्?",
+                answer: '**भृकुटी बास्तोला**',
+                category: 'कला/चलचित्र',
+            },
+            question11462: {
+                question: "चलचित्र 'कबड्डी कबड्डी' को निर्देशक को हुन्?",
+                answer: '**रामबाबु गुरुङ**',
+                category: 'कला/चलचित्र',
+            },
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const _0xb1e98e = document.getElementById('app-container'),
+                _0x59e79f = document.querySelectorAll('.nav-tab'),
+                _0x575958 = document.querySelectorAll('.content-section')
+            _0x59e79f.forEach((_0x2df790) => {
+                _0x2df790.addEventListener('click', () => {
+                    const _0xb7be30 = _0x2df790.dataset.target
+                    _0x59e79f.forEach((_0xcee52) => _0xcee52.classList.remove('active'))
+                    _0x575958.forEach((_0x70b263) => _0x70b263.classList.remove('active'))
+                    _0x2df790.classList.add('active')
+                    document.getElementById(_0xb7be30).classList.add('active')
+                    if (_0xb1e98e) {
+                        _0xb1e98e.scrollTop = 0
+                    } else {
+                        window.scrollTo(0, 0)
+                    }
+                })
+            })
+            const _0x5989b7 = (_0x3562e7, _0x178d04) => {
+                const _0x2304d1 = document.getElementById(_0x3562e7)
+                if (!_0x2304d1) {
+                    return
+                }
+                _0x2304d1.innerHTML = _0x178d04.details
+                    .map(
+                        (_0x36ab65) =>
+                            '\n            <li>\n                <span>' +
+                            _0x36ab65.label +
+                            '</span>\n                <span>' +
+                            _0x36ab65.value +
+                            '</span>\n            </li>\n        '
+                    )
+                    .join('')
+            }
+            if (APP_DATA.madanPuraskar) {
+                _0x5989b7('madan-puraskar-details', APP_DATA.madanPuraskar)
+            }
+            if (APP_DATA.jagadambaShreePuraskar) {
+                _0x5989b7('jagadamba-puraskar-details', APP_DATA.jagadambaShreePuraskar)
+            }
+            const _0x5d55d3 = () => {
+                const _0x36aad9 = document.getElementById('literature-periods')
+                if (!_0x36aad9 || !APP_DATA.literaturePeriods) {
+                    return
+                }
+                _0x36aad9.innerHTML = APP_DATA.literaturePeriods.periods
+                    .map(
+                        (_0x3a7a23) =>
+                            '\n            <div class="period-detail">\n                <h3>' +
+                            _0x3a7a23.name +
+                            ' <span style="font-size:0.9em; color:#777;">(' +
+                            _0x3a7a23.duration +
+                            ')</span></h3>\n                <ul>' +
+                            _0x3a7a23.summary
+                                .map((_0x57d516) => '<li>' + _0x57d516 + '</li>')
+                                .join('') +
+                            '</ul>\n            </div>\n        '
+                    )
+                    .join('')
+            }
+            _0x5d55d3()
+            const _0xad5f52 = () => {
+                const _0x2d635d = document.getElementById('honors-accordion')
+                if (!_0x2d635d || !APP_DATA.nationalHonors) {
+                    return
+                }
+                const _0x2005b4 = (_0xaa8a6f) =>
+                    _0xaa8a6f
+                        .map(
+                            (_0x2fcd8a) =>
+                                '\n            <li>\n                <strong>' +
+                                _0x2fcd8a.name +
+                                '</strong> \n                ' +
+                                (_0x2fcd8a.ideal_motto
+                                    ? '(आदर्श वाक्य: ' + _0x2fcd8a.ideal_motto + ')'
+                                    : _0x2fcd8a.description || '') +
+                                '\n            </li>\n        '
+                        )
+                        .join(''),
+                    _0x224b65 = [
+                        {
+                            title: APP_DATA.nationalHonors.manpadavi.heading,
+                            list: APP_DATA.nationalHonors.manpadavi.list,
+                        },
+                        {
+                            title: APP_DATA.nationalHonors.alankar.heading,
+                            list: APP_DATA.nationalHonors.alankar.list,
+                        },
+                        {
+                            title: APP_DATA.nationalHonors.padak.heading,
+                            list: APP_DATA.nationalHonors.padak.list,
+                        },
+                    ]
+                _0x2d635d.innerHTML = _0x224b65
+                    .map(
+                        (_0x26b292, _0x48db31) =>
+                            '\n            <div class="accordion-item">\n                <div class="accordion-header" data-index="' +
+                            _0x48db31 +
+                            '">\n                    ' +
+                            _0x26b292.title +
+                            '\n                </div>\n                <div class="accordion-content">\n                    <ul>' +
+                            _0x2005b4(_0x26b292.list) +
+                            '</ul>\n                </div>\n            </div>\n        '
+                    )
+                    .join('')
+                document.querySelectorAll('.accordion-header').forEach((_0x41e230) => {
+                    _0x41e230.addEventListener('click', function () {
+                        const _0x1efb5c = this.nextElementSibling,
+                            _0x476afe = this.classList.contains('active')
+                        document.querySelectorAll('.accordion-header').forEach((_0x218261) => {
+                            _0x218261.classList.remove('active')
+                            _0x218261.nextElementSibling.style.maxHeight = '0'
+                        })
+                        !_0x476afe &&
+                            (this.classList.add('active'),
+                                setTimeout(() => {
+                                    _0x1efb5c.style.maxHeight = _0x1efb5c.scrollHeight + 'px'
+                                }, 10))
+                    })
+                })
+            }
+            _0xad5f52()
+            const _0x378d2a = document.getElementById('qa-list'),
+                _0x114269 = document.getElementById('qa-search'),
+                _0x48fb4f = document.getElementById('qa-filter'),
+                _0x54b78c = Object.values(APP_DATA).filter(
+                    (_0x159736) => _0x159736 && _0x159736.category
+                ),
+                _0x1c344e = (_0x5531ce) => {
+                    _0x378d2a.innerHTML = _0x5531ce
+                        .map(
+                            (_0x2fb322, _0x550639) =>
+                                '\n            <div class="qa-item">\n                <button class="qa-question" data-index="' +
+                                _0x550639 +
+                                '">\n                    ' +
+                                _0x2fb322.question +
+                                '\n                </button>\n                <div class="qa-answer" id="qa-answer-' +
+                                _0x550639 +
+                                '">\n                    <p>' +
+                                _0x2fb322.answer +
+                                '</p>\n                </div>\n            </div>\n        '
+                        )
+                        .join('')
+                    document.querySelectorAll('.qa-question').forEach((_0x1ec1d5) => {
+                        _0x1ec1d5.addEventListener('click', function () {
+                            const _0x346baa = this.nextElementSibling,
+                                _0x340041 = this.classList.contains('active')
+                            document.querySelectorAll('.qa-question').forEach((_0x5a0786) => {
+                                _0x5a0786 !== this &&
+                                    (_0x5a0786.classList.remove('active'),
+                                        (_0x5a0786.nextElementSibling.style.maxHeight = '0'))
+                            })
+                            this.classList.toggle('active')
+                            _0x340041
+                                ? (_0x346baa.style.maxHeight = '0')
+                                : setTimeout(() => {
+                                    _0x346baa.style.maxHeight = _0x346baa.scrollHeight + 'px'
+                                }, 10)
+                        })
+                    })
+                }
+            _0x1c344e(_0x54b78c)
+            const _0xc42040 = () => {
+                const _0x235eb3 = _0x114269.value.toLowerCase(),
+                    _0x5f11d8 = _0x48fb4f.value,
+                    _0x4b615d = _0x54b78c.filter((_0x4faf9e) => {
+                        const _0x3d4b1e =
+                            _0x5f11d8 === 'all' || _0x4faf9e.category === _0x5f11d8,
+                            _0x378115 =
+                                _0x4faf9e.question.toLowerCase().includes(_0x235eb3) ||
+                                _0x4faf9e.answer.toLowerCase().includes(_0x235eb3)
+                        return _0x3d4b1e && _0x378115
+                    })
+                _0x1c344e(_0x4b615d)
+            }
+            if (_0x114269) {
+                _0x114269.addEventListener('input', _0xc42040)
+            }
+            if (_0x48fb4f) {
+                _0x48fb4f.addEventListener('change', _0xc42040)
+            }
+        })
+
     </script>
 </body>
+
 </html>
