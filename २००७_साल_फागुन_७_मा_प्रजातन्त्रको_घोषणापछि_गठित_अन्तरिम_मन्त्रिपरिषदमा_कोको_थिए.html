@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ne">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>२००७ B.S. (फागुन ७) - अन्तरिम मन्त्रिपरिषद्</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #fafafa;
+      --text: #1e293b;
+      --accent: #2563eb;
+      --muted: #475569;
+      --card-bg: #ffffff;
+      --radius: 14px;
+      font-family: 'Kalimati', 'Noto Sans Devanagari', system-ui;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .app {
+      max-width: 780px;
+      margin: auto;
+      padding: 16px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    header p {
+      margin: .25rem 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 14px;
+      border-radius: var(--radius);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+      transition: transform .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+    }
+
+    .meta h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .meta p {
+      margin: .25rem 0 0;
+      font-size: .95rem;
+      color: var(--muted);
+    }
+
+    .sheet {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: -100%;
+      background: var(--card-bg);
+      border-top-left-radius: var(--radius);
+      border-top-right-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+      transition: bottom .3s ease;
+      max-height: 80vh;
+      overflow: auto;
+    }
+
+    .sheet.open {
+      bottom: 0;
+    }
+
+    .sheet h2 {
+      margin-top: 0;
+    }
+
+    .btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --text: #f8fafc;
+        --card-bg: #1e293b;
+        --muted: #94a3b8;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <header>
+      <h1>२००७ साल फागुन ७ — अन्तरिम मन्त्रिपरिषद्</h1>
+      <p>प्रजातन्त्रको घोषणापछि गठन गरिएको पहिलो अन्तरिम मन्त्रिपरिषद्</p>
+    </header>
+
+    <section class="grid" id="list"></section>
+
+    <aside class="sheet" id="sheet">
+      <button class="btn" id="closeSheet">close</button>
+      <h2 id="sheetTitle">विवरण</h2>
+      <div id="sheetBody"></div>
+    </aside>
+  </div>
+
+  <script>
+    const ministers = [
+      {
+        name: 'मोहन शमशेर जङ्गबहादुर राना',
+        portfolio: 'प्रधानमन्त्री तथा परराष्ट्रमन्त्री',
+        note: 'सरकार प्रमुख, राणा शासन प्रतिनिधि\u0964',
+      },
+      {
+        name: 'बाबर शमशेर जङ्गबहादुर राना',
+        portfolio: 'रक्षा मन्त्री',
+        note: 'राणा पक्षका सैनिक मामिला मन्त्री\u0964',
+      },
+      {
+        name: 'चूद्रज शमशेर',
+        portfolio: 'वन मन्त्री',
+        note: 'वन तथा प्राकृतिक स्रोत सम्बन्धी मन्त्री\u0964',
+      },
+      {
+        name: 'नृपा जङ्ग राणा',
+        portfolio: 'शिक्षा मन्त्री',
+        note: 'शिक्षा मन्त्रालयको जिम्मेवारी\u0964',
+      },
+      {
+        name: 'यज्ञबहादुर बस्नेत',
+        portfolio: 'स्वास्थ्य तथा स्वायत्त शासन मन्त्री',
+        note: 'स्वास्थ्य र स्थानीय शासन सम्बन्धी मन्त्री\u0964',
+      },
+      {
+        name: 'बी. पी. कोइराला',
+        portfolio: 'गृह मन्त्री',
+        note: 'नेपाली कांग्रेस प्रतिनिधि; गृह मन्त्रालय\u0964',
+      },
+      {
+        name: 'सुबर्ण शमशेर राना',
+        portfolio: 'अर्थ मन्त्री',
+        note: 'अर्थ मन्त्रालय तथा बजेट जिम्मेवारी\u0964',
+      },
+      {
+        name: 'गणेशमान सिंह',
+        portfolio: 'उद्योग तथा वाणिज्य मन्त्री',
+        note: 'उद्योग र वाणिज्य विभागका मन्त्री\u0964',
+      },
+      {
+        name: 'भद्रकाली मिश्र',
+        portfolio: 'यातायात मन्त्री',
+        note: 'यातायात र पथ मन्त्रालय\u0964',
+      },
+      {
+        name: 'भरतमणि शर्मा',
+        portfolio: 'खाद्य तथा कृषि मन्त्री',
+        note: 'खाद्य र कृषि विभाग\u0964',
+      },
+    ],
+      list = document.getElementById('list'),
+      sheet = document.getElementById('sheet'),
+      sheetBody = document.getElementById('sheetBody')
+    function createCard(_0x9f2ddc) {
+      const _0x26e2b0 = document.createElement('div')
+      return (
+        (_0x26e2b0.className = 'card'),
+        (_0x26e2b0.innerHTML =
+          '<div class="meta"><h3>' +
+          _0x9f2ddc.name +
+          '</h3><p>' +
+          _0x9f2ddc.portfolio +
+          '</p></div>'),
+        _0x26e2b0.addEventListener('click', () => openSheet(_0x9f2ddc)),
+        _0x26e2b0
+      )
+    }
+    function populate() {
+      list.innerHTML = ''
+      ministers.forEach((_0x4535b6) => list.appendChild(createCard(_0x4535b6)))
+    }
+    function openSheet(_0x482bdd) {
+      sheetBody.innerHTML =
+        '<h3>' +
+        _0x482bdd.name +
+        '</h3><p><strong>मन्त्रालय:</strong> ' +
+        _0x482bdd.portfolio +
+        '</p><p>' +
+        _0x482bdd.note +
+        '</p>'
+      sheet.classList.add('open')
+    }
+    document
+      .getElementById('closeSheet')
+      .addEventListener('click', () => sheet.classList.remove('open'))
+    populate()
+
+  </script>
+</body>
+
+</html>
